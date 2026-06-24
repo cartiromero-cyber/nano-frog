@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "@/styles/globals.css";
 import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 
@@ -44,11 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
       </head>
-      <body>
-        {children}
-        {/* Approved animations/interactions, run after hydration (identical to original) */}
-        <Script src="/site.js" strategy="afterInteractive" />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

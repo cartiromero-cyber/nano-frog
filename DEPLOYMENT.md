@@ -27,3 +27,8 @@ Implement the matching branch in `lib/leads.ts`:
 ## Spam protection
 `lib/rateLimit.ts` is in-memory. For multi-instance production, swap for Upstash
 Ratelimit (`UPSTASH_REDIS_REST_URL` / `_TOKEN`). A honeypot field is already wired in all forms.
+
+## Full platform deploy order
+Run the five SQL files in order (`schema → auth → crm → org → membership`), create the
+`roof-passports` bucket, set the Supabase + site env vars, create the first ADMIN by SQL, then
+deploy to Vercel. Dashboards are `force-dynamic`. Full step-by-step: **docs/GO-LIVE-CHECKLIST.md**.

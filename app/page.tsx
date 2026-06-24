@@ -1,3 +1,4 @@
+import Script from "next/script";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhatIsNanoFrog from "@/components/WhatIsNanoFrog";
@@ -32,6 +33,8 @@ export default function HomePage() {
       <LearningCenterPreview />
       <CTASection />
       <Footer />
+      {/* Approved homepage animations/interactions (identical to original), homepage only */}
+      <Script src="/site.js" strategy="afterInteractive" />
     </>
   );
 }

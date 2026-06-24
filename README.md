@@ -32,3 +32,19 @@ docs/          ARCHITECTURE, SEO, ANALYTICS
 - **DEPLOYMENT.md** \u2014 deploy to Vercel, connect a database & email
 - **CONTENT-GUIDE.md** \u2014 where to edit copy, content, and images
 - **CLIENT-HANDOFF.md** \u2014 what\u2019s done and what still needs client verification
+
+## Sales platform persistence
+The isolated sales platform persists to Supabase (sessions, leads, passports, photos, dashboards). Setup: **docs/SUPABASE.md**. Works without it too — falls back to logging/demo data. The public marketing site does not use Supabase.
+
+## Auth & roles
+Rep authentication and RBAC (REP / MANAGER / ADMIN) are implemented for the sales platform via Supabase Auth. Setup: **docs/AUTH.md**. Works without it (demo mode). Public site is unaffected.
+
+## Setup order (full platform)
+1. `npm install`
+2. Supabase SQL (in order): `schema.sql` → `auth.sql` → `crm.sql` → `org.sql` → `membership.sql`
+3. Create the `roof-passports` storage bucket
+4. Set env vars (see `.env.example`)
+5. Create the first ADMIN (Supabase Auth user + a `reps` row with role ADMIN)
+6. `npm run build && npm start`
+
+See **docs/GO-LIVE-CHECKLIST.md** for the complete pre-launch checklist.
