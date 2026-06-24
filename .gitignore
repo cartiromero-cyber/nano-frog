@@ -23,3 +23,4 @@ next-env.d.ts
 .vscode/
 *.zip
 .qa_write_test
+tsconfig.tsbuildinfo

@@ -317,3 +317,32 @@
 .opt-card li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--score)}
 .opt-price{font-size:.72rem;color:rgba(234,242,248,.55);font-style:italic;margin-top:6px}
 .opt-note{font-size:.82rem;color:rgba(234,242,248,.6);margin-top:4px}
+
+/* ROOF-SHIELD-FX-START */
+.shield-forces{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.force-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:8px 14px;color:#eaf2f8;font-size:.9rem;cursor:pointer;transition:.2s var(--ease);font-family:var(--sans)}
+.force-btn:hover{border-color:var(--score)}
+.force-btn[aria-pressed="true"]{background:var(--score);border-color:var(--score);color:var(--ink);font-weight:600}
+.force-btn:focus-visible{outline:2px solid var(--score);outline-offset:2px}
+.shield-caption{color:rgba(234,242,248,.82);font-size:.98rem;line-height:1.5;margin-top:6px;min-height:2.7em;max-width:46ch}
+.fx-rain .rd{animation:rsRain 1s linear infinite}
+@keyframes rsRain{0%{transform:translateY(0);opacity:0}12%{opacity:1}100%{transform:translateY(184px);opacity:.15}}
+.fx-rain .rbead{animation:rsBead 1.4s ease-in-out infinite}
+@keyframes rsBead{0%,100%{opacity:.35}50%{opacity:1}}
+.fx-wind .gust{stroke-dasharray:64 240;stroke-dashoffset:304;animation:rsWind 1.6s linear infinite}
+@keyframes rsWind{to{stroke-dashoffset:0}}
+.fx-uv .sun{animation:rsSun 2.4s ease-in-out infinite;transform-origin:302px 42px}
+@keyframes rsSun{0%,100%{opacity:.7}50%{opacity:1}}
+.fx-uv .uvray{animation:rsUV 2.4s ease-in-out infinite}
+@keyframes rsUV{0%,100%{opacity:.3}50%{opacity:1}}
+.fx-heat .wave{animation:rsHeat 2.2s ease-in-out infinite}
+@keyframes rsHeat{0%{transform:translateY(6px);opacity:.2}50%{opacity:.85}100%{transform:translateY(-12px);opacity:0}}
+.fx-moist .vap{animation:rsVap 2.8s ease-in-out infinite}
+@keyframes rsVap{0%{transform:translateY(0);opacity:0}30%{opacity:.9}100%{transform:translateY(-74px);opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  .fx-rain .rd,.fx-rain .rbead,.fx-wind .gust,.fx-uv .sun,.fx-uv .uvray,.fx-heat .wave,.fx-moist .vap{animation:none!important}
+  .fx-wind .gust{stroke-dashoffset:0}
+  .fx-rain .rd{transform:translateY(150px);opacity:.9}
+  .fx-moist .vap{opacity:.7}
+}
+/* ROOF-SHIELD-FX-END */
