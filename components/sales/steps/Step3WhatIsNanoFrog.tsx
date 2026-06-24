@@ -51,7 +51,7 @@ export default function Step3WhatIsNanoFrog(_: StepProps) {
           <text x="324" y="100" textAnchor="end" fontFamily="Inter,sans-serif" fontSize="10" fill="#bff09a">Nano Frog membrane</text>
           {/* granule layer */}
           <rect x="40" y="120" width="280" height="40" fill="#5a5e63"/>
-          <g fill="#74787d">{''.join('<circle cx="%d" cy="%d" r="2.2"/>' % (48+ (i*13)%270, 128 + (i*7)%26) for i in range(60))}</g>
+          <g fill="#74787d">{Array.from({ length: 60 }).map((_, i) => <circle key={i} cx={48 + (i * 13) % 270} cy={128 + (i * 7) % 26} r="2.2" />)}</g>
           <text x="48" y="150" fontFamily="Inter,sans-serif" fontSize="10" fill="#cfd6dd">Granule layer</text>
           {/* asphalt layer */}
           <rect x="40" y="160" width="280" height="46" fill="#34373b"/>
