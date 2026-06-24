@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { newSession, type SalesSession } from "@/types/sales";
 import { STEPS } from "@/components/sales/steps";
+import RepScript from "@/components/sales/RepScript";
 
 export default function Presentation() {
   const [i, setI] = useState(0);
@@ -77,6 +78,8 @@ export default function Presentation() {
         <div className="sales-count">{i + 1} / {STEPS.length}</div>
         <button className="sales-btn solid" onClick={goNext} disabled={i === STEPS.length - 1}>Next →</button>
       </footer>
+
+      <RepScript title={STEPS[i].title} />
     </div>
   );
 }

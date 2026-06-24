@@ -262,3 +262,58 @@
 .report-cover{position:relative;height:120px;border-radius:12px 12px 0 0;overflow:hidden;margin:-1px -1px 16px}
 .report-cover img{width:100%;height:100%;object-fit:cover}
 .report-cover .rc-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,47,.25),rgba(10,26,47,.7))}
+
+/* ===== protection-philosophy slides (Why Choose / Promise) ===== */
+.why-choose .wc-grid,.promise .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+@media(max-width:760px){.why-choose .wc-grid,.promise .pr-grid{grid-template-columns:1fr 1fr}}
+.wc-chip,.pr-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px}
+.wc-chip b,.pr-card b{display:block;color:#fff;font-family:var(--disp);font-weight:600}
+.wc-chip span,.pr-card span{font-size:.85rem;color:rgba(234,242,248,.72)}
+.wc-pivot,.pr-mid{color:#eaf2f8;font-size:1.05rem;line-height:1.65;max-width:66ch;margin:14px 0}
+.wc-lines p{color:rgba(234,242,248,.85);margin:4px 0}
+.wc-lines .wc-dim{color:rgba(234,242,248,.6);margin-top:8px}
+.wc-close,.pr-close{margin-top:18px;border-left:3px solid var(--score);padding-left:16px}
+.wc-close p,.pr-close p{color:#eaf2f8;line-height:1.6;margin:6px 0}
+.wc-kicker,.pr-kicker{color:var(--score);font-family:var(--disp);font-weight:600;font-size:1.12rem;margin-top:10px}
+
+/* ===== rep-script teleprompter ===== */
+.rep-toggle{position:fixed;left:18px;bottom:74px;z-index:30;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#eaf2f8;border-radius:20px;padding:7px 15px;font-size:.8rem;font-weight:600;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rep-toggle:hover{border-color:var(--score)}
+.rep-drawer{position:fixed;left:0;right:0;bottom:0;z-index:29;transform:translateY(100%);transition:transform .3s var(--ease);background:rgba(8,18,32,.97);border-top:1px solid rgba(132,216,81,.35);max-height:46vh;overflow-y:auto;padding:18px 24px 84px;box-shadow:0 -20px 40px -20px rgba(0,0,0,.6)}
+.rep-drawer.open{transform:translateY(0)}
+.rep-drawer-head{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--score);font-weight:700;margin-bottom:10px}
+.rep-drawer-body p{color:#eaf2f8;font-size:1.08rem;line-height:1.55;margin:7px 0;max-width:72ch}
+/* ===== slide: roof nobody thinks about ===== */
+.rn-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0}
+.rn-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:9px 16px;color:rgba(234,242,248,.85);font-size:.92rem;opacity:0;animation:rnIn .5s var(--ease) forwards}
+@keyframes rnIn{to{opacity:1}}
+.rn-arrow{color:var(--score);font-size:1.4rem;font-weight:700}
+.rn-leak{background:rgba(192,83,46,.16);border:1px solid rgba(192,83,46,.4);color:#f0b9a6;border-radius:20px;padding:9px 16px;font-weight:600}
+.rn-punch{color:#eaf2f8;font-size:1.2rem;line-height:1.6;max-width:60ch;margin-top:10px}
+.rn-punch b{color:var(--score)}
+/* ===== slide: roof is the shield ===== */
+.shield-list{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.shield-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 13px;color:#eaf2f8;font-size:.9rem}
+.shield-punch{color:#fff;font-family:var(--disp);font-weight:600;font-size:1.25rem;margin-top:6px}
+.shield-rays path{animation:csUV 2.6s ease-in-out infinite}
+/* ===== slide: choose nano frog (insurance logic) ===== */
+.choose-split{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:26px 0}
+.choose-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 22px;max-width:280px;text-align:left}
+.choose-card.hi{border-color:var(--score);background:rgba(132,216,81,.1)}
+.choose-card b{display:block;color:#fff;font-family:var(--disp);font-size:1.1rem;margin-bottom:4px}
+.choose-card span{font-size:.9rem;color:rgba(234,242,248,.75)}
+.choose-vs{color:rgba(234,242,248,.5);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.choose-punch{color:var(--score);font-family:var(--disp);font-weight:600;font-size:1.15rem;margin-top:8px}
+/* ===== slide: options ===== */
+.opt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+@media(max-width:760px){.opt-grid{grid-template-columns:1fr}}
+.opt-card{position:relative;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);border-radius:14px;padding:20px;display:grid;gap:6px}
+.opt-card.hi{border-color:var(--score);background:rgba(132,216,81,.08)}
+.opt-flag{position:absolute;top:-10px;left:18px;background:var(--score);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:20px;padding:3px 10px}
+.opt-card b{font-family:var(--disp);font-size:1.15rem;color:#fff}
+.opt-card .opt-tag{color:rgba(234,242,248,.72);font-size:.88rem}
+.opt-card ul{list-style:none;display:grid;gap:5px;margin:6px 0 0}
+.opt-card li{font-size:.85rem;color:#eaf2f8;padding-left:15px;position:relative}
+.opt-card li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--score)}
+.opt-price{font-size:.72rem;color:rgba(234,242,248,.55);font-style:italic;margin-top:6px}
+.opt-note{font-size:.82rem;color:rgba(234,242,248,.6);margin-top:4px}
