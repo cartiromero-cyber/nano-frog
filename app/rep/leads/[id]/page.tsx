@@ -18,16 +18,16 @@ export default async function LeadDetail({ params }: { params: { id: string } })
   const d = await getLeadDetail(ctx, params.id);
   if (!d) notFound();
   const l = d.lead;
-  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "\u2014");
+  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "—");
   return (
     <Shell title={l.name || "Lead"} area="Field" user={ctx}>
-      <p className="dash-note"><a href="/rep/leads">\u2190 Back to leads</a></p>
+      <p className="dash-note"><a href="/rep/leads">← Back to leads</a></p>
 
       <div className="crm-detail">
         <section className="dash-card">
           <h3>Homeowner</h3>
-          <div className="crm-kv"><span>Phone</span><b>{l.phone || "\u2014"}</b><span>Email</span><b>{l.email || "\u2014"}</b>
-            <span>City</span><b>{l.city || "\u2014"}</b><span>Address</span><b>{l.address || "\u2014"}</b></div>
+          <div className="crm-kv"><span>Phone</span><b>{l.phone || "—"}</b><span>Email</span><b>{l.email || "—"}</b>
+            <span>City</span><b>{l.city || "—"}</b><span>Address</span><b>{l.address || "—"}</b></div>
           <div className="crm-form-row" style={{ marginTop: 12 }}>
             {l.phone ? <a className="sales-btn ghost" href={`tel:${l.phone}`}>Call</a> : null}
             {l.phone ? <a className="sales-btn ghost" href={`sms:${l.phone}`}>Text</a> : null}
@@ -37,8 +37,8 @@ export default async function LeadDetail({ params }: { params: { id: string } })
 
         <section className="dash-card">
           <h3>Property / Roof</h3>
-          <div className="crm-kv"><span>Roof age</span><b>{l.roof_age != null ? l.roof_age + " yrs" : "\u2014"}</b>
-            <span>Latest score</span><b>{l.latest_score ?? "\u2014"}</b>
+          <div className="crm-kv"><span>Roof age</span><b>{l.roof_age != null ? l.roof_age + " yrs" : "—"}</b>
+            <span>Latest score</span><b>{l.latest_score ?? "—"}</b>
             <span>Insurance concern</span><b>{l.insurance_concern ? "Yes" : "No"}</b>
             <span>Visible damage</span><b>{l.visible_damage ? "Yes" : "No"}</b></div>
           <div className="crm-form-row" style={{ marginTop: 12 }}>
@@ -56,7 +56,7 @@ export default async function LeadDetail({ params }: { params: { id: string } })
           <h3>Follow-up tasks</h3>
           {d.followUps.length === 0 ? <p className="dash-empty">None scheduled.</p>
             : <ul className="crm-list">{d.followUps.map((f: any) => (
-              <li key={f.id}><div><b>{f.type}</b><span>{fmt(f.due_date)} \u00b7 {f.status}</span></div>{f.status === "Open" ? <CompleteFollowUp id={f.id} /> : null}</li>))}</ul>}
+              <li key={f.id}><div><b>{f.type}</b><span>{fmt(f.due_date)} · {f.status}</span></div>{f.status === "Open" ? <CompleteFollowUp id={f.id} /> : null}</li>))}</ul>}
           <FollowUpForm leadId={l.id} />
         </section>
 
@@ -65,14 +65,14 @@ export default async function LeadDetail({ params }: { params: { id: string } })
           <NoteForm leadId={l.id} />
           {d.notes.length === 0 ? <p className="dash-empty">No notes yet.</p>
             : <ul className="crm-timeline">{d.notes.map((n: any) => (
-              <li key={n.id}><b>{n.type} \u00b7 {fmt(n.created_at)}</b>{n.note}</li>))}</ul>}
+              <li key={n.id}><b>{n.type} · {fmt(n.created_at)}</b>{n.note}</li>))}</ul>}
         </section>
 
         <section className="dash-card">
           <h3>Presentation & score history</h3>
           {d.sessions.length === 0 ? <p className="dash-empty">No presentations yet.</p>
             : <ul className="crm-list">{d.sessions.map((s: any) => (
-              <li key={s.id}><div><b>{s.recommendation_tier || "Session"}</b><span>{fmt(s.created_at)}{s.next_step ? " \u00b7 " + s.next_step : ""}</span></div></li>))}</ul>}
+              <li key={s.id}><div><b>{s.recommendation_tier || "Session"}</b><span>{fmt(s.created_at)}{s.next_step ? " · " + s.next_step : ""}</span></div></li>))}</ul>}
           {d.scores.length ? <div className="crm-scores">{d.scores.map((sc: any, i: number) => <span key={i}>{sc.score}</span>)}</div> : null}
         </section>
 
@@ -92,11 +92,11 @@ export default async function LeadDetail({ params }: { params: { id: string } })
         <section className="dash-card" style={{ gridColumn: "1 / -1" }}>
           <h3>Digital Roof Passport</h3>
           {d.passportId ? <p><a className="sales-btn ghost" href={l.phone ? `/passport?phone=${encodeURIComponent(l.phone)}` : "/passport"}>Open Passport</a></p>
-            : <p className="dash-empty">No passport yet \u2014 generate one above.</p>}
+            : <p className="dash-empty">No passport yet — generate one above.</p>}
         </section>
 
         <section className="dash-card" style={{ gridColumn: "1 / -1" }}>
-          <h3>Roof Assurance Plan\u2122 membership</h3>
+          <h3>Roof Assurance Plan™ membership</h3>
           <MembershipPanel leadId={l.id} passportId={d.passportId || undefined} existing={d.memberships[0] || null} />
         </section>
       </div>

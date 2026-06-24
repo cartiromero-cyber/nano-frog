@@ -1,17 +1,17 @@
-export const PLAN_NAME = "Roof Assurance Plan\u2122";
+export const PLAN_NAME = "Roof Assurance Plan™";
 export const PLAN_BLURB =
   "A simple ongoing plan that helps homeowners keep their roof documented, monitored, and protected over time.";
 
 export interface MembershipTier { name: string; tagline: string; cadence: string; features: string[]; highlighted?: boolean; }
 
-// Careful, confident language \u2014 no insurance promises, no coverage or roof-life guarantees.
+// Careful, confident language — no insurance promises, no coverage or roof-life guarantees.
 // Pricing intentionally omitted: "Pricing to be finalized with client."
 export const membershipTiers: MembershipTier[] = [
   {
     name: "Essential", tagline: "Keep your roof documented.", cadence: "Annual",
     features: [
-      "Annual Roof Health Score\u2122",
-      "Digital Roof Passport\u2122 updates",
+      "Annual Roof Health Score™",
+      "Digital Roof Passport™ updates",
       "Roof photo documentation",
       "Annual reminder",
       "Maintenance recommendations",
@@ -22,7 +22,7 @@ export const membershipTiers: MembershipTier[] = [
     features: [
       "Everything in Essential",
       "Priority scheduling",
-      "Annual Roof Life Report\u2122",
+      "Annual Roof Life Report™",
       "Preservation monitoring",
       "Credit toward future treatment [VERIFY WITH CLIENT]",
     ],

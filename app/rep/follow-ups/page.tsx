@@ -12,7 +12,7 @@ export default async function FollowUpsPage({ searchParams }: { searchParams: { 
   if (!ctx) redirect("/login");
   const bucket = BUCKETS.includes(searchParams.bucket || "") ? searchParams.bucket! : "today";
   const items = await listFollowUps(ctx, bucket);
-  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "\u2014");
+  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "—");
   return (
     <Shell title="Follow-ups" area="Field" user={ctx}>
       <div className="crm-tabs">
@@ -21,7 +21,7 @@ export default async function FollowUpsPage({ searchParams }: { searchParams: { 
       {items.length === 0 ? <p className="dash-empty">Nothing here.</p>
         : <ul className="crm-list big">{items.map((f: any) => (
           <li key={f.id}>
-            <div><b>{f.leads?.name || "Lead"}</b><span>{f.type} \u00b7 due {fmt(f.due_date)} \u00b7 {f.leads?.city || ""}{f.leads?.phone ? " \u00b7 " + f.leads.phone : ""}</span>{f.notes ? <em>{f.notes}</em> : null}</div>
+            <div><b>{f.leads?.name || "Lead"}</b><span>{f.type} · due {fmt(f.due_date)} · {f.leads?.city || ""}{f.leads?.phone ? " · " + f.leads.phone : ""}</span>{f.notes ? <em>{f.notes}</em> : null}</div>
             {bucket !== "completed" ? <CompleteFollowUp id={f.id} /> : <span className="crm-done">Done</span>}
           </li>))}</ul>}
     </Shell>

@@ -35,9 +35,9 @@ export default function RepForm({ mode, rep, managers, canSetAdmin }: { mode: "n
       </div>
       <label className="bulk-check"><input type="checkbox" checked={f.active} onChange={(e) => set("active", e.target.checked)} /> Active</label>
       {mode === "new" ? <label className="bulk-check"><input type="checkbox" checked={f.invite} onChange={(e) => set("invite", e.target.checked)} /> Create login (Supabase Auth user)</label> : null}
-      <div className="crm-form-row"><button className="sales-btn solid" disabled={busy}>{busy ? "Saving\u2026" : mode === "new" ? "Create rep" : "Save changes"}</button></div>
+      <div className="crm-form-row"><button className="sales-btn solid" disabled={busy}>{busy ? "Saving…" : mode === "new" ? "Create rep" : "Save changes"}</button></div>
       {msg ? <p className="rep-msg">{msg}</p> : null}
-      {temp ? <p className="rep-temp">Temporary password: <code>{temp}</code> \u2014 the rep signs in at <a href="/login">/login</a> and should change it.</p> : null}
+      {temp ? <p className="rep-temp">Temporary password: <code>{temp}</code> — the rep signs in at <a href="/login">/login</a> and should change it.</p> : null}
     </form>
   );
 }

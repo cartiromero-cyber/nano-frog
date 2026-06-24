@@ -49,12 +49,12 @@ export default async function AdminDashboard() {
         {a && a.repActivity.length ? (
           <table className="dash-table">
             <thead><tr><th>Rep</th><th>Territory</th><th>Presentations</th><th>Sold</th><th>Open follow-ups</th><th>Conversion</th></tr></thead>
-            <tbody>{a.repActivity.map((r) => <tr key={r.name}><td>{r.name}</td><td>{r.territory || "\u2014"}</td><td>{r.presentations}</td><td>{r.sold}</td><td>{r.openFollowUps}</td><td>{r.conversion}%</td></tr>)}</tbody>
+            <tbody>{a.repActivity.map((r) => <tr key={r.name}><td>{r.name}</td><td>{r.territory || "—"}</td><td>{r.presentations}</td><td>{r.sold}</td><td>{r.openFollowUps}</td><td>{r.conversion}%</td></tr>)}</tbody>
           </table>
         ) : <p className="dash-empty">No rep activity yet.</p>}
       </section>
 
-      <h2 className="dash-h" style={{ fontSize: "1.3rem", marginTop: 26 }}>Roof Assurance Plan\u2122 memberships</h2>
+      <h2 className="dash-h" style={{ fontSize: "1.3rem", marginTop: 26 }}>Roof Assurance Plan™ memberships</h2>
       <div className="stat-grid">
         <StatCard label="Interested" value={String(memCount("Interested"))} />
         <StatCard label="Enrolled" value={String(memCount("Enrolled"))} />
@@ -77,7 +77,7 @@ export default async function AdminDashboard() {
         </section>
       </div>
 
-      <p className="dash-note">{m.live ? "Live data from Supabase." : "Supabase not connected \u2014 demo mode. See docs/AUTH.md."}</p>
+      <p className="dash-note">{m.live ? "Live data from Supabase." : "Supabase not connected — demo mode. See docs/AUTH.md."}</p>
     </Shell>
   );
 }

@@ -4,11 +4,11 @@ import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nanofrogpro.com"),
-  title: "Nano Frog \u2014 The Alternative to Roof Replacement",
+  title: "Nano Frog — The Alternative to Roof Replacement",
   description:
     "Nanotechnology roof preservation designed to add years to qualifying roofs, help homeowners document roof condition, and avoid premature replacement. See if your roof qualifies.",
   openGraph: {
-    title: "Nano Frog \u2014 The Alternative to Roof Replacement",
+    title: "Nano Frog — The Alternative to Roof Replacement",
     description:
       "Nanotechnology roof preservation designed to add years to qualifying roofs and avoid premature replacement.",
     type: "website",

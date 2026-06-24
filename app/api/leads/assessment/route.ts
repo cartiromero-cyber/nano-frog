@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const lead = await saveLead("assessment", data);
     await sendLeadNotification("New Free Roof Assessment request", lead);
 
-    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We\u2019ll reach out to schedule your free roof assessment." });
+    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We’ll reach out to schedule your free roof assessment." });
   } catch (err) {
     console.error(err);
     return NextResponse.json(

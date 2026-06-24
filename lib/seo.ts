@@ -11,7 +11,7 @@ export const BUSINESS = {
   telephone: "+1-000-000-0000",
   areaServed: "Georgia",
   description:
-    "Nanotechnology roof preservation \u2014 the alternative to premature roof replacement for eligible roofs in Georgia.",
+    "Nanotechnology roof preservation — the alternative to premature roof replacement for eligible roofs in Georgia.",
 };
 
 export function localBusinessSchema() {

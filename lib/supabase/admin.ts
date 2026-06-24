@@ -4,7 +4,7 @@ const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const service = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 /**
- * Service-role client. Bypasses RLS \u2014 SERVER ONLY. Never import this into a client
+ * Service-role client. Bypasses RLS — SERVER ONLY. Never import this into a client
  * component. Returns null when not configured so callers can fall back gracefully.
  */
 export function supabaseAdmin(): SupabaseClient | null {

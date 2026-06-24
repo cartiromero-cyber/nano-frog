@@ -7,7 +7,7 @@ unchanged.
 ## Routes
 | Route | What it is |
 |---|---|
-| `/sales` | Guided iPad presentation \u2014 the 10-step flow (Apple-Keynote style) |
+| `/sales` | Guided iPad presentation — the 10-step flow (Apple-Keynote style) |
 | `/assessment` | Standalone Roof Health Score tool |
 | `/calculator` | Standalone cost-of-waiting calculator |
 | `/reports` | Report foundation (reports are generated in `/sales` Step 9) |
@@ -15,16 +15,16 @@ unchanged.
 | `/admin` | Admin dashboard (revenue, lead sources, conversion, rep performance) |
 
 ## The 10-step flow (`components/sales/steps`)
-1. **Your Home** \u2014 rapport + emotional ownership (captures connection answers)
-2. **Why Roofs Age** \u2014 interactive education (UV, moisture, thermal, granule loss, oxidation)
-3. **What Is Nano Frog** \u2014 membrane explained, no hype
-4. **Roof Health Score** \u2014 live interactive scoring \u2192 `lib/sales/scoring.ts`
-5. **The Cost of Waiting** \u2014 replacement vs preservation \u2192 `lib/sales/cost.ts`
-6. **Membrane Demonstration** \u2014 cinematic protection animation (hero asset)
-7. **The Chemist\u2019s Story** \u2014 origin + human connection
-8. **Recommendation** \u2014 objective tier \u2192 `lib/sales/recommendation.ts`
-9. **Your Roof Report** \u2014 branded, printable report \u2192 `lib/sales/report.ts`
-10. **Next Steps** \u2014 decision screen \u2192 posts to `/api/sales/session`
+1. **Your Home** — rapport + emotional ownership (captures connection answers)
+2. **Why Roofs Age** — interactive education (UV, moisture, thermal, granule loss, oxidation)
+3. **What Is Nano Frog** — membrane explained, no hype
+4. **Roof Health Score** — live interactive scoring → `lib/sales/scoring.ts`
+5. **The Cost of Waiting** — replacement vs preservation → `lib/sales/cost.ts`
+6. **Membrane Demonstration** — cinematic protection animation (hero asset)
+7. **The Chemist’s Story** — origin + human connection
+8. **Recommendation** — objective tier → `lib/sales/recommendation.ts`
+9. **Your Roof Report** — branded, printable report → `lib/sales/report.ts`
+10. **Next Steps** — decision screen → posts to `/api/sales/session`
 
 ## Presentation engine (`components/sales/Presentation.tsx`)
 Full-screen, iPad-optimized, swipe + arrow-key + tap navigation, progress indicator,
@@ -32,7 +32,7 @@ presentation timer, and a session object that flows through every step. Offline-
 `public/sales-sw.js` + `public/sales.webmanifest` (add to Home Screen on iPad for full-screen kiosk mode).
 
 ## Logic (`lib/sales/`)
-`scoring.ts`, `cost.ts`, `recommendation.ts`, `report.ts` are pure, transparent functions \u2014 the
+`scoring.ts`, `cost.ts`, `recommendation.ts`, `report.ts` are pure, transparent functions — the
 same logic powers the presentation and the standalone tools. `store.ts` persists sessions (pluggable,
 same env-driven pattern as `lib/leads.ts`; logs by default, no secrets).
 

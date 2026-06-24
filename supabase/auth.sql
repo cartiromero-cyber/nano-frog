@@ -1,4 +1,4 @@
--- Nano Frog \u2014 Auth + RBAC additions. Run AFTER supabase/schema.sql. Safe to re-run.
+-- Nano Frog — Auth + RBAC additions. Run AFTER supabase/schema.sql. Safe to re-run.
 
 -- reps become user profiles linked to Supabase Auth users
 alter table reps add column if not exists user_id uuid unique;

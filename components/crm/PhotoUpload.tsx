@@ -11,5 +11,5 @@ export default function PhotoUpload({ leadId }: { leadId: string }) {
     setBusy(false); setMsg(d.ok ? (d.stored ? "Uploaded." : "Received (storage not configured).") : (d.error || "Failed"));
     router.refresh();
   }
-  return <label className="crm-upload">{busy ? "Uploading\u2026" : "+ Upload photo"}<input type="file" accept="image/*" hidden onChange={onChange} />{msg ? <em>{msg}</em> : null}</label>;
+  return <label className="crm-upload">{busy ? "Uploading…" : "+ Upload photo"}<input type="file" accept="image/*" hidden onChange={onChange} />{msg ? <em>{msg}</em> : null}</label>;
 }

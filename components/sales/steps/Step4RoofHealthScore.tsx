@@ -2,6 +2,8 @@
 import type { StepProps } from "@/types/sales";
 import { computeRoofHealthScore, scoreBand } from "@/lib/sales/scoring";
 import { roofTypes } from "@/content/formOptions";
+import { SALES_ASSETS } from "@/content/sales-assets";
+import { useAssetReady } from "@/components/sales/useAsset";
 
 function Slider({ label, value, onChange }: { label: string; value: number; onChange: (n: number) => void }) {
   return (
@@ -13,6 +15,7 @@ function Slider({ label, value, onChange }: { label: string; value: number; onCh
 }
 
 export default function Step4RoofHealthScore({ session, update }: StepProps) {
+  const macro = useAssetReady(SALES_ASSETS.shingleMacro);
   const s = session.score;
   const set = (patch: Partial<typeof s>) => update({ score: { ...s, ...patch } });
   const score = computeRoofHealthScore(s);
@@ -22,8 +25,8 @@ export default function Step4RoofHealthScore({ session, update }: StepProps) {
   return (
     <div className="s-wrap s-grid2">
       <div>
-        <span className="s-eyebrow">Nano Frog Roof Health Score\u2122</span>
-        <h2 className="s-h">Let\u2019s measure your roof together.</h2>
+        <span className="s-eyebrow">Nano Frog Roof Health Score™</span>
+        <h2 className="s-h">Let’s measure your roof together.</h2>
         <div style={{ marginTop: 18 }}>
           <div className="s-rowlabel"><span>Roof age</span><b>{s.roofAge} yrs</b></div>
           <input className="s-range" type="range" min={0} max={30} value={s.roofAge} onChange={(e) => set({ roofAge: Number(e.target.value) })} />
@@ -40,8 +43,9 @@ export default function Step4RoofHealthScore({ session, update }: StepProps) {
           <Slider label="Storm exposure (100 = low)" value={s.stormExposure} onChange={(v) => set({ stormExposure: v })} />
         </div>
       </div>
-      <div className="s-panel" style={{ display: "grid", placeItems: "center", minHeight: 320 }}>
-        <div style={{ position: "relative", width: 230, height: 230 }}>
+      <div className="s-panel" style={{ display: "grid", placeItems: "center", minHeight: 320, overflow: "hidden" }}>
+        {macro ? <img className="asset-faint" src={SALES_ASSETS.shingleMacro} alt="" /> : null}
+        <div style={{ position: "relative", width: 230, height: 230, zIndex: 1 }}>
           <svg viewBox="0 0 150 150" width="230" height="230" style={{ transform: "rotate(-90deg)" }}>
             <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="12" />
             <circle cx="75" cy="75" r="64" fill="none" stroke="var(--score)" strokeWidth="12" strokeLinecap="round"

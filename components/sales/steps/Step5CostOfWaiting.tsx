@@ -13,7 +13,7 @@ export default function Step5CostOfWaiting({ session, update }: StepProps) {
       <div>
         <span className="s-eyebrow">The cost of waiting</span>
         <h2 className="s-h">What does time actually cost?</h2>
-        <p className="s-lead">Adjust the numbers for this home \u2014 the comparison is yours to see.</p>
+        <p className="s-lead">Adjust the numbers for this home — the comparison is yours to see.</p>
         <div style={{ marginTop: 20 }}>
           <div className="s-rowlabel"><span>Estimated replacement cost</span><b>{money(c.replacementCost)}</b></div>
           <input className="s-range" type="range" min={6000} max={40000} step={500} value={c.replacementCost} onChange={(e) => set({ replacementCost: Number(e.target.value) })} />

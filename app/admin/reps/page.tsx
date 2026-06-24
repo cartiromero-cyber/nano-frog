@@ -25,7 +25,7 @@ export default async function RepsPage({ searchParams }: { searchParams: { q?: s
         {reps.map((r) => (
           <a className="rep-card" key={r.id} href={`/admin/reps/${r.id}`}>
             <div className="rep-card-top"><b>{r.name}</b><span className={"rep-badge " + (r.active ? "on" : "off")}>{r.active ? r.role : "Inactive"}</span></div>
-            <div className="rep-sub">{r.email}{r.territory ? " \u00b7 " + r.territory : ""}</div>
+            <div className="rep-sub">{r.email}{r.territory ? " · " + r.territory : ""}</div>
             <div className="rep-stats">
               <span>{r.perf?.assignedLeads ?? 0}<i>leads</i></span>
               <span>{r.perf?.presentations ?? 0}<i>pres.</i></span>

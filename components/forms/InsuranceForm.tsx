@@ -44,9 +44,9 @@ export default function InsuranceForm() {
         <div><label className={label}>Received a notice?</label>
           <select name="noticeReceived" className={field}><option>No</option><option>Yes</option></select></div>
       </div>
-      <div><label className={label}>What\u2019s going on?</label><textarea name="message" rows={3} className={field} /></div>
+      <div><label className={label}>What’s going on?</label><textarea name="message" rows={3} className={field} /></div>
       <button type="submit" className="btn btn-g" disabled={status === "sending"}>
-        {status === "sending" ? "Sending\u2026" : "Request a Roof Review"}</button>
+        {status === "sending" ? "Sending…" : "Request a Roof Review"}</button>
       {status === "error" && <p className="text-sm" style={{ color: "#C0532E" }}>{msg}</p>}
     </form>
   );

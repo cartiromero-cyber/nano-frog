@@ -11,7 +11,7 @@ export default function FilterBar() {
   }
   return (
     <div className="crm-filters">
-      <input className="crm-search" placeholder="Search name, phone, email, address, city\u2026"
+      <input className="crm-search" placeholder="Search name, phone, email, address, city…"
         defaultValue={sp.get("q") || ""} onKeyDown={(e) => { if (e.key === "Enter") set("q", (e.target as HTMLInputElement).value); }} />
       <select defaultValue={sp.get("status") || ""} onChange={(e) => set("status", e.target.value)}>
         <option value="">All statuses</option>{LEAD_STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}

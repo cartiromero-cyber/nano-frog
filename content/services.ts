@@ -4,7 +4,7 @@ export const services: Service[] = [
   { name: "Roof Preservation", slug: "roof-preservation",
     description: "Nanotechnology treatment designed to extend the life of eligible asphalt-shingle roofs." },
   { name: "Roof Health Score", slug: "roof-health-score",
-    description: "An on-site evaluation that scores a roof\u2019s condition and preservation candidacy." },
+    description: "An on-site evaluation that scores a roof’s condition and preservation candidacy." },
   { name: "Roof & Insurance Documentation", slug: "roof-insurance",
     description: "Inspection and documentation that help homeowners prepare for insurer conversations." },
 ];

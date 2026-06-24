@@ -9,19 +9,19 @@ export default function PassportView({ p }: { p: RoofPassport }) {
   return (
     <div className="pass">
       <header className="pass-bar">
-        <div className="pass-brand"><img src="/assets/nanofrog-mark.png" width={30} height={30} alt="" /> Digital Roof Passport\u2122</div>
+        <div className="pass-brand"><img src="/assets/nanofrog-mark.png" width={30} height={30} alt="" /> Digital Roof Passport™</div>
         <PrintButton />
       </header>
       <main className="pass-main">
         <section className="pass-hero">
           <div>
             <div className="pass-owner">{p.property.owner || "Homeowner"}</div>
-            <div className="pass-addr">{[p.property.address, p.property.city].filter(Boolean).join(", ") || "\u2014"}</div>
-            <div className="pass-id">Record #{p.id} \u00b7 since {fmt(p.createdAt)}</div>
+            <div className="pass-addr">{[p.property.address, p.property.city].filter(Boolean).join(", ") || "—"}</div>
+            <div className="pass-id">Record #{p.id} · since {fmt(p.createdAt)}</div>
           </div>
           <div className="pass-score">
-            <div className="pass-score-num">{latest ? latest.score : "\u2014"}</div>
-            <div className="pass-score-sub">Roof Health Score\u2122{latest ? " \u00b7 " + latest.band : ""}</div>
+            <div className="pass-score-num">{latest ? latest.score : "—"}</div>
+            <div className="pass-score-sub">Roof Health Score™{latest ? " · " + latest.band : ""}</div>
           </div>
         </section>
 
@@ -38,28 +38,28 @@ export default function PassportView({ p }: { p: RoofPassport }) {
           <section className="pass-card">
             <h3>Inspection history</h3>
             <ul className="pass-timeline">
-              {p.inspections.map((x, i) => <li key={i}><b>{fmt(x.date)}</b>{x.summary}{x.inspector ? <em> \u2014 {x.inspector}</em> : null}</li>)}
+              {p.inspections.map((x, i) => <li key={i}><b>{fmt(x.date)}</b>{x.summary}{x.inspector ? <em> — {x.inspector}</em> : null}</li>)}
             </ul>
           </section>
 
           <section className="pass-card">
             <h3>Photos</h3>
             {p.photos.length ? (
-              <div className="pass-photos">{p.photos.map((ph, i) => <figure key={i}><img src={ph.url} alt={ph.caption || ""} /><figcaption>{ph.caption} \u00b7 {fmt(ph.date)}</figcaption></figure>)}</div>
+              <div className="pass-photos">{p.photos.map((ph, i) => <figure key={i}><img src={ph.url} alt={ph.caption || ""} /><figcaption>{ph.caption} · {fmt(ph.date)}</figcaption></figure>)}</div>
             ) : <p className="pass-empty">No photos yet.</p>}
           </section>
 
           <section className="pass-card">
             <h3>Preservation history</h3>
             {p.preservation.length ? (
-              <ul className="pass-timeline">{p.preservation.map((x, i) => <li key={i}><b>{fmt(x.date)}</b>{x.treatment}{x.notes ? <em> \u2014 {x.notes}</em> : null}</li>)}</ul>
+              <ul className="pass-timeline">{p.preservation.map((x, i) => <li key={i}><b>{fmt(x.date)}</b>{x.treatment}{x.notes ? <em> — {x.notes}</em> : null}</li>)}</ul>
             ) : <p className="pass-empty">No treatments on record yet.</p>}
           </section>
 
           <section className="pass-card">
             <h3>Warranty & documents</h3>
             {p.warranties.length ? (
-              <ul className="pass-docs">{p.warranties.map((x, i) => <li key={i}><span>{x.name}</span><em>{fmt(x.issued)}{x.expires ? " \u2013 " + fmt(x.expires) : ""}</em></li>)}</ul>
+              <ul className="pass-docs">{p.warranties.map((x, i) => <li key={i}><span>{x.name}</span><em>{fmt(x.issued)}{x.expires ? " – " + fmt(x.expires) : ""}</em></li>)}</ul>
             ) : <p className="pass-empty">No documents stored yet.</p>}
           </section>
 
@@ -73,7 +73,7 @@ export default function PassportView({ p }: { p: RoofPassport }) {
 
         <section className="pass-membership">
           <div className="pass-mem-head">
-            <h3>Roof Assurance Plan\u2122</h3>
+            <h3>Roof Assurance Plan™</h3>
             <p>Keep this roof documented, monitored, and protected year after year.</p>
           </div>
           <MembershipPanel
@@ -84,7 +84,7 @@ export default function PassportView({ p }: { p: RoofPassport }) {
           />
         </section>
 
-        <p className="pass-foot">A Digital Roof Passport\u2122 is a maintained record of your roof. Scores and recommendations are confirmed on-site; preservation is for eligible roofs.</p>
+        <p className="pass-foot">A Digital Roof Passport™ is a maintained record of your roof. Scores and recommendations are confirmed on-site; preservation is for eligible roofs.</p>
       </main>
     </div>
   );

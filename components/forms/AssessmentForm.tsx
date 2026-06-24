@@ -57,7 +57,7 @@ export default function AssessmentForm() {
       <div><label className={label}>Message (optional)</label><textarea name="message" rows={3} className={field} /></div>
       <div><label className={label}>Roof photo (optional)</label><input name="photo" type="file" accept="image/*" className={field} /></div>
       <button type="submit" className="btn btn-g" disabled={status === "sending"}>
-        {status === "sending" ? "Sending\u2026" : "Request My Free Assessment"}
+        {status === "sending" ? "Sending…" : "Request My Free Assessment"}
       </button>
       {status === "error" && <p className="text-sm" style={{ color: "#C0532E" }}>{msg}</p>}
     </form>

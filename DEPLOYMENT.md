@@ -2,19 +2,19 @@
 
 ## Vercel (recommended)
 1. Push this repo to GitHub.
-2. In Vercel: **New Project \u2192 Import** the repo. Framework auto-detects as Next.js.
-3. Add environment variables from `.env.example` (Project \u2192 Settings \u2192 Environment Variables).
+2. In Vercel: **New Project → Import** the repo. Framework auto-detects as Next.js.
+3. Add environment variables from `.env.example` (Project → Settings → Environment Variables).
 4. Deploy. `vercel.json` enables clean URLs for the static authority pages in `/public`.
 
 ## Environment variables
-See `.env.example`. Nothing is required to boot \u2014 lead storage defaults to console logging
+See `.env.example`. Nothing is required to boot — lead storage defaults to console logging
 and email is skipped until configured. **Never commit `.env.local`.**
 
 ## Connect lead storage (`LEAD_STORE`)
 Implement the matching branch in `lib/leads.ts`:
-- **Supabase** \u2014 `npm i @supabase/supabase-js`; set `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`; create a `leads` table.
-- **Neon / Postgres** \u2014 `npm i @neondatabase/serverless`; set `DATABASE_URL`.
-- **Airtable** \u2014 set `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_TABLE`.
+- **Supabase** — `npm i @supabase/supabase-js`; set `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`; create a `leads` table.
+- **Neon / Postgres** — `npm i @neondatabase/serverless`; set `DATABASE_URL`.
+- **Airtable** — set `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_TABLE`.
 
 ## Email notifications
 `lib/email.ts` uses Resend by default. Set `RESEND_API_KEY` and `LEAD_NOTIFY_EMAIL`

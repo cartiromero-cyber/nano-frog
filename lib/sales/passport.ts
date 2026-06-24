@@ -36,9 +36,9 @@ export function demoPassport(): RoofPassport {
       { date: "2026-05-18", score: 80, band: "Excellent" },
     ],
     inspections: [
-      { date: "2024-05-12", inspector: "Field Specialist", summary: "Initial assessment \u2014 strong preservation candidate." },
-      { date: "2025-05-20", inspector: "Field Specialist", summary: "Annual check-up \u2014 surface holding well." },
-      { date: "2026-05-18", inspector: "Field Specialist", summary: "Annual check-up \u2014 membrane performing as designed." },
+      { date: "2024-05-12", inspector: "Field Specialist", summary: "Initial assessment — strong preservation candidate." },
+      { date: "2025-05-20", inspector: "Field Specialist", summary: "Annual check-up — surface holding well." },
+      { date: "2026-05-18", inspector: "Field Specialist", summary: "Annual check-up — membrane performing as designed." },
     ],
     photos: [
       { date: "2024-05-12", url: "/assets/nanofrog-mark.png", caption: "Pre-treatment, south slope" },
@@ -57,7 +57,7 @@ export function demoPassport(): RoofPassport {
   };
 }
 
-/** Persist / append \u2014 pluggable, same env pattern as lib/leads.ts; logs by default. */
+/** Persist / append — pluggable, same env pattern as lib/leads.ts; logs by default. */
 export async function savePassport(p: RoofPassport) {
   switch (process.env.LEAD_STORE) {
     case "supabase": case "postgres": case "airtable": /* TODO: upsert passport by id */ break;

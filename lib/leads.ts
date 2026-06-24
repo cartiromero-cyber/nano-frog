@@ -4,7 +4,7 @@ import type { Lead, LeadType, LeadPayload } from "@/types";
 /**
  * Persist a lead. Storage backend is selected with the LEAD_STORE env var.
  * Default ("log") simply logs to the server console so the app works out of the box.
- * Wire a real database by implementing the matching branch \u2014 see DEPLOYMENT.md.
+ * Wire a real database by implementing the matching branch — see DEPLOYMENT.md.
  * No credentials are ever hardcoded; everything comes from environment variables.
  */
 export async function saveLead(type: LeadType, data: LeadPayload): Promise<Lead> {

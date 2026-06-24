@@ -32,7 +32,7 @@ export default function ContactForm() {
       </div>
       <div><label className={label}>Message</label><textarea name="message" rows={4} required className={field} /></div>
       <button type="submit" className="btn btn-g" disabled={status === "sending"}>
-        {status === "sending" ? "Sending\u2026" : "Send Message"}</button>
+        {status === "sending" ? "Sending…" : "Send Message"}</button>
       {status === "error" && <p className="text-sm" style={{ color: "#C0532E" }}>{msg}</p>}
     </form>
   );

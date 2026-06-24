@@ -2,7 +2,7 @@
 
 This is a production-grade Next.js project that preserves the approved Nano Frog design.
 
-## What\u2019s included
+## What’s included
 - Approved homepage, organized into section components (identical visual output)
 - Backend foundation: lead API routes (assessment, insurance review, contact), photo upload,
   validation, spam honeypot + rate limiting, email-notification hook, pluggable lead storage
@@ -11,15 +11,15 @@ This is a production-grade Next.js project that preserves the approved Nano Frog
 - Analytics hooks for GA4, Microsoft Clarity, Meta Pixel (see docs/ANALYTICS.md)
 - Documentation for running, deploying, and maintaining the site
 
-## \u26a0\ufe0f Needs client verification before launch
+## ⚠️ Needs client verification before launch
 These were intentionally left as safe placeholders:
-- **Business details** \u2014 legal name, phone, address, hours (`lib/seo.ts` \u2192 `BUSINESS`)
-- **Service area** \u2014 currently "Georgia"
-- **Pricing / cost ranges** \u2014 no specific prices are published
-- **Warranty, lifespan, and durability claims** \u2014 keep careful, verifiable language
-- **Insurance language** \u2014 do not promise coverage outcomes
-- **Reviews / ratings / number of roofs treated** \u2014 add only real, documented figures
-- **Founder / chemist story** (Science section) \u2014 confirm names, credentials, and any test claims
+- **Business details** — legal name, phone, address, hours (`lib/seo.ts` → `BUSINESS`)
+- **Service area** — currently "Georgia"
+- **Pricing / cost ranges** — no specific prices are published
+- **Warranty, lifespan, and durability claims** — keep careful, verifiable language
+- **Insurance language** — do not promise coverage outcomes
+- **Reviews / ratings / number of roofs treated** — add only real, documented figures
+- **Founder / chemist story** (Science section) — confirm names, credentials, and any test claims
 
 ## Recommended next steps
 1. Connect a database + email provider (DEPLOYMENT.md).
@@ -32,7 +32,7 @@ These were intentionally left as safe placeholders:
 - **Needs client decision:** membership pricing/tiers, rep accounts/assignment, and whether passport photos should be public or private (signed URLs).
 
 ## Auth (Supabase)
-- Role-based access (REP/MANAGER/ADMIN) is live for the sales platform \u2014 see docs/AUTH.md. Run `supabase/auth.sql` and create rep accounts in Supabase Auth.
+- Role-based access (REP/MANAGER/ADMIN) is live for the sales platform — see docs/AUTH.md. Run `supabase/auth.sql` and create rep accounts in Supabase Auth.
 - **Needs client decision:** who the admins/managers are, territory assignments, and rep onboarding process.
 
 ## Rep CRM
@@ -40,7 +40,7 @@ These were intentionally left as safe placeholders:
 - All CRM data is role-scoped (REP own / MANAGER team / ADMIN all), enforced server-side.
 
 ## Admin org management
-- `/admin/reps` (create/invite reps, set roles, assign managers/territories, activate/deactivate) and `/admin/leads` (assign/reassign/bulk-assign) \u2014 see docs/AUTH.md. Run `supabase/org.sql`.
+- `/admin/reps` (create/invite reps, set roles, assign managers/territories, activate/deactivate) and `/admin/leads` (assign/reassign/bulk-assign) — see docs/AUTH.md. Run `supabase/org.sql`.
 - **Needs client decision:** who the first ADMIN is (create that account in Supabase Auth + a `reps` row with role ADMIN), territory naming, and the invite email flow (temporary password is shown once in-app today).
 
 ## Memberships

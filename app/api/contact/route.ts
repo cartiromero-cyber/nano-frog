@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const lead = await saveLead("contact", data);
     await sendLeadNotification("New Contact Message", lead);
 
-    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks for reaching out \u2014 we\u2019ll get back to you soon." });
+    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks for reaching out — we’ll get back to you soon." });
   } catch (err) {
     console.error(err);
     return NextResponse.json(

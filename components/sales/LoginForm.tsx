@@ -30,11 +30,11 @@ export default function LoginForm() {
         <div className="login-brand"><img src="/assets/nanofrog-mark.png" width={34} height={34} alt="" /> Nano Frog</div>
         <h1>Field Sales Sign-in</h1>
         <p className="login-sub">For reps, managers, and admins.</p>
-        {!supabase ? <div className="login-note">Auth not configured \u2014 the platform runs in demo mode. See docs/AUTH.md.</div> : null}
+        {!supabase ? <div className="login-note">Auth not configured — the platform runs in demo mode. See docs/AUTH.md.</div> : null}
         <label>Email<input className="s-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></label>
         <label>Password<input className="s-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></label>
         {err ? <div className="login-err">{err}</div> : null}
-        <button className="sales-btn solid" type="submit" disabled={busy}>{busy ? "Signing in\u2026" : "Sign in"}</button>
+        <button className="sales-btn solid" type="submit" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
         <p className="login-foot">Magic-link sign-in can be enabled later. Accounts are created in Supabase by an admin.</p>
       </form>
     </div>

@@ -19,22 +19,22 @@ export default function MembershipPanel({ passportId, leadId, existing, heading 
       body: JSON.stringify({ passportId, leadId, tier, status }),
     });
     const d = await res.json(); setBusy(false);
-    setMsg(d.ok ? `Recorded: ${tier} \u2014 ${status}.` : (d.error || "Failed"));
+    setMsg(d.ok ? `Recorded: ${tier} — ${status}.` : (d.error || "Failed"));
     router.refresh();
   }
-  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "\u2014");
+  const fmt = (s?: string) => (s ? new Date(s).toLocaleDateString() : "—");
 
   if (hasActive) return (
     <div className="mp">
       <div className="mp-current">
-        <div><span>Plan</span><b>{PLAN_NAME} \u00b7 {existing.tier}</b></div>
+        <div><span>Plan</span><b>{PLAN_NAME} · {existing.tier}</b></div>
         <span className="mp-status" style={{ background: membershipStatusColor(existing.status) }}>{existing.status}</span>
       </div>
       <div className="mp-kv">
         <span>Start</span><b>{fmt(existing.start_date)}</b>
         <span>Renewal</span><b>{fmt(existing.renewal_date)}</b>
         <span>Next inspection reminder</span><b>{fmt(existing.renewal_date)}</b>
-        <span>Notes</span><b>{existing.notes || "\u2014"}</b>
+        <span>Notes</span><b>{existing.notes || "—"}</b>
       </div>
       <div className="mp-actions">
         <button className="sales-btn ghost" disabled={busy} onClick={() => record("Active")}>Mark Active</button>
@@ -47,7 +47,7 @@ export default function MembershipPanel({ passportId, leadId, existing, heading 
 
   return (
     <div className="mp">
-      <div className="mp-head"><b>{heading || "Protect this roof going forward"}</b><p>{PLAN_NAME} \u2014 {PLAN_BLURB}</p></div>
+      <div className="mp-head"><b>{heading || "Protect this roof going forward"}</b><p>{PLAN_NAME} — {PLAN_BLURB}</p></div>
       <div className="mp-tiers">
         {membershipTiers.map((t) => (
           <button type="button" key={t.name} className={"mp-tier" + (t.name === tier ? " sel" : "") + (t.highlighted ? " hi" : "")} onClick={() => setTier(t.name)}>
@@ -63,7 +63,7 @@ export default function MembershipPanel({ passportId, leadId, existing, heading 
         <button className="sales-btn solid" disabled={busy} onClick={() => record("Enrolled")}>Enroll {tier}</button>
         <button className="sales-btn ghost" disabled={busy} onClick={() => record("Declined")}>Decline</button>
       </div>
-      <p className="mp-note">Enrollment intent only \u2014 no payment is processed here. Pricing to be finalized with client.</p>
+      <p className="mp-note">Enrollment intent only — no payment is processed here. Pricing to be finalized with client.</p>
       {msg ? <p className="mp-msg">{msg}</p> : null}
     </div>
   );

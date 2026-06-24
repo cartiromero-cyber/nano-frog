@@ -11,6 +11,6 @@ export default function GeneratePassport({ lead }: { lead: any }) {
     setBusy(false);
     setUrl(lead.phone ? `/passport?phone=${encodeURIComponent(lead.phone)}` : lead.email ? `/passport?email=${encodeURIComponent(lead.email)}` : "/passport");
   }
-  if (url) return <a className="sales-btn solid" href={url}>Open Passport \u2192</a>;
-  return <button className="sales-btn ghost" disabled={busy} onClick={go}>{busy ? "Working\u2026" : "Generate / Update Passport"}</button>;
+  if (url) return <a className="sales-btn solid" href={url}>Open Passport →</a>;
+  return <button className="sales-btn ghost" disabled={busy} onClick={go}>{busy ? "Working…" : "Generate / Update Passport"}</button>;
 }

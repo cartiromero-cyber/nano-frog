@@ -12,7 +12,7 @@ export default function NoteForm({ leadId }: { leadId: string }) {
   }
   return (
     <form className="crm-form" onSubmit={submit}>
-      <textarea className="s-input" rows={2} placeholder="Add a note\u2026" value={note} onChange={(e) => setNote(e.target.value)} />
+      <textarea className="s-input" rows={2} placeholder="Add a note…" value={note} onChange={(e) => setNote(e.target.value)} />
       <div className="crm-form-row">
         <select value={type} onChange={(e) => setType(e.target.value)}>{NOTE_TYPES.map((t) => <option key={t}>{t}</option>)}</select>
         <button className="sales-btn solid" disabled={busy}>Add note</button>

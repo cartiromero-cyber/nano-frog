@@ -1,9 +1,12 @@
 'use client';
 import type { StepProps } from "@/types/sales";
+import { SALES_ASSETS } from "@/content/sales-assets";
+import { useAssetReady } from "@/components/sales/useAsset";
 
-const YEARS = ["< 2 years", "2\u20135 years", "6\u201310 years", "10+ years"];
+const YEARS = ["< 2 years", "2–5 years", "6–10 years", "10+ years"];
 
 export default function Step1Connection({ session, update }: StepProps) {
+  const homeReady = useAssetReady(SALES_ASSETS.homePhoto);
   const c = session.connection;
   const setC = (patch: Partial<typeof c>) => update({ connection: { ...c, ...patch } });
   const setH = (patch: Partial<typeof session.homeowner>) => update({ homeowner: { ...session.homeowner, ...patch } });
@@ -12,8 +15,8 @@ export default function Step1Connection({ session, update }: StepProps) {
   return (
     <div className="s-wrap s-grid2">
       <div>
-        <span className="s-eyebrow">Let\u2019s start with your home</span>
-        <h2 className="s-h">This is more than a roof. It\u2019s where life happens.</h2>
+        <span className="s-eyebrow">Let’s start with your home</span>
+        <h2 className="s-h">This is more than a roof. It’s where life happens.</h2>
         <p className="s-lead">Before we look at anything technical, help me understand what this home means to you.</p>
 
         <div style={{ marginTop: 26 }}>
@@ -42,7 +45,7 @@ export default function Step1Connection({ session, update }: StepProps) {
             </div>
           </div>
           <div className="s-q">
-            <label>Planning to stay another 5\u201310 years?</label>
+            <label>Planning to stay another 5–10 years?</label>
             <div className="s-choices">
               <button className={chip(c.stayingLong === true)} onClick={() => setC({ stayingLong: true })}>Yes</button>
               <button className={chip(c.stayingLong === false)} onClick={() => setC({ stayingLong: false })}>Maybe</button>
@@ -51,7 +54,14 @@ export default function Step1Connection({ session, update }: StepProps) {
         </div>
       </div>
 
-      <div className="s-panel" style={{ display: "grid", placeItems: "center", minHeight: 320 }}>
+      <div className="s-panel" style={{ display: "grid", placeItems: "center", minHeight: 320, overflow: "hidden" }}>
+        {homeReady ? (
+          <>
+            <img className="asset-cover" src={SALES_ASSETS.homePhoto} alt={session.homeowner.name ? `${session.homeowner.name}'s home` : "Your home"} />
+            <div className="asset-shade" />
+            {session.homeowner.name ? <div className="asset-cap">{session.homeowner.name}’s home</div> : null}
+          </>
+        ) : (
         <svg viewBox="0 0 360 300" width="100%" style={{ maxWidth: 420 }} aria-hidden="true">
           <ellipse cx="180" cy="262" rx="150" ry="12" fill="#000" opacity="0.18" />
           <rect x="92" y="158" width="176" height="96" rx="8" fill="#fff" />
@@ -62,10 +72,11 @@ export default function Step1Connection({ session, update }: StepProps) {
           <polygon points="74,158 180,88 286,158" fill="none" stroke="#bff09a" strokeWidth="1.5" />
           {session.homeowner.name ? (
             <text x="180" y="284" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fill="#eaf2f8">
-              {session.homeowner.name}\u2019s home
+              {session.homeowner.name}’s home
             </text>
           ) : null}
         </svg>
+        )}
       </div>
     </div>
   );

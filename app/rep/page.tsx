@@ -36,16 +36,16 @@ export default async function RepHome() {
 
       <div className="dash-2col" style={{ marginTop: 20 }}>
         <section className="dash-card">
-          <h3>Today\u2019s follow-ups</h3>
+          <h3>Today’s follow-ups</h3>
           {c.todays.length === 0 ? <p className="dash-empty">Nothing due today. <a href="/rep/follow-ups">See all</a></p>
             : <ul className="crm-list">{c.todays.map((f: any) => (
-              <li key={f.id}><div><b>{f.leads?.name || "Lead"}</b><span>{f.type} \u00b7 {f.leads?.city || ""}</span></div><CompleteFollowUp id={f.id} /></li>))}</ul>}
+              <li key={f.id}><div><b>{f.leads?.name || "Lead"}</b><span>{f.type} · {f.leads?.city || ""}</span></div><CompleteFollowUp id={f.id} /></li>))}</ul>}
         </section>
         <section className="dash-card">
           <h3>Hot leads</h3>
           {c.hot.length === 0 ? <p className="dash-empty">No leads yet.</p>
             : <ul className="crm-list">{c.hot.map((l: any) => (
-              <li key={l.id}><a href={`/rep/leads/${l.id}`}><b>{l.name || "Lead"}</b><span style={{ color: statusColor(l.status) }}>{l.status}{l.latest_score ? " \u00b7 Score " + l.latest_score : ""}</span></a></li>))}</ul>}
+              <li key={l.id}><a href={`/rep/leads/${l.id}`}><b>{l.name || "Lead"}</b><span style={{ color: statusColor(l.status) }}>{l.status}{l.latest_score ? " · Score " + l.latest_score : ""}</span></a></li>))}</ul>}
         </section>
       </div>
 
@@ -53,7 +53,7 @@ export default async function RepHome() {
         <h3>Recent presentations</h3>
         {c.recent.length === 0 ? <p className="dash-empty">No presentations yet.</p>
           : <ul className="crm-list">{c.recent.map((s: any) => (
-            <li key={s.id}><div><b>{s.leads?.name || "Homeowner"}</b><span>{s.recommendation_tier || "\u2014"} \u00b7 {new Date(s.created_at).toLocaleDateString()}</span></div></li>))}</ul>}
+            <li key={s.id}><div><b>{s.leads?.name || "Homeowner"}</b><span>{s.recommendation_tier || "—"} · {new Date(s.created_at).toLocaleDateString()}</span></div></li>))}</ul>}
       </section>
     </Shell>
   );

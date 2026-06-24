@@ -1,7 +1,10 @@
 'use client';
 import type { StepProps } from "@/types/sales";
+import { SALES_ASSETS } from "@/content/sales-assets";
+import { useAssetReady } from "@/components/sales/useAsset";
 
 export default function Step7ChemistStory(_: StepProps) {
+  const labReady = useAssetReady(SALES_ASSETS.labPhoto);
   return (
     <div className="s-wrap s-grid2">
       <div>
@@ -9,10 +12,11 @@ export default function Step7ChemistStory(_: StepProps) {
         <h2 className="s-h">It started with a chemist who refused to accept waste.</h2>
         <p className="s-lead">Years of development went into one question: how do you protect a roof that still has good life left in it?</p>
         <p style={{ color: "rgba(234,242,248,.78)", lineHeight: 1.7, marginTop: 14 }}>
-          The work was never about a miracle product. It was about studying how roofs break down \u2014 and engineering a treatment, refined over time, that helps eligible roofs resist everyday exposure. Science, in service of the homes people live in.
+          The work was never about a miracle product. It was about studying how roofs break down — and engineering a treatment, refined over time, that helps eligible roofs resist everyday exposure. Science, in service of the homes people live in.
         </p>
       </div>
-      <div className="s-panel chem" style={{ minHeight: 340, display: "grid", placeItems: "center" }}>
+      <div className="s-panel chem" style={{ minHeight: 340, display: "grid", placeItems: "center", overflow: "hidden" }}>
+        {labReady ? <><img className="asset-cover" src={SALES_ASSETS.labPhoto} alt="Nano Frog materials-science lab" /><div className="asset-shade" /></> : (
         <svg viewBox="0 0 320 300" width="100%" style={{ maxWidth: 380 }} aria-hidden="true">
           <ellipse cx="160" cy="278" rx="130" ry="10" fill="#000" opacity="0.2" />
           {/* scientist silhouette */}
@@ -32,6 +36,7 @@ export default function Step7ChemistStory(_: StepProps) {
             <circle cx="272" cy="208" r="16" fill="#37a468" />
           </g>
         </svg>
+        )}
       </div>
     </div>
   );

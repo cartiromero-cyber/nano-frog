@@ -14,7 +14,7 @@ export default async function NewRepPage() {
   const managers = all.filter((r) => r.role === "MANAGER" || r.role === "ADMIN").map((r) => ({ id: r.id, name: r.name }));
   return (
     <Shell title="New Rep" area="Management" user={ctx}>
-      <p className="dash-note"><a href="/admin/reps">\u2190 Back to reps</a></p>
+      <p className="dash-note"><a href="/admin/reps">← Back to reps</a></p>
       <section className="dash-card" style={{ maxWidth: 640 }}>
         <RepForm mode="new" managers={managers} canSetAdmin={true} />
         <p className="dash-note" style={{ marginTop: 14 }}>Leaving “Create login” checked makes a Supabase Auth user and returns a one-time temporary password. Unchecked creates a profile only (link a login later). See docs/AUTH.md.</p>

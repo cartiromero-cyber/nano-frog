@@ -1,6 +1,6 @@
-# Nano Frog \u2014 Production Website
+# Nano Frog — Production Website
 
-Nanotechnology roof preservation \u2014 *The Alternative to Roof Replacement.*
+Nanotechnology roof preservation — *The Alternative to Roof Replacement.*
 Next.js (App Router) + TypeScript + Tailwind CSS, Vercel-ready.
 
 > The approved marketing design is preserved **exactly**. The original homepage markup
@@ -29,9 +29,9 @@ docs/          ARCHITECTURE, SEO, ANALYTICS
 ```
 
 ## Key docs
-- **DEPLOYMENT.md** \u2014 deploy to Vercel, connect a database & email
-- **CONTENT-GUIDE.md** \u2014 where to edit copy, content, and images
-- **CLIENT-HANDOFF.md** \u2014 what\u2019s done and what still needs client verification
+- **DEPLOYMENT.md** — deploy to Vercel, connect a database & email
+- **CONTENT-GUIDE.md** — where to edit copy, content, and images
+- **CLIENT-HANDOFF.md** — what’s done and what still needs client verification
 
 ## Sales platform persistence
 The isolated sales platform persists to Supabase (sessions, leads, passports, photos, dashboards). Setup: **docs/SUPABASE.md**. Works without it too — falls back to logging/demo data. The public marketing site does not use Supabase.

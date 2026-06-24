@@ -7,7 +7,7 @@ export default function Step8Recommendation({ session }: StepProps) {
   return (
     <div className="s-wrap" style={{ textAlign: "center" }}>
       <span className="s-eyebrow">The assessment</span>
-      <h2 className="s-h">Based on everything we measured\u2026</h2>
+      <h2 className="s-h">Based on everything we measured…</h2>
       <div className="rec-badge" style={{ borderColor: TIER_COLOR[r.tier], color: TIER_COLOR[r.tier] }}>
         <div className="rec-score">{r.score}<small>/100</small></div>
         <div className="rec-tier">{r.tier}</div>

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const lead = await saveLead("insurance-review", data);
     await sendLeadNotification("New Roof Insurance Concern", lead);
 
-    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We\u2019ll review your situation and follow up shortly." });
+    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We’ll review your situation and follow up shortly." });
   } catch (err) {
     console.error(err);
     return NextResponse.json(

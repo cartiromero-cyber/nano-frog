@@ -20,7 +20,7 @@ export const STEPS: { title: string; Component: ComponentType<StepProps> }[] = [
   { title: "Roof Health Score", Component: Step4RoofHealthScore },
   { title: "The Cost of Waiting", Component: Step5CostOfWaiting },
   { title: "Membrane Demo", Component: Step6MembraneDemo },
-  { title: "The Chemist\u2019s Story", Component: Step7ChemistStory },
+  { title: "The Chemist’s Story", Component: Step7ChemistStory },
   { title: "Recommendation", Component: Step8Recommendation },
   { title: "Your Roof Report", Component: Step9SavingsReport },
   { title: "Next Steps", Component: Step10NextSteps },

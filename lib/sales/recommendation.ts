@@ -16,7 +16,7 @@ export function recommend(s: ScoreInputs): Recommendation {
   const reasons: string[] = [];
   if (s.roofAge <= 15) reasons.push("Roof age is within a strong preservation window.");
   else if (s.roofAge <= 20) reasons.push("Roof age is workable but on the older side.");
-  else reasons.push("Roof age is advanced \u2014 close evaluation needed.");
+  else reasons.push("Roof age is advanced — close evaluation needed.");
   if (s.granule >= 60) reasons.push("Granule condition still has protective coverage.");
   else reasons.push("Granule loss is significant.");
   if (s.flexibility >= 60) reasons.push("Shingles retain useful flexibility.");

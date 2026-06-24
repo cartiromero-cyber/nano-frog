@@ -1,4 +1,4 @@
--- Nano Frog \u2014 Rep CRM additions. Run AFTER schema.sql + auth.sql. Safe to re-run.
+-- Nano Frog — Rep CRM additions. Run AFTER schema.sql + auth.sql. Safe to re-run.
 alter table leads add column if not exists roof_age int;
 alter table leads add column if not exists insurance_concern boolean;
 alter table leads add column if not exists visible_damage boolean;

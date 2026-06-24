@@ -78,7 +78,7 @@ adds `type` + `completed_at` to `follow_ups`, and creates `lead_notes`. Indexes 
 status, city, due_date, and lead_id.
 
 ## Org management tables
-Run `supabase/org.sql` after `crm.sql`. It creates `lead_assignment_history` (audit of every reassignment). Rep auth users are created via the service role inside `/api/admin/reps/invite` \u2014 never client-side.
+Run `supabase/org.sql` after `crm.sql`. It creates `lead_assignment_history` (audit of every reassignment). Rep auth users are created via the service role inside `/api/admin/reps/invite` — never client-side.
 
 ## Membership table
 Run `supabase/membership.sql` after `org.sql`. It extends `memberships` with rep_id, start_date, renewal_date, price, notes, enrolled_at, cancelled_at, and Stripe placeholders (stripe_customer_id, stripe_subscription_id, payment_status). No payment processing is implemented.

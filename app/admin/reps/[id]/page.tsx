@@ -19,7 +19,7 @@ export default async function EditRepPage({ params }: { params: { id: string } }
   const readonly = ctx.role === "MANAGER" && r.role === "ADMIN";
   return (
     <Shell title={r.name || "Rep"} area="Management" user={ctx}>
-      <p className="dash-note"><a href="/admin/reps">\u2190 Back to reps</a></p>
+      <p className="dash-note"><a href="/admin/reps">← Back to reps</a></p>
       <div className="crm-detail">
         <section className="dash-card">
           <h3>Profile</h3>
@@ -35,14 +35,14 @@ export default async function EditRepPage({ params }: { params: { id: string } }
             <span>{r.perf?.conversion ?? 0}%<i>conversion</i></span>
             <span>{r.perf?.overdue ?? 0}<i>overdue</i></span>
           </div>
-          <p className="dash-note" style={{ marginTop: 10 }}>Role: <b>{r.role}</b> \u00b7 Territory: <b>{r.territory || "\u2014"}</b> \u00b7 {r.active ? "Active" : "Inactive"}</p>
+          <p className="dash-note" style={{ marginTop: 10 }}>Role: <b>{r.role}</b> · Territory: <b>{r.territory || "—"}</b> · {r.active ? "Active" : "Inactive"}</p>
         </section>
         <section className="dash-card" style={{ gridColumn: "1 / -1" }}>
           <h3>Assigned leads</h3>
           {data.leads.length === 0 ? <p className="dash-empty">No leads assigned.</p>
             : <ul className="crm-list">{data.leads.map((l: any) => (
-              <li key={l.id}><a href={`/rep/leads/${l.id}`}><b>{l.name || "Lead"}</b><span style={{ color: statusColor(l.status) }}>{l.status}{l.city ? " \u00b7 " + l.city : ""}</span></a></li>))}</ul>}
-          <p className="dash-note" style={{ marginTop: 8 }}><a href={`/admin/leads?rep=${r.id}`}>Open in lead manager \u2192</a></p>
+              <li key={l.id}><a href={`/rep/leads/${l.id}`}><b>{l.name || "Lead"}</b><span style={{ color: statusColor(l.status) }}>{l.status}{l.city ? " · " + l.city : ""}</span></a></li>))}</ul>}
+          <p className="dash-note" style={{ marginTop: 8 }}><a href={`/admin/leads?rep=${r.id}`}>Open in lead manager →</a></p>
         </section>
       </div>
     </Shell>

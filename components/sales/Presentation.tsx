@@ -73,9 +73,9 @@ export default function Presentation() {
       </main>
 
       <footer className="sales-nav">
-        <button className="sales-btn ghost" onClick={goPrev} disabled={isStart}>\u2190 Back</button>
+        <button className="sales-btn ghost" onClick={goPrev} disabled={isStart}>← Back</button>
         <div className="sales-count">{i + 1} / {STEPS.length}</div>
-        <button className="sales-btn solid" onClick={goNext} disabled={i === STEPS.length - 1}>Next \u2192</button>
+        <button className="sales-btn solid" onClick={goNext} disabled={i === STEPS.length - 1}>Next →</button>
       </footer>
     </div>
   );

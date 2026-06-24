@@ -18,8 +18,8 @@ export default function BulkAssignBar({ reps }: { reps: { id: string; name?: str
       <strong>Bulk assign</strong>
       <input className="s-input" placeholder="City (optional)" value={city} onChange={(e) => setCity(e.target.value)} />
       <label className="bulk-check"><input type="checkbox" checked={onlyU} onChange={(e) => setOnlyU(e.target.checked)} /> Unassigned only</label>
-      <select value={rep} onChange={(e) => setRep(e.target.value)}><option value="">To rep\u2026</option>{reps.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}</select>
-      <button className="sales-btn solid" disabled={busy} onClick={go}>{busy ? "Working\u2026" : "Assign"}</button>
+      <select value={rep} onChange={(e) => setRep(e.target.value)}><option value="">To rep…</option>{reps.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}</select>
+      <button className="sales-btn solid" disabled={busy} onClick={go}>{busy ? "Working…" : "Assign"}</button>
       {msg ? <em>{msg}</em> : null}
     </div>
   );

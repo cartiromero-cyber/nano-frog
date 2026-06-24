@@ -2,9 +2,12 @@
 import type { StepProps } from "@/types/sales";
 import { buildReport } from "@/lib/sales/report";
 import { money } from "@/lib/sales/cost";
+import { SALES_ASSETS } from "@/content/sales-assets";
+import { useAssetReady } from "@/components/sales/useAsset";
 
 export default function Step9SavingsReport({ session }: StepProps) {
   const r = buildReport(session);
+  const coverReady = useAssetReady(SALES_ASSETS.reportCover);
   return (
     <div className="s-wrap">
       <div className="report-actions">
@@ -12,12 +15,13 @@ export default function Step9SavingsReport({ session }: StepProps) {
         <button className="sales-btn solid no-print" onClick={() => window.print()}>Download / Print</button>
       </div>
       <div className="report-sheet">
+        {coverReady ? <div className="report-cover"><img src={SALES_ASSETS.reportCover} alt="" /><div className="rc-shade" /></div> : null}
         <div className="rs-head">
-          <div><img src="/assets/nanofrog-mark.png" width={34} height={34} alt="" /><b>Nano Frog \u2014 Roof Health Report\u2122</b></div>
-          <div className="rs-score">{r.score}<small>/100 \u00b7 {r.band}</small></div>
+          <div><img src="/assets/nanofrog-mark.png" width={34} height={34} alt="" /><b>Nano Frog — Roof Health Report™</b></div>
+          <div className="rs-score">{r.score}<small>/100 · {r.band}</small></div>
         </div>
         <div className="rs-grid">
-          <div><span>Homeowner</span><b>{r.homeowner.name || "\u2014"}</b></div>
+          <div><span>Homeowner</span><b>{r.homeowner.name || "—"}</b></div>
           <div><span>Estimated roof age</span><b>{r.estimatedAge} years</b></div>
           <div><span>Roof type</span><b>{r.roofType}</b></div>
           <div><span>Recommendation</span><b>{r.recommendation}</b></div>

@@ -1,4 +1,4 @@
--- Nano Frog Sales Platform \u2014 Supabase schema
+-- Nano Frog Sales Platform — Supabase schema
 -- Run in Supabase: SQL Editor -> paste -> Run. Safe to re-run (IF NOT EXISTS).
 create extension if not exists "pgcrypto";
 

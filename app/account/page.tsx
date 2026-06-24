@@ -15,7 +15,7 @@ export default async function AccountPage() {
           <div className="stat"><div className="stat-label">Role</div><div className="stat-value" style={{ fontSize: "1.2rem" }}>{ctx.role}</div></div>
           <div className="stat"><div className="stat-label">Territory</div><div className="stat-value" style={{ fontSize: "1.2rem" }}>{ctx.territory}</div></div>
         </div>
-        <p className="dash-note" style={{ marginTop: 16 }}><a href="/logout">Sign out</a>{ctx.demo ? " \u00b7 demo mode (Supabase not configured)" : ""}</p>
+        <p className="dash-note" style={{ marginTop: 16 }}><a href="/logout">Sign out</a>{ctx.demo ? " · demo mode (Supabase not configured)" : ""}</p>
       </section>
     </Shell>
   );

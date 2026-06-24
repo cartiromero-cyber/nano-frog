@@ -10,7 +10,7 @@ export default function AssignSelect({ leadId, current, reps }: { leadId: string
   }
   return (
     <select className="crm-assign" disabled={busy} defaultValue={current || ""} onChange={(e) => change(e.target.value)}>
-      <option value="">{current ? "Reassign\u2026" : "Assign to\u2026"}</option>
+      <option value="">{current ? "Reassign…" : "Assign to…"}</option>
       {reps.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}
     </select>
   );
