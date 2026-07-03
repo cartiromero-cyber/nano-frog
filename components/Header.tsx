@@ -1,12 +1,12 @@
 import { PHONE, PHONE_TEL } from "@/content/site";
 
-export default function Header() {
- // Changes 001 + 003 (approved): CTA points to the /book page; click-to-call renders
- // when NEXT_PUBLIC_PHONE is configured. Asset/anchor paths made absolute so the header
- // works identically on every route. Visual design unchanged.
+// C3 (approved): on non-home pages the header renders with the existing `solid` style
+// (site.js, which toggles it on scroll, loads only on the homepage). No new styles —
+// `header.solid` is the same approved appearance the homepage shows after scrolling.
+export default function Header({ solid = false }: { solid?: boolean }) {
  const phoneLink = PHONE ? `<a class="nl" href="${PHONE_TEL}">${PHONE}</a>` : "";
  return (
- <header id="hdr"
+ <header id="hdr" className={solid ? "solid" : undefined}
  dangerouslySetInnerHTML={{ __html: `
  <div class="nav">
  <a class="logo" href="/">

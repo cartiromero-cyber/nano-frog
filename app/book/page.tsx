@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function BookPage() {
   return (
     <>
-      <Header />
+      <Header solid />
       <section className="pad mist" id="book" style={{ paddingTop: 150 }}>
         <div className="wrap qsplit">
           <div>

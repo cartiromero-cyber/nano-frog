@@ -21,7 +21,7 @@ export async function sendBookingConfirmation(lead: Lead): Promise<void> {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.LEAD_FROM_EMAIL || "leads@elytrashieldroofing.com",
+        from: process.env.LEAD_FROM_EMAIL || "leads@elytrashield.us",
         to: email,
         subject: "Your free Roof Health Assessment — request received",
         text:
@@ -50,7 +50,7 @@ export async function sendLeadNotification(subject: string, lead: Lead): Promise
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.LEAD_FROM_EMAIL || "leads@elytrashieldroofing.com",
+        from: process.env.LEAD_FROM_EMAIL || "leads@elytrashield.us",
         to,
         subject,
         text: `New ${lead.type} lead (${lead.id})\n\n` + JSON.stringify(lead.data, null, 2),

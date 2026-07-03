@@ -5,7 +5,7 @@ export const PLAN_BLURB =
 export interface MembershipTier { name: string; tagline: string; cadence: string; features: string[]; highlighted?: boolean; }
 
 // Careful, confident language — no insurance promises, no coverage or roof-life guarantees.
-// Pricing intentionally omitted: "Pricing to be finalized with client."
+// Tier prices are set by the owner; until then the customer-safe PRICING_NOTE below is shown.
 export const membershipTiers: MembershipTier[] = [
   {
     name: "Essential", tagline: "Keep your roof documented.", cadence: "Annual",
@@ -24,7 +24,7 @@ export const membershipTiers: MembershipTier[] = [
       "Priority scheduling",
       "Annual Roof Health Report™",
       "Preservation monitoring",
-      "Credit toward future treatment [VERIFY WITH CLIENT]",
+      "Credit toward future treatment",
     ],
   },
   {
@@ -34,12 +34,13 @@ export const membershipTiers: MembershipTier[] = [
       "Twice-yearly check-ins",
       "Priority storm review",
       "Extended documentation support",
-      "VIP service [VERIFY WITH CLIENT]",
+      "VIP service",
     ],
   },
 ];
 
-export const PRICING_NOTE = "Pricing to be finalized with client.";
+// H1 (approved): customer-safe pricing language.
+export const PRICING_NOTE = "Pricing is determined after your Roof Health Assessment.";
 
 export const MEMBERSHIP_STATUSES = ["Interested", "Enrolled", "Pending Payment", "Active", "Cancelled", "Declined"] as const;
 export type MembershipStatus = (typeof MEMBERSHIP_STATUSES)[number];

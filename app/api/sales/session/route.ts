@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
     if (session.homeowner && typeof session.homeowner.company === "string" && session.homeowner.company.trim() !== "") return NextResponse.json({ ok: true });
 
     const ctx = await getCurrentRep();
+    if (!ctx) return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 }); // C1
     const leadId = await upsertLead(session.homeowner || {}, ctx?.repId ?? null);
     const sessionId = await saveSalesSession(session, leadId, ctx?.repId ?? null, ctx?.userId ?? null);
     if (leadId) await enrichLeadAfterSession(leadId, session.score, computeRoofHealthScore(session.score));

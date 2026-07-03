@@ -3,7 +3,7 @@ import { cities } from "@/content/cities";
 import { articles } from "@/content/articles";
 import { insurancePages } from "@/content/services";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashieldroofing.com";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashield.us";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

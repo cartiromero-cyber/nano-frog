@@ -31,7 +31,7 @@ const DOCUMENTED = [
 export default function SampleReportPage() {
   return (
     <>
-      <Header />
+      <Header solid />
       <section className="pad dark" id="sample-report" style={{ paddingTop: 150 }}>
         <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
           <div className="shead center" style={{ textAlign: "center" }}>

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rateLimit";
-import { createPassportFromSession, demoPassport } from "@/lib/sales/passport";
+import { createPassportFromSession } from "@/lib/sales/passport";
 import { upsertLead, createOrUpdatePassport, lookupPassport } from "@/lib/sales/db";
 import { getCurrentRep } from "@/lib/sales/auth";
 
@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
     if (session.homeowner && typeof session.homeowner.company === "string" && session.homeowner.company.trim() !== "") return NextResponse.json({ ok: true });
 
     const ctx = await getCurrentRep();
+    if (!ctx) return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 }); // C1
     const leadId = await upsertLead(session.homeowner || {}, ctx?.repId ?? null);
     let id = await createOrUpdatePassport(session, leadId, ctx?.repId ?? null);
     if (!id) id = createPassportFromSession(session).id;
@@ -24,10 +25,12 @@ export async function POST(req: NextRequest) {
   }
 }
 
+// H3 (approved): the demo passport is no longer served. A lookup key is required and
+// only real records are returned.
 export async function GET(req: NextRequest) {
   const u = new URL(req.url);
   const by = { id: u.searchParams.get("id") || undefined, phone: u.searchParams.get("phone") || undefined, email: u.searchParams.get("email") || undefined, address: u.searchParams.get("address") || undefined };
-  if (!by.id && !by.phone && !by.email && !by.address) return NextResponse.json({ ok: true, passport: demoPassport(), demo: true });
+  if (!by.id && !by.phone && !by.email && !by.address) return NextResponse.json({ ok: false, error: "A lookup key (id, phone, email, or address) is required." }, { status: 400 });
   const passport = await lookupPassport(by);
   if (!passport) return NextResponse.json({ ok: false, error: "No passport found." }, { status: 404 });
   return NextResponse.json({ ok: true, passport });

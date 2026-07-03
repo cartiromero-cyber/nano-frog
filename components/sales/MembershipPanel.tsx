@@ -63,7 +63,7 @@ export default function MembershipPanel({ passportId, leadId, existing, heading 
         <button className="sales-btn solid" disabled={busy} onClick={() => record("Enrolled")}>Enroll {tier}</button>
         <button className="sales-btn ghost" disabled={busy} onClick={() => record("Declined")}>Decline</button>
       </div>
-      <p className="mp-note">Enrollment intent only — no payment is processed here. Pricing to be finalized with client.</p>
+      <p className="mp-note">Enrollment intent only — no payment is processed here. Pricing is determined after your Roof Health Assessment.</p>
       {msg ? <p className="mp-msg">{msg}</p> : null}
     </div>
   );

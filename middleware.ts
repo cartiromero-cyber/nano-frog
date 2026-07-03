@@ -3,11 +3,24 @@ import { createServerClient } from "@supabase/ssr";
 
 const PROTECTED = ["/sales", "/assessment", "/calculator", "/reports", "/rep", "/admin", "/passport", "/account"];
 
+// C1 (approved): protected routes are NEVER open. If Supabase auth is not configured,
+// they redirect to /login instead of falling through. No demo mode.
 export async function middleware(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const res = NextResponse.next();
-  if (!url || !anon) return res; // demo mode: no auth configured -> no gate
+  const path = req.nextUrl.pathname;
+  const isProtected = PROTECTED.some((p) => path === p || path.startsWith(p + "/"));
+
+  if (!url || !anon) {
+    if (isProtected) {
+      const to = req.nextUrl.clone();
+      to.pathname = "/login";
+      to.searchParams.set("next", path);
+      return NextResponse.redirect(to);
+    }
+    return res;
+  }
 
   const supabase = createServerClient(url, anon, {
     cookies: {
@@ -16,8 +29,6 @@ export async function middleware(req: NextRequest) {
     },
   });
   const { data: { user } } = await supabase.auth.getUser();
-  const path = req.nextUrl.pathname;
-  const isProtected = PROTECTED.some((p) => path === p || path.startsWith(p + "/"));
   if (isProtected && !user) {
     const to = req.nextUrl.clone();
     to.pathname = "/login";

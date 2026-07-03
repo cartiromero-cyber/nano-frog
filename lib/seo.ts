@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashieldroofing.com";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashield.us";
 
-// NOTE: elytrashield.com is held by a cybersecurity brand (see
-// REBRAND_AUDIT.md); using elytrashieldroofing.com. Confirm domain, phone, and legal entity
-// before go-live. All brand values are centralized here.
+// H2 (approved): canonical domain is elytrashield.us. All brand values centralized here.
+// Phone is config-driven (NEXT_PUBLIC_PHONE) — never a fictional number in public
+// schema.org markup; the telephone field is omitted from schema until configured.
 export const BUSINESS = {
   name: "Elytra Shield",
   legalName: "Elytra Shield",
   url: SITE,
-  telephone: "+1-478-555-0146",
-  email: "info@elytrashieldroofing.com",
+  telephone: process.env.NEXT_PUBLIC_PHONE || "",
+  email: process.env.LEAD_NOTIFY_EMAIL || "",
   areaServed: "Georgia",
   tagline: "Protect What Protects Your Home.",
   description:
@@ -24,7 +24,7 @@ export function localBusinessSchema() {
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     url: BUSINESS.url,
-    telephone: BUSINESS.telephone,
+    ...(BUSINESS.telephone ? { telephone: BUSINESS.telephone } : {}),
     areaServed: { "@type": "State", name: BUSINESS.areaServed },
     description: BUSINESS.description,
   };

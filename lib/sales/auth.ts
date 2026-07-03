@@ -8,12 +8,13 @@ export interface RepContext {
 }
 export interface Scope { repIds: string[] | null; } // null = all (admin)
 
-const DEMO: RepContext = { userId: null, repId: null, name: "Demo Admin", role: "ADMIN", territory: "All territories", managerId: null, demo: true };
-
-/** Resolve the signed-in rep. Returns a demo ADMIN context when Supabase is not configured. */
+/**
+ * Resolve the signed-in rep. C1 (approved): no demo fallback — when Supabase is not
+ * configured or no user is signed in, this returns null and every caller must deny access.
+ */
 export async function getCurrentRep(): Promise<RepContext | null> {
   const auth = supabaseAuthServer();
-  if (!auth) return DEMO; // fallback/demo mode
+  if (!auth) return null; // auth not configured -> nobody is authenticated
   const { data: { user } } = await auth.auth.getUser();
   if (!user) return null;
   const db = supabaseAdmin();
