@@ -15,4 +15,4 @@ automatically (a procedural visual renders until the file exists). Nothing else 
 
 **Realism rule:** every roof visual should start from a *real* asphalt-shingle surface. Do not use
 hallucinated/AI rooftops. If you generate motion (Higgsfield / Runway / Pika), seed it from a real
-macro shingle reference. Prompt suggestions are in `docs/SALES-PRESENTATION-AUDIT.md`.
+macro shingle reference.

@@ -8,4 +8,4 @@
 - **Local-SEO ready** — add cities to `content/cities.ts`; they flow into the sitemap and are
   ready for generated city pages.
 
-Verify business name, phone, address, and service area in `lib/seo.ts` before launch (see CLIENT-HANDOFF.md).
+Verify business name, phone, address, and service area in `lib/seo.ts` before launch.
