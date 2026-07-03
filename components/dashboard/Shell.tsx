@@ -4,7 +4,7 @@ export default function Shell({ title, area, user, children }: { title: string; 
   return (
     <div className="dash">
       <header className="dash-bar">
-        <div className="dash-brand"><img src="/assets/elytrashield-mark.svg" width={26} height={26} alt="" /> Elytra Shield <span>{area}</span></div>
+        <div className="dash-brand"><img src="/assets/elytra-shield-icon.png" width={26} height={26} alt="" /> Elytra Shield <span>{area}</span></div>
         {user ? (
           <div className="dash-user">
             <span>Logged in as <b>{user.name}</b> · {user.role} · {user.territory}</span>

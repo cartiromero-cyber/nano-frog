@@ -17,7 +17,7 @@ export default function Step9SavingsReport({ session }: StepProps) {
       <div className="report-sheet">
         {coverReady ? <div className="report-cover"><img src={SALES_ASSETS.reportCover} alt="" /><div className="rc-shade" /></div> : null}
         <div className="rs-head">
-          <div><img src="/assets/elytrashield-mark.svg" width={34} height={34} alt="" /><b>Elytra Shield — Roof Health Report™</b></div>
+          <div><img src="/assets/elytra-shield-icon.png" width={34} height={34} alt="" /><b>Elytra Shield — Roof Health Report™</b></div>
           <div className="rs-score">{r.score}<small>/100 · {r.band}</small></div>
         </div>
         <div className="rs-grid">

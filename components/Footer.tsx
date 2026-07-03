@@ -5,7 +5,7 @@ export default function Footer() {
  <div class="wrap">
  <div class="fgrid">
  <div>
- <a href="#top"><img src="assets/elytrashield-lockup.svg" alt="Elytra Shield — Roof Preservation" style="height:58px;width:auto;display:block"></a>
+ <a href="#top"><img src="assets/elytra-shield-logo.png" alt="Elytra Shield — Roof Preservation" style="height:60px;width:auto;display:block"></a>
  <p class="fdesc">Protect what protects your home. Advanced roof preservation, an honest Roof Health Assessment™, and documentation you keep.</p>
  </div>
  <div><h5>Homeowners</h5><a href="#">Roof Preservation</a><a href="#">Is My Roof a Candidate?</a><a href="#">Roof &amp; Insurance</a><a href="#">Cost vs. Replacement</a></div>

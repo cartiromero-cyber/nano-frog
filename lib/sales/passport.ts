@@ -41,8 +41,8 @@ export function demoPassport(): RoofPassport {
       { date: "2026-05-18", inspector: "Field Specialist", summary: "Annual check-up — membrane performing as designed." },
     ],
     photos: [
-      { date: "2024-05-12", url: "/assets/elytrashield-mark.svg", caption: "Pre-treatment, south slope" },
-      { date: "2025-05-20", url: "/assets/elytrashield-mark.svg", caption: "12-month follow-up" },
+      { date: "2024-05-12", url: "/assets/elytra-shield-icon.png", caption: "Pre-treatment, south slope" },
+      { date: "2025-05-20", url: "/assets/elytra-shield-icon.png", caption: "12-month follow-up" },
     ],
     preservation: [
       { date: "2024-05-15", treatment: "Elytra Shield preservation application", notes: "Full roof, eligible architectural shingle." },

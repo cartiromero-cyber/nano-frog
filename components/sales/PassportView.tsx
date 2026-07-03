@@ -9,7 +9,7 @@ export default function PassportView({ p }: { p: RoofPassport }) {
   return (
     <div className="pass">
       <header className="pass-bar">
-        <div className="pass-brand"><img src="/assets/elytrashield-mark.svg" width={30} height={30} alt="" /> Digital Roof Passport™</div>
+        <div className="pass-brand"><img src="/assets/elytra-shield-icon.png" width={30} height={30} alt="" /> Digital Roof Passport™</div>
         <PrintButton />
       </header>
       <main className="pass-main">

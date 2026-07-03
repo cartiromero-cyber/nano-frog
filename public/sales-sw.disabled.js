@@ -1,6 +1,6 @@
 /* Minimal offline shell for the /sales presentation. Caches core assets on first load. */
 const CACHE = "elytrashield-sales-v1";
-const CORE = ["/sales", "/assets/elytrashield-mark.svg", "/assets/styles.css"];
+const CORE = ["/sales", "/assets/elytra-shield-icon.png", "/assets/styles.css"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
 });

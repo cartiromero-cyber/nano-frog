@@ -53,7 +53,7 @@ export default function Presentation() {
     <div className="sales-shell" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       <header className="sales-bar">
         <div className="sales-brand">
-          <img src="/assets/elytrashield-mark.svg" alt="Elytra Shield" width={28} height={28} />
+          <img src="/assets/elytra-shield-icon.png" alt="Elytra Shield" width={28} height={28} />
           <span>Elytra Shield</span>
         </div>
         <div className="sales-steplabel">{STEPS[i].title}</div>
