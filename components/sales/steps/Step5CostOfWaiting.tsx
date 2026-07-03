@@ -29,11 +29,10 @@ export default function Step5CostOfWaiting({ session, update }: StepProps) {
           <div className="cw-col"><div className="cw-bar repl" style={{ height: (c.replacementCost / maxC) * 180 }} /><span>Replace</span><b>{money(c.replacementCost)}</b></div>
           <div className="cw-col"><div className="cw-bar pres" style={{ height: (c.preservationCost / maxC) * 180 }} /><span>Preserve</span><b>{money(c.preservationCost)}</b></div>
         </div>
+        {/* P-008 (approved): years-extended and its derived figures are suppressed until
+            documented field data substantiates them. Only the arithmetic difference remains. */}
         <div className="cw-stats">
-          <div><span>Potential years extended</span><b>{r.yearsExtended} yrs</b></div>
           <div><span>Immediate difference</span><b>{money(r.immediateSavings)}</b></div>
-          <div><span>Deferred replacement value</span><b>{money(r.deferredCostValue)}</b></div>
-          <div><span>Cost per protected year</span><b>{money(r.costPerYearPreserve)}</b></div>
         </div>
       </div>
     </div>

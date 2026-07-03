@@ -39,7 +39,7 @@ export default function StepWhyChoose(_: StepProps) {
       <div className="wc-close">
         <p><b>This isn't a treatment. It's proactive protection.</b></p>
         <p>An additional layer designed to help your roof resist weather, moisture, UV, and aging — added <em>before</em> those problems occur.</p>
-        <p>More and more homeowners are choosing Elytra Shield. Not because they have a problem — because they want to avoid one.</p>
+        <p>Homeowners choose Elytra Shield for the same reason — not because something is wrong, but because they want to keep it that way.</p>
         <p className="wc-kicker">Because protecting your roof today is far less expensive than replacing it tomorrow.</p>
       </div>
     </div>

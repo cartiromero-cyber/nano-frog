@@ -20,6 +20,8 @@ export default function Step2WhyRoofsAge(_: StepProps) {
     <div className="s-wrap">
       <span className="s-eyebrow">The science of weathering</span>
       <h2 className="s-h">Every roof ages. Here’s exactly why.</h2>
+      {/* P-001: punchline merged from the retired "Roof Nobody Thinks About" slide */}
+      <p className="s-lead">Deterioration doesn’t happen all at once — it happens a little every day. A leak is never created the day it appears. It’s created over <b style={{ color: "#fff" }}>thousands of days</b>.</p>
       <div className="s-grid2" style={{ marginTop: 20, alignItems: "stretch" }}>
         <div style={{ display: "grid", gap: 10, alignContent: "start" }}>
           {FACTORS.map((x, n) => (

@@ -6,11 +6,14 @@ export interface ScoreInputs {
   ventilation: number; repairHistory: number; stormExposure: number;
 }
 export interface CostInputs { replacementCost: number; preservationCost: number; }
+/** P-002: an annotated inspection photo shown on the "Your Roof Today" slide. */
+export interface RoofPhotoNote { dataUrl: string; status: "healthy" | "watch" | "concern"; label?: string; }
 export interface Homeowner { name?: string; phone?: string; email?: string; city?: string; address?: string; }
 export type RecommendationTier = "Excellent Candidate" | "Good Candidate" | "Needs Inspection" | "Not Recommended";
 
 export interface SalesSession {
   homeowner: Homeowner; connection: ConnectionAnswers; score: ScoreInputs; cost: CostInputs;
+  roofPhotos?: RoofPhotoNote[];
   nextStep?: string; createdAt: string;
 }
 export interface StepProps {

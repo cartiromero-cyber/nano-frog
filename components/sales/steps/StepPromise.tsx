@@ -2,7 +2,7 @@
 import type { StepProps } from "@/types/sales";
 
 const PILLARS = [
-  ["Ongoing support", "A trusted team you can call when questions arise."],
+  ["Ongoing support", "Someone you can actually call when questions arise."],
   ["Education", "Helping you understand your roof, not just service it."],
   ["Transparency", "Honest guidance before small concerns become big ones."],
   ["Monitoring", "Tracking your roof's condition over time."],

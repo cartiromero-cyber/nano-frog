@@ -3,12 +3,14 @@ import type { StepProps } from "@/types/sales";
 import { SALES_ASSETS } from "@/content/sales-assets";
 import { useAssetReady } from "@/components/sales/useAsset";
 
+// P-007 (approved): claims hedged to "designed to" language pending written supplier
+// substantiation; chemistry framing replaced by the approved preservation sentence.
 const POINTS = [
-  ["Protective membrane", "A thin protective layer engineered at a microscopic scale."],
-  ["Bonds to the surface", "It penetrates and binds with the shingle rather than just sitting on top."],
-  ["Hydrophobic & UV-resistant", "Designed to help repel water and deflect UV at the surface."],
-  ["Preserves flexibility", "Helps shingles keep the suppleness that keeps them watertight."],
-  ["Slows aging", "Reduces the everyday breakdown that shortens a roof’s life."],
+  ["Protective layer", "A thin treatment applied across the existing roof surface."],
+  ["Works with the shingle", "Designed to work with the shingle surface — not just sit on top of it."],
+  ["Water & UV resistance", "Designed to help repel water and resist UV exposure at the surface."],
+  ["Preserves flexibility", "Designed to help shingles keep the suppleness that keeps them watertight."],
+  ["Slows everyday aging", "Designed to help slow the day-by-day breakdown that shortens a roof’s life."],
 ];
 
 export default function Step3WhatIsElytraShield(_: StepProps) {
@@ -17,8 +19,8 @@ export default function Step3WhatIsElytraShield(_: StepProps) {
     <div className="s-wrap s-grid2">
       <div>
         <span className="s-eyebrow">What is Elytra Shield</span>
-        <h2 className="s-h">Protection, engineered at the surface.</h2>
-        <p className="s-lead">No hype — just what the technology is designed to do, in plain terms.</p>
+        <h2 className="s-h">A preservation treatment — nothing more, nothing less.</h2>
+        <p className="s-lead">Elytra Shield is a preservation treatment designed to help maintain and protect roofing materials from ongoing environmental exposure. In plain terms:</p>
         <div style={{ display: "grid", gap: 12, marginTop: 22 }}>
           {POINTS.map(([t, d]) => (
             <div key={t} className="s-card" style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
