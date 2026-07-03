@@ -11,10 +11,10 @@ const PILLARS = [
 export default function StepPromise(_: StepProps) {
   return (
     <div className="s-wrap promise">
-      <span className="s-eyebrow">The Nano Frog Promise</span>
+      <span className="s-eyebrow">The Elytra Shield Promise</span>
       <h2 className="s-h">Protection doesn't end when the application does.</h2>
       <p className="s-lead">
-        When you choose Nano Frog, you join a protection program built around the long-term care of
+        When you choose Elytra Shield, you join a protection program built around the long-term care of
         your home — designed to help you understand, monitor, and preserve your roof over time.
       </p>
 
@@ -31,8 +31,8 @@ export default function StepPromise(_: StepProps) {
       </p>
 
       <div className="pr-close">
-        <p>Most companies sell a roof service. <b>Nano Frog sells protection.</b></p>
-        <p>Most companies show up when there's already a problem. <b>Nano Frog helps protect your roof before the problem starts.</b></p>
+        <p>Most companies sell a roof service. <b>Elytra Shield sells protection.</b></p>
+        <p>Most companies show up when there's already a problem. <b>Elytra Shield helps protect your roof before the problem starts.</b></p>
         <p className="pr-kicker">Because the best roof repair is the one you never have to make.</p>
       </div>
     </div>

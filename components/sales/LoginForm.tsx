@@ -27,7 +27,7 @@ export default function LoginForm() {
   return (
     <div className="login-wrap">
       <form className="login-card" onSubmit={onSubmit}>
-        <div className="login-brand"><img src="/assets/nanofrog-mark.png" width={34} height={34} alt="" /> Nano Frog</div>
+        <div className="login-brand"><img src="/assets/elytrashield-mark.svg" width={34} height={34} alt="" /> Elytra Shield</div>
         <h1>Field Sales Sign-in</h1>
         <p className="login-sub">For reps, managers, and admins.</p>
         {!supabase ? <div className="login-note">Auth not configured — the platform runs in demo mode. See docs/AUTH.md.</div> : null}

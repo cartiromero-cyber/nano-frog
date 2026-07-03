@@ -16,7 +16,7 @@ export default function Step7ChemistStory(_: StepProps) {
         </p>
       </div>
       <div className="s-panel chem" style={{ minHeight: 340, display: "grid", placeItems: "center", overflow: "hidden" }}>
-        {labReady ? <><img className="asset-cover" src={SALES_ASSETS.labPhoto} alt="Nano Frog materials-science lab" /><div className="asset-shade" /></> : (
+        {labReady ? <><img className="asset-cover" src={SALES_ASSETS.labPhoto} alt="Elytra Shield materials-science lab" /><div className="asset-shade" /></> : (
         <svg viewBox="0 0 320 300" width="100%" style={{ maxWidth: 380 }} aria-hidden="true">
           <ellipse cx="160" cy="278" rx="130" ry="10" fill="#000" opacity="0.2" />
           {/* scientist silhouette */}
@@ -27,7 +27,7 @@ export default function Step7ChemistStory(_: StepProps) {
             <line x1="148" y1="150" x2="192" y2="150" />
           </g>
           <path className="chem-fluid" d="M148 196 L146 230 Q146 238 154 238 L186 238 Q194 238 194 230 L192 196 Z" fill="url(#cf)" />
-          <defs><linearGradient id="cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#12A589" /><stop offset="1" stopColor="#0E7C66" /></linearGradient></defs>
+          <defs><linearGradient id="cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#45C55A" /><stop offset="1" stopColor="#39B54A" /></linearGradient></defs>
           {/* growing tree (preservation) */}
           <g className="chem-tree">
             <rect x="252" y="214" width="8" height="40" rx="3" fill="#6b5a45" />

@@ -68,7 +68,7 @@ export default function Step1Connection({ session, update }: StepProps) {
           <rect x="110" y="180" width="34" height="34" rx="4" fill="#dce6ee" />
           <rect x="216" y="180" width="34" height="34" rx="4" fill="#dce6ee" />
           <rect x="162" y="206" width="36" height="48" rx="4" fill="#cdd9e3" />
-          <polygon points="74,158 180,88 286,158" fill="#12A589" />
+          <polygon points="74,158 180,88 286,158" fill="#45C55A" />
           <polygon points="74,158 180,88 286,158" fill="none" stroke="#bff09a" strokeWidth="1.5" />
           {session.homeowner.name ? (
             <text x="180" y="284" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fill="#eaf2f8">

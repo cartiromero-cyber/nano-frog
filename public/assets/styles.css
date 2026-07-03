@@ -1,12 +1,12 @@
 
 :root{
-  --ink:#0A1A2F; --deep:#0C2342; --deep-2:#10305A;
-  --green:#0E7C66; --green-2:#12A589; --score:#84D851; --score-soft:rgba(132,216,81,.16);
+  --ink:#0B1320; --deep:#1C2430; --deep-2:#22303E;
+  --green:#39B54A; --green-2:#45C55A; --score:#7ED957; --score-soft:rgba(126,217,87,.16);
   --blue:#2E6FB7;
   --paper:#FFFFFF; --mist:#F2F7FA; --mist-2:#E9F1F6;
   --line:#E2EBF1; --line-d:rgba(255,255,255,.12);
   --tx:#16314A; --muted:#5C6F7E; --muted-d:rgba(233,241,246,.7);
-  --disp:'Space Grotesk',system-ui,sans-serif; --sans:'Inter',system-ui,sans-serif;
+  --disp:'Montserrat',system-ui,sans-serif; --sans:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(.22,.61,.36,1); --wrap:1180px;
   --r:14px;
 }
@@ -29,15 +29,15 @@ a{color:inherit;text-decoration:none}
 .dark{background:var(--ink);color:#Eaf2f8}
 .dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
 .dark .muted{color:var(--muted-d)}
-.nano{background-image:radial-gradient(rgba(14,124,102,.13) 1px,transparent 1px);background-size:22px 22px}
-.dark .nano{background-image:radial-gradient(rgba(132,216,81,.16) 1px,transparent 1px)}
+.nano{background-image:radial-gradient(rgba(57,181,74,.13) 1px,transparent 1px);background-size:22px 22px}
+.dark .nano{background-image:radial-gradient(rgba(126,217,87,.16) 1px,transparent 1px)}
 .flag{display:inline-block;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.04em;color:#9a7b18;background:#FBF3D6;border:1px solid #EBDCA0;border-radius:4px;padding:1px 6px;vertical-align:middle}
 .dark .flag{color:#ffd980;background:rgba(255,200,80,.1);border-color:rgba(255,200,80,.3)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:.92rem;font-weight:600;padding:15px 26px;border-radius:10px;transition:.3s var(--ease);cursor:pointer;border:1.5px solid transparent}
 .btn svg{width:17px;height:17px}
 .btn-g{background:var(--green);color:#fff}
-.btn-g:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(14,124,102,.6)}
+.btn-g:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(57,181,74,.6)}
 .btn-o{border-color:var(--line);color:var(--ink);background:#fff}
 .btn-o:hover{border-color:var(--green)}
 .dark .btn-o{border-color:rgba(255,255,255,.25);color:#fff;background:transparent}
@@ -62,7 +62,7 @@ header.solid .navlinks a.nl{color:var(--tx)}
 header.solid .navlinks a.nl:hover{color:var(--green)}
 @media(max-width:900px){.navlinks .nl{display:none}}
 /* hero */
-.hero{position:relative;background:radial-gradient(120% 110% at 78% 8%,#11305a 0%,var(--ink) 58%);color:#fff;padding:140px 0 90px;overflow:hidden}
+.hero{position:relative;background:radial-gradient(120% 110% at 78% 8%,#22303E 0%,var(--ink) 58%);color:#fff;padding:140px 0 90px;overflow:hidden}
 .hero .nano{position:absolute;inset:0;opacity:.5}
 #nanocanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.6}
 .hero .wrap{position:relative;z-index:2}
@@ -78,7 +78,7 @@ header.solid .navlinks a.nl:hover{color:var(--green)}
 /* score card (hero + section) */
 .scorecard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:26px;backdrop-filter:blur(6px);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
 .scorecard .sc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.sc-tag{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--score);font-weight:600;border:1px solid rgba(132,216,81,.4);border-radius:20px;padding:5px 11px}
+.sc-tag{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--score);font-weight:600;border:1px solid rgba(126,217,87,.4);border-radius:20px;padding:5px 11px}
 .sc-brand{font-family:var(--disp);font-weight:600;font-size:.95rem;color:#fff}
 .gauge-wrap{display:flex;align-items:center;gap:22px}
 .gauge{position:relative;width:150px;height:150px;flex:0 0 auto}
@@ -115,8 +115,8 @@ header.solid .navlinks a.nl:hover{color:var(--green)}
 .diffgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
 @media(max-width:900px){.diffgrid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.diffgrid{grid-template-columns:1fr}}
 .dcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:26px 24px;transition:.35s var(--ease)}
-.dcard:hover{border-color:rgba(132,216,81,.5);transform:translateY(-4px)}
-.dcard .ic{width:44px;height:44px;border-radius:12px;background:rgba(132,216,81,.12);display:grid;place-items:center;color:var(--score);margin-bottom:16px}
+.dcard:hover{border-color:rgba(126,217,87,.5);transform:translateY(-4px)}
+.dcard .ic{width:44px;height:44px;border-radius:12px;background:rgba(126,217,87,.12);display:grid;place-items:center;color:var(--score);margin-bottom:16px}
 .dcard .ic svg{width:23px;height:23px}
 .dcard h3{color:#fff;font-size:1.14rem;margin-bottom:7px}
 .dcard p{font-size:.9rem;color:var(--muted-d)}
@@ -173,7 +173,7 @@ header.solid .navlinks a.nl:hover{color:var(--green)}
 .lcard p{font-size:.9rem;color:var(--muted)}
 .lcard .go{margin-top:12px;font-size:.82rem;font-weight:600;color:var(--green);display:inline-flex;gap:6px;align-items:center}
 /* final cta */
-.fcta{position:relative;text-align:center;background:radial-gradient(110% 90% at 50% 0%,#11305a,var(--ink) 60%);color:#fff;overflow:hidden}
+.fcta{position:relative;text-align:center;background:radial-gradient(110% 90% at 50% 0%,#22303E,var(--ink) 60%);color:#fff;overflow:hidden}
 .fcta .nano{position:absolute;inset:0;opacity:.5}
 .fcta .wrap{position:relative;z-index:2}
 .fcta h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);max-width:18ch;margin:0 auto 18px}
@@ -226,7 +226,7 @@ footer{background:var(--ink);color:var(--muted-d);padding:54px 0 38px;border-top
 .railcard .btn{width:100%;justify-content:center}
 .linklist{list-style:none;margin:0}.linklist li{border-top:1px solid var(--line)}.linklist li:first-child{border-top:0}
 .linklist a{display:block;padding:11px 0;font-size:.92rem;color:var(--tx);font-weight:500}.linklist a:hover{color:var(--green)}
-.endcta{background:radial-gradient(110% 90% at 50% 0%,#11305a,var(--ink) 60%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.endcta{background:radial-gradient(110% 90% at 50% 0%,#22303E,var(--ink) 60%);color:#fff;text-align:center;position:relative;overflow:hidden}
 .endcta .nano{position:absolute;inset:0;opacity:.45}
 .endcta .wrap{position:relative;z-index:2}
 .endcta h2{color:#fff;max-width:22ch;margin:0 auto 14px}

@@ -17,7 +17,7 @@ unchanged.
 ## The 10-step flow (`components/sales/steps`)
 1. **Your Home** — rapport + emotional ownership (captures connection answers)
 2. **Why Roofs Age** — interactive education (UV, moisture, thermal, granule loss, oxidation)
-3. **What Is Nano Frog** — membrane explained, no hype
+3. **What Is Elytra Shield** — membrane explained, no hype
 4. **Roof Health Score** — live interactive scoring → `lib/sales/scoring.ts`
 5. **The Cost of Waiting** — replacement vs preservation → `lib/sales/cost.ts`
 6. **Membrane Demonstration** — cinematic protection animation (hero asset)
@@ -49,7 +49,7 @@ The public marketing site is completely untouched.
 ## Update: Roof Ownership System
 
 ### New presentation step (now 11 steps)
-**3. The Cost of Delay** — inserted between *Why Roofs Age* and *What Is Nano Frog*. An interactive
+**3. The Cost of Delay** — inserted between *Why Roofs Age* and *What Is Elytra Shield*. An interactive
 multi-year projection (`lib/sales/future.ts`) charting cumulative spend when maintenance is delayed
 (rising repairs + an unavoidable replacement) versus preserving now. A "if you wait N years" slider
 lets the homeowner discover the financial consequence themselves. Illustrative, discussion-only.

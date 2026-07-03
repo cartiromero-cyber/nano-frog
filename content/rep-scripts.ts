@@ -20,8 +20,8 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "Every day it takes the beating so the rest of your home doesn’t have to.",
     "Your roof is not decoration. It’s your home’s shield.",
   ],
-  "What Is Nano Frog": [
-    "Nano Frog creates an additional protective layer on the surface of the roof.",
+  "What Is Elytra Shield": [
+    "Elytra Shield creates an additional protective layer on the surface of the roof.",
     "Think of it like adding another line of defense.",
     "The goal isn’t to replace your roof — the goal is to help preserve it.",
   ],
@@ -38,12 +38,12 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "Most homeowners spend money one of two ways: small amounts proactively, or large amounts reactively.",
     "The only real choice is which bill you’d rather pay.",
   ],
-  "Why Homeowners Choose Nano Frog": [
-    "More homeowners are choosing Nano Frog for the same reason people buy insurance.",
+  "Why Homeowners Choose Elytra Shield": [
+    "More homeowners are choosing Elytra Shield for the same reason people buy insurance.",
     "Not because something is wrong — because they want to keep it that way.",
     "They’re not buying a treatment. They’re buying protection.",
   ],
-  "The Nano Frog Promise": [
+  "The Elytra Shield Promise": [
     "This is where we’re different. We’re not here to spray a roof and disappear.",
     "We believe protection should come with a relationship — education, support, guidance, a long-term partnership.",
     "Because protecting your home shouldn’t be a one-day event.",

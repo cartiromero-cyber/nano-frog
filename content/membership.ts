@@ -10,7 +10,7 @@ export const membershipTiers: MembershipTier[] = [
   {
     name: "Essential", tagline: "Keep your roof documented.", cadence: "Annual",
     features: [
-      "Annual Roof Health Score™",
+      "Annual Roof Health Assessment™",
       "Digital Roof Passport™ updates",
       "Roof photo documentation",
       "Annual reminder",
@@ -22,7 +22,7 @@ export const membershipTiers: MembershipTier[] = [
     features: [
       "Everything in Essential",
       "Priority scheduling",
-      "Annual Roof Life Report™",
+      "Annual Roof Health Report™",
       "Preservation monitoring",
       "Credit toward future treatment [VERIFY WITH CLIENT]",
     ],

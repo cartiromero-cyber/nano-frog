@@ -124,7 +124,7 @@ export default function StepRoofShield(_: StepProps) {
 
       <div className="s-panel" style={{ minHeight: 320, display: "grid", placeItems: "center" }}>
         <svg viewBox="0 0 360 300" width="100%" style={{ maxWidth: 420 }} aria-hidden="true">
-          <polygon points="60,150 180,72 300,150" fill="#12A589" />
+          <polygon points="60,150 180,72 300,150" fill="#45C55A" />
           <polygon points="60,150 180,72 300,150" fill="none" stroke="#bff09a" strokeWidth="1.5" />
           <rect x="96" y="150" width="168" height="104" rx="6" fill="#0e2238" />
           <g fill="rgba(255,255,255,.16)">

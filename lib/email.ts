@@ -17,7 +17,7 @@ export async function sendLeadNotification(subject: string, lead: Lead): Promise
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.LEAD_FROM_EMAIL || "leads@nanofrogpro.com",
+        from: process.env.LEAD_FROM_EMAIL || "leads@elytrashieldroofing.com",
         to,
         subject,
         text: `New ${lead.type} lead (${lead.id})\n\n` + JSON.stringify(lead.data, null, 2),

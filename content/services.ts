@@ -2,7 +2,7 @@ export interface Service { name: string; slug: string; description: string; }
 
 export const services: Service[] = [
   { name: "Roof Preservation", slug: "roof-preservation",
-    description: "Nanotechnology treatment designed to extend the life of eligible asphalt-shingle roofs." },
+    description: "Advanced preservation treatment designed to extend the life of eligible asphalt-shingle roofs." },
   { name: "Roof Health Score", slug: "roof-health-score",
     description: "An on-site evaluation that scores a roof’s condition and preservation candidacy." },
   { name: "Roof & Insurance Documentation", slug: "roof-insurance",

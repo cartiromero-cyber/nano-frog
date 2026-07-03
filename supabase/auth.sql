@@ -1,4 +1,4 @@
--- Nano Frog — Auth + RBAC additions. Run AFTER supabase/schema.sql. Safe to re-run.
+-- Elytra Shield — Auth + RBAC additions. Run AFTER supabase/schema.sql. Safe to re-run.
 
 -- reps become user profiles linked to Supabase Auth users
 alter table reps add column if not exists user_id uuid unique;
@@ -24,7 +24,7 @@ create index if not exists idx_pass_rep on roof_passports (rep_id);
 -- 1) Create the user in Supabase Auth (Dashboard -> Authentication -> Add user).
 -- 2) Insert their profile:
 --    insert into reps (user_id, name, email, role, territory)
---    values ('<auth-user-uuid>', 'Jane Rep', 'jane@nanofrog.com', 'REP', 'Macon');
+--    values ('<auth-user-uuid>', 'Jane Rep', 'jane@elytrashield.com', 'REP', 'Macon');
 
 -- ── Defense-in-depth RLS policies (authenticated) ───────────────────────────
 -- Server code uses the service role (bypasses RLS) and is the authoritative filter.

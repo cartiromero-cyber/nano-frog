@@ -3,14 +3,14 @@ import "@/styles/globals.css";
 import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nanofrogpro.com"),
-  title: "Nano Frog — The Alternative to Roof Replacement",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashieldroofing.com"),
+  title: "Elytra Shield — Protect What Protects Your Home",
   description:
-    "Nanotechnology roof preservation designed to add years to qualifying roofs, help homeowners document roof condition, and avoid premature replacement. See if your roof qualifies.",
+    "Advanced roof preservation designed to extend the life of aging roofing systems, help homeowners document roof condition, and avoid premature replacement. Schedule a free Roof Health Assessment.",
   openGraph: {
-    title: "Nano Frog — The Alternative to Roof Replacement",
+    title: "Elytra Shield — Protect What Protects Your Home",
     description:
-      "Nanotechnology roof preservation designed to add years to qualifying roofs and avoid premature replacement.",
+      "Advanced roof preservation designed to extend roof life and help homeowners avoid premature replacement.",
     type: "website",
     url: "/",
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A1A2F",
+  themeColor: "#0B1320",
   width: "device-width",
   initialScale: 1,
 };
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <script

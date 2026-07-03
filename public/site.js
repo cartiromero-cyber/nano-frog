@@ -1,9 +1,9 @@
-/* Approved Nano Frog interactions & animations. Loaded after hydration so the
+/* Approved Elytra Shield interactions & animations. Loaded after hydration so the
    server-rendered approved markup is present. Identical to the original inline scripts. */
 (function(){
 
 (function(){
-  var sec=document.getElementById('what-is-nano-frog'); if(!sec) return;
+  var sec=document.getElementById('what-is-elytra-shield'); if(!sec) return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; /* leave static, assembled */
   sec.classList.add('anim');
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ sec.classList.add('in'); io.disconnect(); } }); }, {threshold:.3});

@@ -13,7 +13,7 @@ const PROTECT = [
 export default function StepWhyChoose(_: StepProps) {
   return (
     <div className="s-wrap why-choose">
-      <span className="s-eyebrow">Why homeowners choose Nano Frog</span>
+      <span className="s-eyebrow">Why homeowners choose Elytra Shield</span>
       <h2 className="s-h">You already protect the things you care about.</h2>
       <p className="s-lead">Most homeowners don't think twice about protecting what matters.</p>
 
@@ -39,7 +39,7 @@ export default function StepWhyChoose(_: StepProps) {
       <div className="wc-close">
         <p><b>This isn't a treatment. It's proactive protection.</b></p>
         <p>An additional layer designed to help your roof resist weather, moisture, UV, and aging — added <em>before</em> those problems occur.</p>
-        <p>More and more homeowners are choosing Nano Frog. Not because they have a problem — because they want to avoid one.</p>
+        <p>More and more homeowners are choosing Elytra Shield. Not because they have a problem — because they want to avoid one.</p>
         <p className="wc-kicker">Because protecting your roof today is far less expensive than replacing it tomorrow.</p>
       </div>
     </div>

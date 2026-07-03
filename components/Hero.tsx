@@ -7,23 +7,23 @@ export default function Hero() {
  <div class="wrap">
  <div class="hgrid">
  <div>
- <span class="eyebrow lt">Roof Preservation · Roof Health Score</span>
- <h1>The Alternative to <em>Roof Replacement.</em></h1>
- <p class="sub">Nanotechnology roof preservation designed to add years to qualifying roofs, help homeowners document roof condition, and avoid premature replacement.</p>
+ <span class="eyebrow lt">Roof Preservation · Roof Health Assessment</span>
+ <h1>Protect What Protects <em>Your Home.</em></h1>
+ <p class="sub">Advanced roof preservation designed to extend the life of aging roofing systems and help homeowners avoid premature, expensive replacement.</p>
  <div class="cta-row">
- <a class="btn btn-g btn-pulse" href="#assess">See If Your Roof Qualifies
+ <a class="btn btn-g btn-pulse" href="#assess">Schedule Free Roof Health Assessment
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
- <a class="btn btn-o" href="#assess">Get a Free Roof Assessment</a>
+ <a class="btn btn-o" href="#assess">View Sample Assessment</a>
  </div>
  <div class="htrust">
  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Inspection first</span>
  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> We'll tell you if you need a new roof</span>
- <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Documented Roof Life Report</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Documented Roof Health Report</span>
  </div>
  </div>
  <div class="reveal">
  <div class="scorecard" id="heroScore">
- <div class="sc-top"><span class="sc-brand">Roof Health Score™</span><span class="sc-tag">Example</span></div>
+ <div class="sc-top"><span class="sc-brand">Roof Health Assessment™</span><span class="sc-tag">Example</span></div>
  <div class="gauge-wrap">
  <div class="gauge">
  <svg width="150" height="150" viewBox="0 0 150 150">

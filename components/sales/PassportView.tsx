@@ -9,7 +9,7 @@ export default function PassportView({ p }: { p: RoofPassport }) {
   return (
     <div className="pass">
       <header className="pass-bar">
-        <div className="pass-brand"><img src="/assets/nanofrog-mark.png" width={30} height={30} alt="" /> Digital Roof Passport™</div>
+        <div className="pass-brand"><img src="/assets/elytrashield-mark.svg" width={30} height={30} alt="" /> Digital Roof Passport™</div>
         <PrintButton />
       </header>
       <main className="pass-main">
@@ -21,7 +21,7 @@ export default function PassportView({ p }: { p: RoofPassport }) {
           </div>
           <div className="pass-score">
             <div className="pass-score-num">{latest ? latest.score : "—"}</div>
-            <div className="pass-score-sub">Roof Health Score™{latest ? " · " + latest.band : ""}</div>
+            <div className="pass-score-sub">Roof Health Assessment™{latest ? " · " + latest.band : ""}</div>
           </div>
         </section>
 

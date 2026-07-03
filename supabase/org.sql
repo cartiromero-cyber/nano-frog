@@ -1,4 +1,4 @@
--- Nano Frog — Org management. Run AFTER schema.sql + auth.sql + crm.sql. Safe to re-run.
+-- Elytra Shield — Org management. Run AFTER schema.sql + auth.sql + crm.sql. Safe to re-run.
 create table if not exists lead_assignment_history (
   id uuid primary key default gen_random_uuid(),
   lead_id uuid references leads(id) on delete cascade,

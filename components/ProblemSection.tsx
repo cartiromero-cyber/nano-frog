@@ -4,9 +4,9 @@ export default function ProblemSection() {
  dangerouslySetInnerHTML={{ __html: `
  <div class="wrap">
  <div class="shead reveal">
- <span class="eyebrow">The roof dilemma</span>
- <h2>Most roofs get replaced before they have to.</h2>
- <p class="muted">A roof rarely fails all at once. But the moment it looks old, the pressure to replace it — early, and expensively — starts coming from every direction.</p>
+ <span class="eyebrow">Preserve Before You Replace</span>
+ <h2>Most Roofs Are Replaced Too Early.</h2>
+ <p class="muted">Aging doesn&rsquo;t always mean failing. Many roofs are torn off years before they need to be &mdash; a $10,000&ndash;$30,000 decision made without the full picture. Our preservation process helps you understand the true condition of your roof <em>before</em> you spend on a replacement you may not need yet.</p>
  </div>
  <div class="grid4">
  <div class="pcard reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3>Replacement cost</h3><p>A new roof can run into the tens of thousands of dollars.</p></div>

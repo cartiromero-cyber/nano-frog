@@ -1,9 +1,9 @@
 import Script from "next/script";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import WhatIsNanoFrog from "@/components/WhatIsNanoFrog";
+import WhatIsElytraShield from "@/components/WhatIsElytraShield";
 import ProblemSection from "@/components/ProblemSection";
-import NanoFrogDifference from "@/components/NanoFrogDifference";
+import ElytraShieldDifference from "@/components/ElytraShieldDifference";
 import SavingsSection from "@/components/SavingsSection";
 import QualifySection from "@/components/QualifySection";
 import HowItWorks from "@/components/HowItWorks";
@@ -20,9 +20,9 @@ export default function HomePage() {
     <>
       <Header />
       <Hero />
-      <WhatIsNanoFrog />
+      <WhatIsElytraShield />
       <ProblemSection />
-      <NanoFrogDifference />
+      <ElytraShieldDifference />
       <SavingsSection />
       <QualifySection />
       <HowItWorks />

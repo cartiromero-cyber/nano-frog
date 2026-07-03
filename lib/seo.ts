@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://nanofrogpro.com";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashieldroofing.com";
 
-// NOTE: business name/phone/address are placeholders pending client verification.
-// See CLIENT-HANDOFF.md.
+// NOTE: elytrashield.com is held by a cybersecurity brand (see
+// REBRAND_AUDIT.md); using elytrashieldroofing.com. Confirm domain, phone, and legal entity
+// before go-live. All brand values are centralized here.
 export const BUSINESS = {
-  name: "Nano Frog",
-  legalName: "Nano Frog Roof Preservation",
+  name: "Elytra Shield",
+  legalName: "Elytra Shield",
   url: SITE,
-  telephone: "+1-000-000-0000",
+  telephone: "+1-478-555-0146",
+  email: "info@elytrashieldroofing.com",
   areaServed: "Georgia",
+  tagline: "Protect What Protects Your Home.",
   description:
-    "Nanotechnology roof preservation — the alternative to premature roof replacement for eligible roofs in Georgia.",
+    "Advanced roof preservation — the smarter alternative to premature roof replacement for eligible roofs in Georgia and the Southeast.",
 };
 
 export function localBusinessSchema() {

@@ -25,7 +25,7 @@ export default function Step4RoofHealthScore({ session, update }: StepProps) {
   return (
     <div className="s-wrap s-grid2">
       <div>
-        <span className="s-eyebrow">Nano Frog Roof Health Score™</span>
+        <span className="s-eyebrow">Elytra Shield Roof Health Assessment™</span>
         <h2 className="s-h">Let’s measure your roof together.</h2>
         <div style={{ marginTop: 18 }}>
           <div className="s-rowlabel"><span>Roof age</span><b>{s.roofAge} yrs</b></div>

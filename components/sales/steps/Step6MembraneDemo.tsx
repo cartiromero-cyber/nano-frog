@@ -4,7 +4,7 @@ import type { StepProps } from "@/types/sales";
 import { SALES_ASSETS } from "@/content/sales-assets";
 import { useAssetReady } from "@/components/sales/useAsset";
 
-const PHASES = ["Dry, weathered shingle surface", "Nano Frog membrane flows across", "Surface seals — granules stabilize", "Water beads on contact", "Protected — documented"];
+const PHASES = ["Dry, weathered shingle surface", "Elytra Shield membrane flows across", "Surface seals — granules stabilize", "Water beads on contact", "Protected — documented"];
 
 export default function Step6MembraneDemo(_: StepProps) {
   const [run, setRun] = useState(true);

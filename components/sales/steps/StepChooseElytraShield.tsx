@@ -1,10 +1,10 @@
 'use client';
 import type { StepProps } from "@/types/sales";
 
-export default function StepChooseNanoFrog(_: StepProps) {
+export default function StepChooseElytraShield(_: StepProps) {
   return (
     <div className="s-wrap" style={{ textAlign: "center" }}>
-      <span className="s-eyebrow">Why homeowners choose Nano Frog</span>
+      <span className="s-eyebrow">Why homeowners choose Elytra Shield</span>
       <h2 className="s-h">The same reason people buy insurance.</h2>
       <p className="s-lead" style={{ margin: "0 auto" }}>Not because something is wrong. Because they want to keep it that way.</p>
       <div className="choose-split">

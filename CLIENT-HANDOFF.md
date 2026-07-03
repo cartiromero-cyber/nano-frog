@@ -1,6 +1,6 @@
 # Client Handoff
 
-This is a production-grade Next.js project that preserves the approved Nano Frog design.
+This is a production-grade Next.js project that preserves the approved Elytra Shield design.
 
 ## What’s included
 - Approved homepage, organized into section components (identical visual output)

@@ -1,4 +1,4 @@
--- Nano Frog — Roof Assurance Plan(TM) memberships. Run AFTER org.sql. Safe to re-run.
+-- Elytra Shield — Roof Assurance Plan(TM) memberships. Run AFTER org.sql. Safe to re-run.
 alter table memberships add column if not exists rep_id uuid references reps(id) on delete set null;
 alter table memberships add column if not exists start_date date;
 alter table memberships add column if not exists renewal_date date;

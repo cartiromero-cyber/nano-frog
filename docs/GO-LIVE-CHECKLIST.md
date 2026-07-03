@@ -1,4 +1,4 @@
-# Nano Frog — Go-Live Checklist
+# Elytra Shield — Go-Live Checklist
 
 Work top to bottom. Anything marked **[client]** needs the client's confirmation before launch.
 
@@ -30,7 +30,7 @@ Work top to bottom. Anything marked **[client]** needs the client's confirmation
 
 ## 4. First admin (one-time, by SQL)
 - [ ] Supabase → Authentication → Add user (email + password). Copy the user UUID.
-- [ ] SQL: `insert into reps (user_id, name, email, role, territory, active) values ('<uuid>', 'Owner Name', 'owner@nanofrog.com', 'ADMIN', 'Georgia', true);`
+- [ ] SQL: `insert into reps (user_id, name, email, role, territory, active) values ('<uuid>', 'Owner Name', 'owner@elytrashield.com', 'ADMIN', 'Georgia', true);`
 - [ ] Sign in at `/login` → you should land on `/rep` and see admin nav
 > After this, all further reps/managers/admins are created from `/admin/reps/new` — no more SQL.
 

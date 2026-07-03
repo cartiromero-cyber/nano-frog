@@ -199,8 +199,8 @@ export async function assignmentHistory(leadId: string) {
 /* ── demo fallback ── */
 function demoReps(): RepRow[] {
   return [
-    { id: "r1", name: "Jane Rep", email: "jane@nanofrog.com", role: "REP", territory: "Macon", manager_id: "m1", active: true, perf: { assignedLeads: 12, presentations: 8, sold: 3, conversion: 38, overdue: 1 } },
-    { id: "m1", name: "Sam Manager", email: "sam@nanofrog.com", role: "MANAGER", territory: "Middle GA", manager_id: null, active: true, perf: { assignedLeads: 0, presentations: 0, sold: 0, conversion: 0, overdue: 0 } },
+    { id: "r1", name: "Jane Rep", email: "jane@elytrashieldroofing.com", role: "REP", territory: "Macon", manager_id: "m1", active: true, perf: { assignedLeads: 12, presentations: 8, sold: 3, conversion: 38, overdue: 1 } },
+    { id: "m1", name: "Sam Manager", email: "sam@elytrashieldroofing.com", role: "MANAGER", territory: "Middle GA", manager_id: null, active: true, perf: { assignedLeads: 0, presentations: 0, sold: 0, conversion: 0, overdue: 0 } },
   ];
 }
 function demoAdminLeads() {

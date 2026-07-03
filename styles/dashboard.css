@@ -91,7 +91,7 @@
 .rep-form label{display:grid;gap:5px;font-size:.82rem;color:var(--muted)}
 .rep-form .s-input,.rep-form select{border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:.92rem;background:#fff;color:var(--ink)}
 .rep-msg{font-size:.9rem;color:var(--ink)}
-.rep-temp{background:var(--score-soft);border:1px solid rgba(132,216,81,.4);border-radius:10px;padding:10px 12px;font-size:.88rem}
+.rep-temp{background:var(--score-soft);border:1px solid rgba(126,217,87,.4);border-radius:10px;padding:10px 12px;font-size:.88rem}
 .rep-temp code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:2px 7px;font-weight:700}
 .bulk-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .bulk-bar strong{font-family:var(--disp);color:var(--ink)}

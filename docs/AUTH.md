@@ -30,7 +30,7 @@ mode**: no login is required and dashboards show a "Demo Admin" badge with zeroe
 2. Insert their profile and role:
    ```sql
    insert into reps (user_id, name, email, role, territory, active)
-   values ('<auth-user-uuid>', 'Jane Rep', 'jane@nanofrog.com', 'REP', 'Macon', true);
+   values ('<auth-user-uuid>', 'Jane Rep', 'jane@elytrashield.com', 'REP', 'Macon', true);
    ```
 3. For a manager, set `role = 'MANAGER'`; assign reps to them with `update reps set manager_id = '<manager-rep-id>' where id = '<rep-id>';`
 4. For an admin, set `role = 'ADMIN'`.

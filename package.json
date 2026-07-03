@@ -1,8 +1,8 @@
 {
-  "name": "nano-frog-website",
+  "name": "elytra-shield-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Nano Frog \u2014 nanotechnology roof preservation. Production website.",
+  "description": "Elytra Shield \u2014 advanced roof preservation. Production website.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -53,8 +53,8 @@ export default function Presentation() {
     <div className="sales-shell" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       <header className="sales-bar">
         <div className="sales-brand">
-          <img src="/assets/nanofrog-mark.png" alt="Nano Frog" width={28} height={28} />
-          <span>Nano Frog</span>
+          <img src="/assets/elytrashield-mark.svg" alt="Elytra Shield" width={28} height={28} />
+          <span>Elytra Shield</span>
         </div>
         <div className="sales-steplabel">{STEPS[i].title}</div>
         <div className="sales-timer" aria-label="Presentation time">{mm}:{ss}</div>

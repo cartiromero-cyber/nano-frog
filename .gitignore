@@ -24,3 +24,4 @@ next-env.d.ts
 *.zip
 .qa_write_test
 tsconfig.tsbuildinfo
+remnant-church-international/

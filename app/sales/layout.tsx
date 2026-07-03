@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/sales.css";
 
 export const metadata: Metadata = {
-  title: "Nano Frog — Roof Assessment",
+  title: "Elytra Shield — Roof Assessment",
   robots: { index: false, follow: false }, // presentation tool, not public SEO
   manifest: "/sales.webmanifest",
 };

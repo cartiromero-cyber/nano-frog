@@ -21,8 +21,8 @@ backend, CRM, admin, and passport logic were not changed.
   → green-tinted membrane **flows** across (no glow) → surface **darkens/seals** → realistic
   **water beads** form (radial-gradient droplets with real highlights/shadows) → calm captions cycle
   the phases. **Drop-in `membrane-demo.mp4` auto-plays over the procedural version when present.**
-- **Slide 4 — What Is Nano Frog:** replaced the abstract panel with a **realistic cross-section** —
-  fiberglass mat → asphalt layer → granule layer (real granule dots) → **Nano Frog membrane** sheen
+- **Slide 4 — What Is Elytra Shield:** replaced the abstract panel with a **realistic cross-section** —
+  fiberglass mat → asphalt layer → granule layer (real granule dots) → **Elytra Shield membrane** sheen
   at the surface → **water beads on top** → **UV rays deflecting**. Labeled like an inspection diagram.
 - **Slide 3 — Cost of Delay:** larger chart, a **shaded gap area** between the two cost lines (the
   cost of waiting is now visually obvious), and a clear **"replacement"** jump marker on the delay line.
