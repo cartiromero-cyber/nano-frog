@@ -3,7 +3,8 @@ export type LeadType = "assessment" | "insurance-review" | "contact";
 export interface BaseLeadFields {
   name: string;
   phone: string;
-  email: string;
+  email?: string;
+  address?: string;
   city?: string;
   message?: string;
   // honeypot (must be empty for a real human)

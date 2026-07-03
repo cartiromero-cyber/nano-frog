@@ -7,8 +7,8 @@ export default function CostComparison() {
  <span class="eyebrow">Preservation vs. replacement</span>
  <h2 style="margin:16px 0 14px">A fraction of the cost — when your roof qualifies.</h2>
  <p class="muted">Preservation is typically a small share of what a full replacement costs. The exact numbers depend on your roof's size, age, condition, and access — which is why an inspection comes first.</p>
- <p class="muted" style="margin-top:12px;font-size:.9rem">Figures shown are illustrative only.</p>
- <a class="btn btn-g" href="#assess" style="margin-top:18px">Get my estimate
+ <p class="muted" style="margin-top:12px;font-size:.9rem">Every roof is different. Pricing is determined after your Roof Health Assessment &mdash; and most qualifying roofs cost significantly less than replacement. Figures shown are illustrative only.</p>
+ <a class="btn btn-g" href="/book" style="margin-top:18px">Get my estimate
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
  </div>
  <div class="reveal">

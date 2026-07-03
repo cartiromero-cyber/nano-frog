@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { validateAssessment } from "@/lib/validation";
 import { saveLead } from "@/lib/leads";
-import { sendLeadNotification } from "@/lib/email";
+import { sendLeadNotification, sendBookingConfirmation } from "@/lib/email";
 import { checkRateLimit } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
@@ -27,8 +27,9 @@ export async function POST(req: NextRequest) {
 
     const lead = await saveLead("assessment", data);
     await sendLeadNotification("New Free Roof Assessment request", lead);
+    await sendBookingConfirmation(lead); // Change 014: simple homeowner confirmation
 
-    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We’ll reach out to schedule your free roof assessment." });
+    return NextResponse.json({ ok: true, id: lead.id, message: "Thanks! We’ll call or text within one business day to confirm your assessment window." });
   } catch (err) {
     console.error(err);
     return NextResponse.json(

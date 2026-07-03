@@ -1,16 +1,22 @@
+import { PHONE, PHONE_TEL } from "@/content/site";
+
 export default function Footer() {
+ // Changes 003 + 004 (approved): every footer link now points to a real, existing page;
+ // click-to-call renders when NEXT_PUBLIC_PHONE is configured. Design unchanged.
+ const phoneRow = PHONE ? `<a href="${PHONE_TEL}" style="display:block;margin-top:10px;font-weight:600">${PHONE}</a>` : "";
  return (
  <footer
  dangerouslySetInnerHTML={{ __html: `
  <div class="wrap">
  <div class="fgrid">
  <div>
- <a href="#top"><img src="assets/elytra-shield-logo.png" alt="Elytra Shield — Roof Preservation" style="height:60px;width:auto;display:block"></a>
+ <a href="/"><img src="/assets/elytra-shield-logo.png" alt="Elytra Shield — Roof Preservation" style="height:60px;width:auto;display:block"></a>
  <p class="fdesc">Protect what protects your home. Advanced roof preservation, an honest Roof Health Assessment™, and documentation you keep.</p>
+ ${phoneRow}
  </div>
- <div><h5>Homeowners</h5><a href="#">Roof Preservation</a><a href="#">Is My Roof a Candidate?</a><a href="#">Roof &amp; Insurance</a><a href="#">Cost vs. Replacement</a></div>
- <div><h5>Commercial</h5><a href="#">Roof Asset Management</a><a href="#">Restore vs. Replace</a><a href="#">Request Assessment</a></div>
- <div><h5>Company</h5><a href="#">Learning Center</a><a href="#">The Roof Health Assessment™</a><a href="#">Service Area</a><a href="#assess">Free Assessment</a></div>
+ <div><h5>Homeowners</h5><a href="/#what-is-elytra-shield">Roof Preservation</a><a href="/#qualify">Is My Roof a Candidate?</a><a href="/roof-insurance/">Roof &amp; Insurance</a><a href="/learning-center/roof-preservation-vs-replacement/">Cost vs. Replacement</a></div>
+ <div><h5>Commercial</h5><a href="/learning-center/">Roof Asset Management</a><a href="/learning-center/roof-preservation-vs-replacement/">Restore vs. Replace</a><a href="/book">Request Assessment</a></div>
+ <div><h5>Company</h5><a href="/learning-center/">Learning Center</a><a href="/roof-health-score/">The Roof Health Assessment™</a><a href="/sample-report">Sample Report</a><a href="/book">Free Assessment</a></div>
  </div>
  <div class="fbot">
  <span>© 2026 Elytra Shield. All rights reserved. Elytra Shield is an independent roof-preservation service and is not affiliated with any shingle or product manufacturer.</span>

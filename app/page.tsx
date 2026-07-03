@@ -6,6 +6,7 @@ import ProblemSection from "@/components/ProblemSection";
 import ElytraShieldDifference from "@/components/ElytraShieldDifference";
 import SavingsSection from "@/components/SavingsSection";
 import QualifySection from "@/components/QualifySection";
+import WhyElytraShield from "@/components/WhyElytraShield";
 import HowItWorks from "@/components/HowItWorks";
 import ScienceBehindProtection from "@/components/ScienceBehindProtection";
 import CostComparison from "@/components/CostComparison";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <ElytraShieldDifference />
       <SavingsSection />
       <QualifySection />
+      <WhyElytraShield />
       <HowItWorks />
       <ScienceBehindProtection />
       <CostComparison />

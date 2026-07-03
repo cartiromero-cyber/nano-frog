@@ -16,7 +16,7 @@ export default function PreservationDifference() {
  <div class="pd-handle"><div class="pd-grip" id="pdGrip" role="slider" tabindex="0" aria-label="Drag to compare aged versus preserved roof" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></div></div>
  </div>
  <p class="pd-hint">Drag to compare</p>
- <div class="pd-cta"><a class="btn btn-g" href="#assess">See If Your Roof Qualifies
+ <div class="pd-cta"><a class="btn btn-g" href="/book">See If Your Roof Qualifies
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
  <p class="pd-note">Illustrative visualization. Actual appearance and results vary by roof; preservation suitability is confirmed by an on-site inspection.</p>
  </div>

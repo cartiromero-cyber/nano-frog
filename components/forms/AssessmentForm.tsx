@@ -1,11 +1,12 @@
 'use client';
 import { useState } from "react";
-import { roofTypes, roofAgeRanges } from "@/content/formOptions";
 import { trackFormSubmit } from "@/lib/analytics";
 
 const field = "w-full border rounded-md px-3 py-2 text-[15px]";
 const label = "block text-sm font-medium mb-1";
 
+// Change 002 (approved with modifications): Required — Name, Phone, Property Address.
+// Optional — Email. All other fields removed; details are gathered at the assessment itself.
 export default function AssessmentForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [msg, setMsg] = useState("");
@@ -15,11 +16,11 @@ export default function AssessmentForm() {
     setStatus("sending");
     const f = new FormData(e.currentTarget);
     const payload = {
-      name: f.get("name"), phone: f.get("phone"), email: f.get("email"), city: f.get("city"),
-      roofAge: f.get("roofAge"), roofType: f.get("roofType"),
-      insuranceConcern: f.get("insuranceConcern") === "Yes",
-      visibleDamage: f.get("visibleDamage") === "Yes",
-      message: f.get("message"), company: f.get("company"), // honeypot
+      name: f.get("name"),
+      phone: f.get("phone"),
+      address: f.get("address"),
+      email: f.get("email"),
+      company: f.get("company"), // honeypot
     };
     try {
       const res = await fetch("/api/leads/assessment", {
@@ -31,34 +32,31 @@ export default function AssessmentForm() {
     } catch { setStatus("error"); setMsg("Network error. Please try again."); }
   }
 
-  if (status === "ok") return <p className="text-[15px]">{msg}</p>;
+  // Change 014 (approved, simple): clear on-screen booking confirmation with next steps.
+  if (status === "ok") return (
+    <div className="grid gap-2">
+      <h3 style={{ fontFamily: "var(--disp)", color: "var(--ink)" }}>Request received — you&rsquo;re on the schedule.</h3>
+      <p className="text-[15px]" style={{ color: "var(--muted)" }}>{msg}</p>
+      <p className="text-[15px]" style={{ color: "var(--muted)" }}>
+        What happens next: we&rsquo;ll call or text within one business day to confirm your assessment window.
+        The visit takes about 30 minutes, and the documented Roof Health Report&trade; is yours to keep —
+        whatever it says.
+      </p>
+    </div>
+  );
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4" noValidate>
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-      <div><label className={label}>Name</label><input name="name" required className={field} /></div>
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div><label className={label}>Phone</label><input name="phone" required className={field} /></div>
-        <div><label className={label}>Email</label><input name="email" type="email" required className={field} /></div>
-      </div>
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div><label className={label}>City</label><input name="city" className={field} /></div>
-        <div><label className={label}>Roof age</label>
-          <select name="roofAge" className={field}>{roofAgeRanges.map((o) => <option key={o}>{o}</option>)}</select></div>
-      </div>
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div><label className={label}>Roof type</label>
-          <select name="roofType" className={field}>{roofTypes.map((o) => <option key={o}>{o}</option>)}</select></div>
-        <div><label className={label}>Insurance concern?</label>
-          <select name="insuranceConcern" className={field}><option>No</option><option>Yes</option></select></div>
-      </div>
-      <div><label className={label}>Visible damage?</label>
-        <select name="visibleDamage" className={field}><option>No</option><option>Yes</option><option>Not sure</option></select></div>
-      <div><label className={label}>Message (optional)</label><textarea name="message" rows={3} className={field} /></div>
-      <div><label className={label}>Roof photo (optional)</label><input name="photo" type="file" accept="image/*" className={field} /></div>
+      <div><label className={label}>Name</label><input name="name" required autoComplete="name" className={field} /></div>
+      <div><label className={label}>Phone</label><input name="phone" required type="tel" autoComplete="tel" className={field} /></div>
+      <div><label className={label}>Property address</label><input name="address" required autoComplete="street-address" placeholder="Street, city" className={field} /></div>
+      <div><label className={label}>Email <span className="font-normal" style={{ color: "var(--muted)" }}>(optional)</span></label>
+        <input name="email" type="email" autoComplete="email" className={field} /></div>
       <button type="submit" className="btn btn-g" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Request My Free Assessment"}
+        {status === "sending" ? "Sending…" : "Book My Free Assessment"}
       </button>
+      <p className="text-sm" style={{ color: "var(--muted)", margin: 0 }}>Free · No obligation · No subscription · You keep the report</p>
       {status === "error" && <p className="text-sm" style={{ color: "#C0532E" }}>{msg}</p>}
     </form>
   );

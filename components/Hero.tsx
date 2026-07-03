@@ -11,9 +11,9 @@ export default function Hero() {
  <h1>Protect What Protects <em>Your Home.</em></h1>
  <p class="sub">Advanced roof preservation designed to extend the life of aging roofing systems and help homeowners avoid premature, expensive replacement.</p>
  <div class="cta-row">
- <a class="btn btn-g btn-pulse" href="#assess">Schedule Free Roof Health Assessment
+ <a class="btn btn-g btn-pulse" href="/book">Schedule Free Roof Health Assessment
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
- <a class="btn btn-o" href="#assess">View Sample Assessment</a>
+ <a class="btn btn-o" href="/sample-report">View Sample Assessment</a>
  </div>
  <div class="htrust">
  <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Inspection first</span>

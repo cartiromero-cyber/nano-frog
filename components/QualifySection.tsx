@@ -17,7 +17,7 @@ export default function QualifySection() {
  <div class="inner">
  <div class="big">"If you need a new roof, we'll tell you."</div>
  <p>That promise is the whole brand. An honest score and a clear recommendation — even when it isn't the answer that makes us money.</p>
- <a class="btn btn-g" href="#assess">Check my roof's candidacy
+ <a class="btn btn-g" href="/book">Check my roof's candidacy
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
  </div>
  </div>
