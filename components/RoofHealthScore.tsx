@@ -35,7 +35,13 @@ export default function RoofHealthScore() {
  <div class="factor"><span class="fl">Weather exposure</span><span class="bar"><i data-w="66"></i></span><span class="fv">Moderate</span></div>
  </div>
  </div>
- <p class="center muted" style="text-align:center;margin-top:22px;font-size:.86rem">Every assessment produces a score and a documented Roof Health Report™ — whether the recommendation is to preserve or to replace.</p>
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:30px">
+ <div style="background:rgba(255,255,255,.04);border:1px solid rgba(126,217,87,.45);border-radius:14px;padding:16px 18px"><div style="font-family:var(--disp);font-weight:700;color:var(--score)">PRESERVE</div><p style="font-size:.84rem;color:var(--muted-d);line-height:1.55;margin-top:4px">The roof has protectable life — the score and age gates say so.</p></div>
+ <div style="background:rgba(255,255,255,.04);border:1px solid rgba(224,161,46,.5);border-radius:14px;padding:16px 18px"><div style="font-family:var(--disp);font-weight:700;color:#E0A12E">MONITOR</div><p style="font-size:.84rem;color:var(--muted-d);line-height:1.55;margin-top:4px">Not yet clear — re-checked on a schedule, at no pressure.</p></div>
+ <div style="background:rgba(255,255,255,.04);border:1px solid rgba(192,83,46,.55);border-radius:14px;padding:16px 18px"><div style="font-family:var(--disp);font-weight:700;color:#C0532E">REPLACE</div><p style="font-size:.84rem;color:var(--muted-d);line-height:1.55;margin-top:4px">The honest answer, in writing — and we don't sell roofs.</p></div>
+ </div>
+ <p class="center muted" style="text-align:center;margin-top:26px;font-size:.9rem"><b style="color:#fff">No photo, no score.</b> &nbsp;·&nbsp; <b style="color:#fff">Inspectors are never paid on treatment sales.</b> &nbsp;·&nbsp; <b style="color:#fff">You always receive the entire score.</b></p>
+ <p class="center muted" style="text-align:center;margin-top:10px;font-size:.86rem">Three verdicts. No fourth category. No hidden recommendations. <a href="/how-we-score" style="color:var(--score);text-decoration:underline">Read the full published standard</a> — whether the recommendation is to preserve or to replace, the score and the report are yours.</p>
  </div>
  </div>
 ` }}

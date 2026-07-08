@@ -7,18 +7,18 @@ export default function Hero() {
  <div class="wrap">
  <div class="hgrid">
  <div>
- <span class="eyebrow lt">Roof Preservation · Roof Health Assessment</span>
- <h1>Protect What Protects <em>Your Home.</em></h1>
- <p class="sub">Advanced roof preservation designed to extend the life of aging roofing systems and help homeowners avoid premature, expensive replacement.</p>
+ <span class="eyebrow lt">Protect What Protects Your Home.™</span>
+ <h1>Keep the Roof You <em>Already Paid For.</em></h1>
+ <p class="sub">Elytra Shield helps homeowners get the maximum life from the roof they already own — through roof health assessments, preservation systems, and annual roof intelligence.</p>
  <div class="cta-row">
- <a class="btn btn-g btn-pulse" href="/book">Schedule Free Roof Health Assessment
+ <a class="btn btn-g btn-pulse" href="/book">Get Your Free Roof Health Assessment
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
  <a class="btn btn-o" href="/sample-report">View Sample Assessment</a>
  </div>
  <div class="htrust">
- <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Inspection first</span>
- <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> We'll tell you if you need a new roof</span>
- <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Documented Roof Health Report</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Free: Roof Health Score™, photos &amp; written verdict — yours to keep</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Preserve · Monitor · Replace — if you need a roofer, we'll say so</span>
+ <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Roof Passport™ — your roof's permanent record, started free</span>
  </div>
  </div>
  <div class="reveal">

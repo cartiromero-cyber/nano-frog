@@ -21,8 +21,8 @@ export default function HomePage() {
     <>
       <Header />
       <Hero />
-      <WhatIsElytraShield />
       <ProblemSection />
+      <WhatIsElytraShield />
       <ElytraShieldDifference />
       <SavingsSection />
       <QualifySection />
