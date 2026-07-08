@@ -104,7 +104,11 @@ header.solid .navlinks a.nl:hover{color:var(--green)}
 .reveal{opacity:0;transform:translateY(26px);transition:.8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.shead{max-width:62ch}
+/* Layout polish (owner-approved): section heading groups center as a BLOCK via
+   margin-inline:auto while their text stays left-aligned internally — the reusable
+   primitive that balances Problem / Difference / Lifecycle / Learning Center on wide
+   desktops. .shead.center remains the fully-centered variant. */
+.shead{max-width:62ch;margin-inline:auto}
 .shead h2{margin:16px 0 14px}
 .shead.center{margin:0 auto;text-align:center}
 .shead.center .eyebrow{justify-content:center}
@@ -143,6 +147,7 @@ header.solid .navlinks a.nl:hover{color:var(--green)}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:50px;counter-reset:s}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){.steps{grid-template-columns:1fr}}
 .step{padding:28px 22px;border-left:1px solid var(--line);position:relative}
+.steps .step:first-child{border-left:0} /* symmetric edges: 4 internal dividers, none on the outer edges */
 .step:first-child{border-left:0}
 @media(max-width:900px){.step{border-left:0;border-top:1px solid var(--line)}}
 .step .sn{font-family:var(--disp);font-weight:700;font-size:.9rem;color:var(--green);display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
@@ -224,7 +229,7 @@ footer{background:var(--ink);color:var(--muted-d);padding:54px 0 38px;border-top
 .nfwhat{padding:clamp(70px,9vw,120px) 0;background:#fff;border-bottom:1px solid var(--line)}
 .nfwhat .nfw-head{text-align:center;max-width:60ch;margin:0 auto 44px}
 .nfwhat .nfw-head h2{font-size:clamp(1.9rem,4vw,3rem);margin:14px 0 0}
-.nfwhat .nfw-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.nfwhat .nfw-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center} /* equal halves: balanced centered composition */
 .nfwhat .nfw-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .nfwhat .nfcard{background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
 .nfwhat .nfcard .nf-ic{width:42px;height:42px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--green);margin-bottom:14px}
