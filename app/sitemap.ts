@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, priority: 1 },
     { url: `${SITE}/book`, lastModified: now, priority: 0.9 },
     { url: `${SITE}/sample-report`, lastModified: now, priority: 0.8 },
+    { url: `${SITE}/how-we-score`, lastModified: now, priority: 0.8 },
     { url: `${SITE}/roof-health-score/`, lastModified: now, priority: 0.8 },
     { url: `${SITE}/roof-insurance/`, lastModified: now, priority: 0.8 },
     { url: `${SITE}/learning-center/`, lastModified: now, priority: 0.7 },

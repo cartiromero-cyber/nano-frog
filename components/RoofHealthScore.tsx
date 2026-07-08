@@ -23,7 +23,7 @@ export default function RoofHealthScore() {
  <div>
  <div class="sc-status">Status</div>
  <div class="sc-statpill">Likely Preservation Candidate</div>
- <div class="sc-note">Example only — official score requires inspection. Scoring methodology</div>
+ <div class="sc-note">Example only — official score requires inspection. <a href="/how-we-score" style="color:var(--score);text-decoration:underline">See exactly how we score</a></div>
  </div>
  </div>
  <div class="sc-factors">
