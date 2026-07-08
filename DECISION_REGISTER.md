@@ -29,6 +29,8 @@ rejections are kept forever; they are institutional memory).
 | DOC-3 | **Design Preservation Mandate:** colors, typography, layout, motion are v1.0-approved; conversion changes only, inside the existing design language. | Owner mandate |
 | DOC-4 | **Category position:** "We help homeowners get the maximum life from the roof they already own." Roof Intelligence company, not a coating company. | Grand Slam Offer + Buyer's Review |
 | DOC-5 | **Roof Lifecycle language** (owner-added at Rev D lock): Assessment → Protection → Continuity → Refresh. "Treatment/maintenance/retreatment" vocabulary retired from customer-facing use. Implementation: queued copy batch. | Rev D lock session |
+| DOC-6 | **Score Disclosure Rule:** the customer always receives the overall score, full factor breakdown, all photos, and the written verdict. Never hidden, never "internal," never proprietary. The methodology is the moat — not secrecy. | S-001 lock session |
+| S-001 | **Roof Health Score™ Standard v1 — LOCKED.** Factor anchors, verdict thresholds, no-photo-no-score, inspector-pay integrity rule (never compensated on conversion — sacred), calibration + second-scorer audits, version-pinned re-scores, Section-8 version control (v1.x anchors / v2.0 formula, code + doc + public page updated in the same commit). Three verdicts only — Preserve / Monitor / Replace. | Owner approval, no material changes |
 | O-002 | **Pricing (Rev D, FINAL):** Bands $2,950 / $3,650 / $4,450 / from $5,400 + disclosed 10–15% complexity modifier · 25%-of-replacement cap · measured-not-negotiated · one price · NO discounts ever · reveal only at Investment slide · 12-month price-lock from assessment · 55% GM floor (Mode B), 62–68% target · full review gate at job 25. | Pricing Model Rev D |
 | O-003 | **$249 a-la-carte / realtor assessment SKU** (flat, no professional discounts; makes "included free" honest). | Rev D §10 |
 | LIFE-1 | **Free Assessment Model:** Free assessment → System → Complimentary Year-1 Reassessment → Continuity offer AT the year-1 visit. NEVER a membership pitch at close. "No subscription" stays literally true on treatment day. | Rev B→D |
@@ -59,7 +61,7 @@ rejections are kept forever; they are institutional memory).
 
 | ID | Item | Blocking on |
 |---|---|---|
-| S-001 | **Roof Health Score™ Standard v1** — full internal standard (anchors, thresholds, photo rules, inspector consistency, re-score methodology). Draft delivered for approval. | Owner approval of the draft |
+| — | ~~S-001 draft~~ → **LOCKED** (moved to Section 1). Public page upgraded to v1.1 to match (verdict thresholds, integrity rules, disclosure rule, worked example). | Done |
 | P-004 | Investment slide (now UNBLOCKED by Rev D — Band table + pay-on-completion + price-lock) | Build approval |
 | H-008 | Homepage offer-stack block (unblocked by Rev D) | Build approval |
 | REVD-CODE | Rev D code batch: membership.ts → single Continuity Program, enrollment panel out of deck close, passport panel reframe, Lifecycle language pass (DOC-5) | Build approval |

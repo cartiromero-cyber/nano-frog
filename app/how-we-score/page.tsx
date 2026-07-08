@@ -69,17 +69,58 @@ export default function HowWeScorePage() {
             ))}
           </div>
 
+          <div className="shead" style={{ maxWidth: "62ch", marginTop: 48 }}>
+            <span className="eyebrow">The verdict rules</span>
+            <h2 style={{ fontSize: "clamp(1.5rem,3vw,2.1rem)" }}>How a score becomes a recommendation.</h2>
+            <p className="muted">Published in full, because the verdict should never be a mystery — or a mood.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 14, marginTop: 20 }}>
+            <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
+              <div style={{ fontWeight: 700, color: "var(--green)", fontFamily: "var(--disp)" }}>PRESERVE</div>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score 78+ with roof age 18 years or less (strong candidate), or 62+ with age 22 or less (good candidate, confirmed on-site).</p>
+            </div>
+            <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
+              <div style={{ fontWeight: 700, color: "#E0A12E", fontFamily: "var(--disp)" }}>MONITOR</div>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score 45–61, or a higher score outside the age gates — a closer evaluation before any recommendation is made.</p>
+            </div>
+            <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
+              <div style={{ fontWeight: 700, color: "#C0532E", fontFamily: "var(--disp)" }}>REPLACE</div>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score below 45. Preservation is not the right path — your report says so in writing, and we don&rsquo;t sell roofs.</p>
+            </div>
+          </div>
+
           <div style={{ maxWidth: "62ch", marginTop: 40 }}>
             <h3 style={{ marginBottom: 8 }}>The rules we hold ourselves to</h3>
             <p className="muted" style={{ marginBottom: 10 }}>
-              An official score is produced only from an on-site inspection — photographed at every
-              checkpoint, scored in front of you, and delivered in a written report you keep. Roof type
-              adjusts the final number slightly (different materials age differently). Every assessment
-              ends in one of three written verdicts: <b>preserve</b>, <b>monitor</b>, or <b>replace</b> —
-              and if the honest answer is replace, that&rsquo;s what your report will say.
+              <b>No photo, no score.</b> Every factor we rate must cite an inspection photo from your
+              roof — a score without evidence is an opinion, and we don&rsquo;t sell opinions.
+            </p>
+            <p className="muted" style={{ marginBottom: 10 }}>
+              <b>Our inspectors are never paid on treatment sales.</b> Nobody at Elytra Shield earns
+              more when your roof scores lower. The score has one job: being right.
+            </p>
+            <p className="muted" style={{ marginBottom: 10 }}>
+              <b>You always get the whole score.</b> Overall number, every factor, every photo, and the
+              written verdict — nothing held back, nothing &ldquo;internal.&rdquo; Roof type adjusts the
+              final number slightly (different materials age differently), and that adjustment is shown too.
+            </p>
+            <p className="muted" style={{ marginBottom: 10 }}>
+              <b>Every assessment ends in one of three written verdicts</b> — preserve, monitor, or
+              replace — and if the honest answer is replace, that&rsquo;s what your report will say.
+            </p>
+            <h3 style={{ margin: "26px 0 8px" }}>What four quiet years do to a score</h3>
+            <p className="muted" style={{ marginBottom: 10 }}>
+              A real example from our methodology: an 8-year-old roof scoring <b>82</b> — no leaks, no
+              failures, nothing dramatic — re-scored at age 12 after normal weathering and one hail
+              season: <b>67</b>. Granules washed a little each season, flexibility faded as oils
+              evaporated, and the calendar did the rest. Fifteen points, without a single &ldquo;problem.&rdquo;
+              That&rsquo;s why a roof never scores higher than it does today.
             </p>
             <p className="muted" style={{ fontSize: ".86rem" }}>
-              Methodology version 1.0 (published July 2026). If we change the rubric, the change and the
+              <b>Version history</b> — v1.1 (July 2026): published verdict thresholds, inspector-pay
+              integrity rule, no-photo-no-score rule, full-disclosure rule, and the worked aging example,
+              following adoption of the internal Roof Health Score Standard v1. · v1.0 (July 2026):
+              initial publication — factors, weights, bands. If we change the rubric, the change and the
               reason will be listed here — that&rsquo;s what publishing a standard means.
             </p>
             <div className="cta-row" style={{ marginTop: 22 }}>
