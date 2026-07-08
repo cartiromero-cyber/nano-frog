@@ -36,7 +36,7 @@ export default function SavingsSection() {
  <div class="cmp pres">
  <div class="ct">Preserve First</div>
  <ul>
- <li><svg viewBox="0 0 24 24" fill="none" stroke="#7ED957" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Inspection first</span></li>
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#7ED957" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Assessment first</span></li>
  <li><svg viewBox="0 0 24 24" fill="none" stroke="#7ED957" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Lower immediate disruption</span></li>
  <li><svg viewBox="0 0 24 24" fill="none" stroke="#7ED957" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>May delay replacement for qualifying roofs</span></li>
  </ul>

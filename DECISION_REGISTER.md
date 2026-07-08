@@ -45,7 +45,15 @@ rejections are kept forever; they are institutional memory).
 | O-015 | Dataset policy from job #1: every assessment stored complete (score, factors, photos, verdict, re-score date), including untreated control-group roofs. | Owner approval |
 | O-017 | KPI gate: assessment→close measured on first 25 assessments before scaling; Assessment Close Rate is dashboard metric #1. Floor 15% / healthy 20% / target 25%. | Owner approval |
 | O-018 | Reliability-visit boundary rule: our-application issues = free under guarantee; new wear = honestly quoted; the report states which is which. | Rev B→D |
-| GUAR-1 | Risk-reversal stack: Pay-on-completion (no deposits exist) · 3-day cancel stated proudly · Honest-No in writing · walk-the-roof photo review before payment. | Grand Slam Offer (attorney pass pending → O-005) |
+| GUAR-1 | Risk-reversal stack: Pay-on-completion · 3-day cancel stated proudly · Honest-No in writing · walk-the-roof photo review before payment. **GUAR-1a (owner flag, adopted):** public language scoped to "no deposits on residential preservation projects" — operationally maintainable at current ticket sizes; commercial/estate work negotiates terms separately. Revert to unscoped "ever" only by change request. | Grand Slam Offer + homepage verification session |
+| LANG-1 | **"Assessment," never "inspection," in offer language.** Inspections are commodities; assessments imply methodology. "Inspection" permitted only when describing the physical act inside explanatory copy. | Homepage verification session |
+
+### 🔴 LAUNCH BLOCKERS (hard gates — deployment sequence is attorney → artifacts → launch, not the reverse)
+| Gate | Why it now blocks |
+|---|---|
+| M4 — Founder section content (photo, story, industry experience, why Elytra exists, Honest-No commitment) | The homepage now makes doctrine-level trust claims (never paid on sales, full disclosure, Honest-No). Trust claims require a face. Slots are built and waiting in components/WhyElytraShield.tsx. |
+| O-005/019 — Attorney-finalized written warranty | "Written warranty" is now a public representation in the homepage offer stack. It must exist as a document before the page that promises it goes live. |
+| DEPLOY env values | Supabase keys · LEAD_STORE=supabase · Resend + verified domain · NEXT_PUBLIC_SITE_URL · NEXT_PUBLIC_PHONE (see DEPLOYMENT_CHECKLIST.md). |
 
 ### Implemented & shipped (code, committed locally)
 - Website conversion batch: /book page + all CTAs wired, slim form (name/phone/address), phone config, dead links fixed, /sample-report, Why Elytra Shield section, booking confirmations (commits `8236a59`).

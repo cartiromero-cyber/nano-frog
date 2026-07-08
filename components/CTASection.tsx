@@ -26,7 +26,7 @@ export default function CTASection() {
  <span>✓ Complimentary annual reassessment</span>
  <span>✓ Preservation Refresh™ eligibility</span>
  </div>
- <p style="text-align:center;font-size:.8rem;color:var(--muted-d);margin-top:14px">Pay on completion — no deposits, ever. Every assessment ends in a written verdict, and the report is yours to keep either way.</p>
+ <p style="text-align:center;font-size:.8rem;color:var(--muted-d);margin-top:14px">Pay when the work is done — no deposits on residential preservation projects. Every assessment ends in a written verdict, and the report is yours to keep either way.</p>
  </div>
  <div class="cta-row">
  <a class="btn btn-g btn-pulse" href="/book">Schedule Free Roof Health Assessment

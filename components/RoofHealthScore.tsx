@@ -41,7 +41,9 @@ export default function RoofHealthScore() {
  <div style="background:rgba(255,255,255,.04);border:1px solid rgba(192,83,46,.55);border-radius:14px;padding:16px 18px"><div style="font-family:var(--disp);font-weight:700;color:#C0532E">REPLACE</div><p style="font-size:.84rem;color:var(--muted-d);line-height:1.55;margin-top:4px">The honest answer, in writing — and we don't sell roofs.</p></div>
  </div>
  <p class="center muted" style="text-align:center;margin-top:26px;font-size:.9rem"><b style="color:#fff">No photo, no score.</b> &nbsp;·&nbsp; <b style="color:#fff">Inspectors are never paid on treatment sales.</b> &nbsp;·&nbsp; <b style="color:#fff">You always receive the entire score.</b></p>
- <p class="center muted" style="text-align:center;margin-top:10px;font-size:.86rem">Three verdicts. No fourth category. No hidden recommendations. <a href="/how-we-score" style="color:var(--score);text-decoration:underline">Read the full published standard</a> — whether the recommendation is to preserve or to replace, the score and the report are yours.</p>
+ <p class="center muted" style="text-align:center;margin-top:10px;font-size:.86rem">Three verdicts. No fourth category. No hidden recommendations. Whether the recommendation is to preserve or to replace, the score and the report are yours.</p>
+ <p class="center" style="text-align:center;margin-top:26px;font-size:1.02rem;color:#fff;max-width:56ch;margin-left:auto;margin-right:auto">A roof that scores <b style="color:var(--score)">82</b> today can score <b style="color:#E0A12E">67</b> four years from now — <em>even if it never leaks.</em> That&rsquo;s why we measure condition, not just damage.</p>
+ <p class="center" style="text-align:center;margin-top:10px"><a href="/how-we-score" style="color:var(--score);text-decoration:underline;font-weight:600">See how we score roofs →</a></p>
  </div>
  </div>
 ` }}
