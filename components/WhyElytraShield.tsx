@@ -10,7 +10,7 @@ export default function WhyElytraShield() {
  <div class="reveal">
  <span class="eyebrow">Why Elytra Shield</span>
  <h2 style="margin:16px 0 14px">Preservation-first. By conviction, not convenience.</h2>
- <p class="muted">Elytra Shield exists because of a frustrating pattern: roofs replaced years before they need to be, by an industry that only gets paid when you replace. We built the opposite &mdash; a company that starts with an inspection and a score, not a quote, and that treats &ldquo;you don&rsquo;t need us yet&rdquo; as a perfectly good outcome.</p>
+ <p class="muted">Elytra Shield exists because of a frustrating pattern: roofs replaced years before they need to be, by an industry that only gets paid when you replace. We built the opposite &mdash; a company that starts with an assessment and a score, not a quote, and that treats &ldquo;you don&rsquo;t need us yet&rdquo; as a perfectly good outcome.</p>
  <p class="muted" style="margin-top:12px">The name is a promise. Elytra are the hardened cases that shield a beetle&rsquo;s wings &mdash; nature&rsquo;s armor for the part that matters most. That&rsquo;s the whole job: a protective layer over what protects your home.</p>
  <!-- TODO(owner): founder name, photo, and license/insurance details go here -->
  </div>

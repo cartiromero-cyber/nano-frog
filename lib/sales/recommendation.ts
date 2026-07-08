@@ -9,6 +9,16 @@ export interface Recommendation {
 }
 
 /**
+ * The published verdict gates (S-001, LOCKED). Exported so /how-we-score renders from
+ * the same values the engine enforces. Changing any gate is a v2.0 standard change.
+ */
+export const VERDICT_GATES = {
+  excellent: { minScore: 78, maxAge: 18 },
+  good: { minScore: 62, maxAge: 22 },
+  monitor: { minScore: 45 },
+} as const;
+
+/**
  * Objective candidacy logic. The software is the authority; it can also say "no".
  */
 export function recommend(s: ScoreInputs): Recommendation {
@@ -23,9 +33,9 @@ export function recommend(s: ScoreInputs): Recommendation {
   else reasons.push("Shingles are showing brittleness.");
 
   let tier: RecommendationTier;
-  if (score >= 78 && s.roofAge <= 18) tier = "Excellent Candidate";
-  else if (score >= 62 && s.roofAge <= 22) tier = "Good Candidate";
-  else if (score >= 45) tier = "Needs Inspection";
+  if (score >= VERDICT_GATES.excellent.minScore && s.roofAge <= VERDICT_GATES.excellent.maxAge) tier = "Excellent Candidate";
+  else if (score >= VERDICT_GATES.good.minScore && s.roofAge <= VERDICT_GATES.good.maxAge) tier = "Good Candidate";
+  else if (score >= VERDICT_GATES.monitor.minScore) tier = "Needs Inspection";
   else tier = "Not Recommended";
 
   const summary =

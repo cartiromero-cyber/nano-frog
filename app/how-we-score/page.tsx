@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { WEIGHTS, SCORING_STANDARD_VERSION } from "@/lib/sales/scoring";
+import { VERDICT_GATES } from "@/lib/sales/recommendation";
 
 // R-001 (approved): the published standard. People trust companies that show their math.
-// Content mirrors lib/sales/scoring.ts exactly — if the rubric changes, update BOTH and
-// note the change in the version history below (standards behave this way on purpose).
+// SINGLE SOURCE OF TRUTH: weights, gates, and the version number are IMPORTED from the
+// scoring engine itself (lib/sales/scoring.ts, recommendation.ts) — this page cannot
+// drift from the math it describes. Factor prose lives here; numbers live in the engine.
 export const metadata: Metadata = {
   title: "How We Score Roof Health — Elytra Shield",
   description:
     "The exact factors, weights, and bands behind every Elytra Shield Roof Health Score. Published in full — because a score you can't inspect is just an opinion.",
 };
 
+const pct = (w: number) => `${Math.round(w * 100)}%`;
+
 const FACTORS = [
-  { name: "Roof age", weight: "22%", what: "Age relative to the ~25-year practical service life of asphalt shingles. Newer scores higher; nothing ages a score faster than the calendar." },
-  { name: "Granule condition", weight: "20%", what: "How much of the protective granule layer remains. Granule loss exposes the asphalt beneath to direct sun and rain." },
-  { name: "Flexibility", weight: "20%", what: "Whether shingles retain the suppleness that keeps them watertight, or have dried toward brittleness." },
-  { name: "Repair history", weight: "14%", what: "Past leaks, patches, and repairs. A clean history scores higher." },
-  { name: "Ventilation", weight: "12%", what: "Attic intake and exhaust. Poor ventilation cooks shingles from below and shortens their life." },
-  { name: "Storm exposure", weight: "12%", what: "Hail, wind, and severe-weather exposure the roof has absorbed." },
+  { name: "Roof age", weight: pct(WEIGHTS.age), what: "Age relative to the ~25-year practical service life of asphalt shingles. Newer scores higher; nothing ages a score faster than the calendar." },
+  { name: "Granule condition", weight: pct(WEIGHTS.granule), what: "How much of the protective granule layer remains. Granule loss exposes the asphalt beneath to direct sun and rain." },
+  { name: "Flexibility", weight: pct(WEIGHTS.flexibility), what: "Whether shingles retain the suppleness that keeps them watertight, or have dried toward brittleness." },
+  { name: "Repair history", weight: pct(WEIGHTS.repairHistory), what: "Past leaks, patches, and repairs. A clean history scores higher." },
+  { name: "Ventilation", weight: pct(WEIGHTS.ventilation), what: "Attic intake and exhaust. Poor ventilation cooks shingles from below and shortens their life." },
+  { name: "Storm exposure", weight: pct(WEIGHTS.stormExposure), what: "Hail, wind, and severe-weather exposure the roof has absorbed." },
 ];
 
 const BANDS = [
@@ -77,15 +82,15 @@ export default function HowWeScorePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 14, marginTop: 20 }}>
             <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
               <div style={{ fontWeight: 700, color: "var(--green)", fontFamily: "var(--disp)" }}>PRESERVE</div>
-              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score 78+ with roof age 18 years or less (strong candidate), or 62+ with age 22 or less (good candidate, confirmed on-site).</p>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score {VERDICT_GATES.excellent.minScore}+ with roof age {VERDICT_GATES.excellent.maxAge} years or less (strong candidate), or {VERDICT_GATES.good.minScore}+ with age {VERDICT_GATES.good.maxAge} or less (good candidate, confirmed on-site).</p>
             </div>
             <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
               <div style={{ fontWeight: 700, color: "#E0A12E", fontFamily: "var(--disp)" }}>MONITOR</div>
-              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score 45–61, or a higher score outside the age gates — a closer evaluation before any recommendation is made.</p>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score {VERDICT_GATES.monitor.minScore}–{VERDICT_GATES.good.minScore - 1}, or a higher score outside the age gates — a closer evaluation before any recommendation is made.</p>
             </div>
             <div style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 14, padding: 18 }}>
               <div style={{ fontWeight: 700, color: "#C0532E", fontFamily: "var(--disp)" }}>REPLACE</div>
-              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score below 45. Preservation is not the right path — your report says so in writing, and we don&rsquo;t sell roofs.</p>
+              <p style={{ fontSize: ".86rem", color: "var(--muted)", lineHeight: 1.55, marginTop: 6 }}>Score below {VERDICT_GATES.monitor.minScore}. Preservation is not the right path — your report says so in writing, and we don&rsquo;t sell roofs.</p>
             </div>
           </div>
 
@@ -117,7 +122,7 @@ export default function HowWeScorePage() {
               That&rsquo;s why a roof never scores higher than it does today.
             </p>
             <p className="muted" style={{ fontSize: ".86rem" }}>
-              <b>Version history</b> — v1.1 (July 2026): published verdict thresholds, inspector-pay
+              <b>Version history</b> — v{SCORING_STANDARD_VERSION} (July 2026): published verdict thresholds, inspector-pay
               integrity rule, no-photo-no-score rule, full-disclosure rule, and the worked aging example,
               following adoption of the internal Roof Health Score Standard v1. · v1.0 (July 2026):
               initial publication — factors, weights, bands. If we change the rubric, the change and the
