@@ -73,8 +73,8 @@ export default function PassportView({ p }: { p: RoofPassport }) {
 
         <section className="pass-membership">
           <div className="pass-mem-head">
-            <h3>Roof Assurance Plan™</h3>
-            <p>Keep this roof documented, monitored, and protected year after year.</p>
+            <h3>Elytra Continuity Program™</h3>
+            <p>Keep this roof&rsquo;s record unbroken — monitored, documented, and protected year after year.</p>
           </div>
           <MembershipPanel
             passportId={p.id}

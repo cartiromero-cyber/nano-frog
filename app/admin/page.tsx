@@ -54,7 +54,7 @@ export default async function AdminDashboard() {
         ) : <p className="dash-empty">No rep activity yet.</p>}
       </section>
 
-      <h2 className="dash-h" style={{ fontSize: "1.3rem", marginTop: 26 }}>Roof Assurance Plan™ memberships</h2>
+      <h2 className="dash-h" style={{ fontSize: "1.3rem", marginTop: 26 }}>Elytra Continuity Program™ enrollments</h2>
       <div className="stat-grid">
         <StatCard label="Interested" value={String(memCount("Interested"))} />
         <StatCard label="Enrolled" value={String(memCount("Enrolled"))} />

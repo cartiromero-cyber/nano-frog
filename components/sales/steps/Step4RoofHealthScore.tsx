@@ -27,6 +27,10 @@ export default function Step4RoofHealthScore({ session, update }: StepProps) {
       <div>
         <span className="s-eyebrow">Elytra Shield Roof Health Assessment™</span>
         <h2 className="s-h">Let’s measure your roof together.</h2>
+        {/* DOC-6 / S-001: the integrity promises, stated where the score is born */}
+        <p style={{ fontSize: ".78rem", color: "rgba(234,242,248,.6)", marginTop: 8 }}>
+          No photo, no score · I&rsquo;m never paid on treatment sales · You receive the entire score.
+        </p>
         <div style={{ marginTop: 18 }}>
           <div className="s-rowlabel"><span>Roof age</span><b>{s.roofAge} yrs</b></div>
           <input className="s-range" type="range" min={0} max={30} value={s.roofAge} onChange={(e) => set({ roofAge: Number(e.target.value) })} />

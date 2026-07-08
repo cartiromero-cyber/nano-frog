@@ -21,7 +21,7 @@ export default function Step2WhyRoofsAge(_: StepProps) {
       <span className="s-eyebrow">The science of weathering</span>
       <h2 className="s-h">Every roof ages. Here’s exactly why.</h2>
       {/* P-001: punchline merged from the retired "Roof Nobody Thinks About" slide */}
-      <p className="s-lead">Deterioration doesn’t happen all at once — it happens a little every day. A leak is never created the day it appears. It’s created over <b style={{ color: "#fff" }}>thousands of days</b>.</p>
+      <p className="s-lead">Deterioration doesn’t happen all at once — it happens a little every day. A leak is never created the day it appears. It’s created over <b style={{ color: "#fff" }}>thousands of days</b>. On our published standard, a roof that scores <b style={{ color: "var(--score)" }}>82</b> today can score <b style={{ color: "#E0A12E" }}>67</b> four years from now — even if it never leaks.</p>
       <div className="s-grid2" style={{ marginTop: 20, alignItems: "stretch" }}>
         <div style={{ display: "grid", gap: 10, alignContent: "start" }}>
           {FACTORS.map((x, n) => (

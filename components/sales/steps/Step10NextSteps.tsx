@@ -1,17 +1,22 @@
 'use client';
 import { useState } from "react";
 import type { StepProps } from "@/types/sales";
-import MembershipPanel from "@/components/sales/MembershipPanel";
 import { recommend } from "@/lib/sales/recommendation";
 
-const OPTIONS = ["Schedule Inspection", "Request Assessment", "Speak With Specialist", "Get Roof Health Report"];
+// F1 + P-005 (approved): the close. One recommended action + one honest fallback —
+// four deferral buttons and the at-close membership panel are gone (LIFE-1: recurring
+// service is offered at the year-1 reassessment, never on treatment day).
+// LANG-1: "assessment," never "inspection," in offer language.
 
 export default function Step10NextSteps({ session, update }: StepProps) {
   const [done, setDone] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [passportId, setPassportId] = useState<string | null>(null);
   const tier = recommend(session.score).tier;
-  const recommended = tier === "Not Recommended" ? "Speak With Specialist" : "Schedule Inspection";
+  const notCandidate = tier === "Not Recommended";
+
+  const primary = notCandidate ? "Get My Written Report & Referrals" : "Approve My Preservation System";
+  const fallback = "Send Me the Report — I’ll Decide This Week";
 
   async function choose(opt: string) {
     setBusy(true);
@@ -32,15 +37,19 @@ export default function Step10NextSteps({ session, update }: StepProps) {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg>
         </div>
         <h2 className="s-h" style={{ marginTop: 16 }}>You’re all set.</h2>
-        <p className="s-lead" style={{ margin: "0 auto" }}>We’ve logged your request: <b style={{ color: "#fff" }}>{done}</b>.</p>
+        <p className="s-lead" style={{ margin: "0 auto" }}>Logged: <b style={{ color: "#fff" }}>{done}</b>.</p>
         <div className="passport-started">
           <b>Digital Roof Passport™ started</b>
-          <span>Your roof now has a permanent record — scores, inspections, photos, and warranties, all in one place.</span>
+          <span>Your roof now has a permanent record — score, photos, verdict, and documents, all in one place.</span>
           <a className="sales-btn solid" href="/passport" style={{ marginTop: 12, display: "inline-block" }}>View the Passport{passportId ? "" : " preview"} →</a>
         </div>
-        <div style={{ textAlign: "left", marginTop: 26, maxWidth: 760, marginLeft: "auto", marginRight: "auto" }}>
-          <MembershipPanel passportId={passportId || undefined} leadId={undefined} heading="Protect This Roof Going Forward" />
-        </div>
+        {!notCandidate ? (
+          <p className="s-lead" style={{ margin: "18px auto 0", maxWidth: "56ch" }}>
+            And one promise to remember: <b style={{ color: "#fff" }}>your complimentary annual reassessment is included.</b>{" "}
+            We’ll be back in about a year to re-score the roof and update your Passport — no charge,
+            no subscription, nothing to decide today.
+          </p>
+        ) : null}
       </div>
     </div>
   );
@@ -48,16 +57,25 @@ export default function Step10NextSteps({ session, update }: StepProps) {
   return (
     <div className="s-wrap" style={{ textAlign: "center" }}>
       <span className="s-eyebrow">Where to from here</span>
-      <h2 className="s-h">Choose your next step.</h2>
-      <p className="s-lead" style={{ margin: "0 auto 8px" }}>No pressure — every option keeps your roof documented and your plan clear.</p>
+      <h2 className="s-h">{notCandidate ? "Your report is the deliverable." : "Ready when you are."}</h2>
+      <p className="s-lead" style={{ margin: "0 auto 8px" }}>
+        {notCandidate
+          ? "The honest verdict is replacement planning — your documented report and our no-fee roofer referrals are yours."
+          : "Approve today and we schedule the application — you pay only when the work is done and you’ve seen every photo."}
+      </p>
       <div className="next-grid">
-        {OPTIONS.map((o) => (
-          <button key={o} className={"next-card" + (o === recommended ? " rec" : "")} disabled={busy} onClick={() => choose(o)}>
-            <span>{o}{o === recommended ? <em className="next-rec">Recommended</em> : null}</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </button>
-        ))}
+        <button className="next-card rec" disabled={busy} onClick={() => choose(primary)}>
+          <span>{primary}<em className="next-rec">Recommended</em></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </button>
+        <button className="next-card" disabled={busy} onClick={() => choose(fallback)}>
+          <span>{fallback}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </button>
       </div>
+      <p style={{ fontSize: ".74rem", color: "rgba(234,242,248,.55)", marginTop: 16 }}>
+        Either way, the report is yours — and your quoted price is locked for 12 months.
+      </p>
     </div>
   );
 }

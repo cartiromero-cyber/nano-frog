@@ -96,7 +96,7 @@ export default async function LeadDetail({ params }: { params: { id: string } })
         </section>
 
         <section className="dash-card" style={{ gridColumn: "1 / -1" }}>
-          <h3>Roof Assurance Plan™ membership</h3>
+          <h3>Elytra Continuity Program™</h3>
           <MembershipPanel leadId={l.id} passportId={d.passportId || undefined} existing={d.memberships[0] || null} />
         </section>
       </div>

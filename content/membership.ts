@@ -1,45 +1,27 @@
-export const PLAN_NAME = "Roof Assurance Plan™";
+// F2 / Rev D (LOCKED — Decision Register LIFE-2): single-tier Elytra Continuity Program™.
+// Offered at the year-1 complimentary reassessment, NEVER at the treatment close (LIFE-1).
+// The retired three-tier structure lives in git history for future B2B/commercial use.
+export const PLAN_NAME = "Elytra Continuity Program™";
 export const PLAN_BLURB =
-  "A simple ongoing plan that helps homeowners keep their roof documented, monitored, and protected over time.";
+  "Keep your roof's record unbroken — monitored, documented, and protected, year after year.";
 
 export interface MembershipTier { name: string; tagline: string; cadence: string; features: string[]; highlighted?: boolean; }
 
-// Careful, confident language — no insurance promises, no coverage or roof-life guarantees.
-// Tier prices are set by the owner; until then the customer-safe PRICING_NOTE below is shown.
 export const membershipTiers: MembershipTier[] = [
   {
-    name: "Essential", tagline: "Keep your roof documented.", cadence: "Annual",
+    name: "Continuity", tagline: "Keep your roof's record unbroken.", cadence: "Annual — $259/yr", highlighted: true,
     features: [
-      "Annual Roof Health Assessment™",
-      "Digital Roof Passport™ updates",
-      "Roof photo documentation",
-      "Annual reminder",
-      "Maintenance recommendations",
-    ],
-  },
-  {
-    name: "Protected", tagline: "Stay ahead, year over year.", cadence: "Annual", highlighted: true,
-    features: [
-      "Everything in Essential",
-      "Priority scheduling",
-      "Annual Roof Health Report™",
-      "Preservation monitoring",
-      "Credit toward future treatment",
-    ],
-  },
-  {
-    name: "Concierge", tagline: "Total peace of mind.", cadence: "Annual",
-    features: [
-      "Everything in Protected",
-      "Twice-yearly check-ins",
-      "Priority storm review",
-      "Extended documentation support",
-      "VIP service",
+      "Annual Roof Health Assessment™ & updated score",
+      "Updated Roof Passport™ + photo documentation",
+      "Reliability Reapplication™ allowance (localized, up to 2 squares/yr)",
+      "Storm review & priority scheduling",
+      "Transfer-on-sale support",
+      "Preservation Refresh™ price-lock eligibility",
     ],
   },
 ];
 
-// H1 (approved): customer-safe pricing language.
+// Customer-safe pricing language for treatment pricing contexts (H1, approved).
 export const PRICING_NOTE = "Pricing is determined after your Roof Health Assessment.";
 
 export const MEMBERSHIP_STATUSES = ["Interested", "Enrolled", "Pending Payment", "Active", "Cancelled", "Declined"] as const;

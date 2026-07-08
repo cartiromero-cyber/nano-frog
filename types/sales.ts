@@ -14,6 +14,8 @@ export type RecommendationTier = "Excellent Candidate" | "Good Candidate" | "Nee
 export interface SalesSession {
   homeowner: Homeowner; connection: ConnectionAnswers; score: ScoreInputs; cost: CostInputs;
   roofPhotos?: RoofPhotoNote[];
+  /** P-004: the Investment slide's selected size band (Rev D pricing). */
+  investment?: { band: string; price: number };
   nextStep?: string; createdAt: string;
 }
 export interface StepProps {

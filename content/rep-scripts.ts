@@ -63,10 +63,15 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "[Read the tier from the screen, word for word. If it says replacement or further inspection, say exactly that — the recommendation comes from the evidence, never from us.]",
     "Whatever it says, that’s my recommendation — and this report is yours either way.",
   ],
+  "The Investment": [
+    "Your roof measured into this band — the price is set by the roof, not by me, and it never changes at the table.",
+    "Everything on the right is included: the assessment, the score, the photos, the Passport, the warranty, and next year’s reassessment.",
+    "You pay when the work is done and you’ve seen every photo — no deposit — and this price is locked for twelve months, whatever you decide today.",
+  ],
   "Let’s Protect It": [
     "This is what I’d do if this were my home.",
     "I’d rather spend a little today protecting a roof that’s working than spend a lot later replacing one that failed.",
-    "Which option feels like the best fit for your home?",
+    "Approve it today and the only thing we schedule is the application day — payment comes when it’s done.",
   ],
   "The Elytra Shield Promise": [
     "One last thing — because this matters more after you’ve decided than before.",
