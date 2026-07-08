@@ -41,10 +41,20 @@ export function recommend(s: ScoreInputs): Recommendation {
   const summary =
     tier === "Excellent Candidate" ? "This roof is a strong fit for preservation and has clear usable life to protect."
     : tier === "Good Candidate" ? "This roof is a good preservation candidate, pending an on-site confirmation."
-    : tier === "Needs Inspection" ? "An on-site inspection is needed before a preservation recommendation can be made."
+    : tier === "Needs Inspection" ? "This roof needs monitoring and a closer evaluation before an honest recommendation can be made."
     : "Preservation is not the right path for this roof; replacement planning is more appropriate.";
 
   return { tier, score, reasons, summary };
+}
+
+/**
+ * LANG-1-FIX-02 (approved): customer-facing display label for a tier. The internal typed
+ * value "Needs Inspection" is preserved (saved sessions/CRM records depend on it); every
+ * customer-visible surface maps it to "Monitor" — matching the published Preserve ·
+ * Monitor · Replace vocabulary homeowners are taught.
+ */
+export function displayTier(t: RecommendationTier): string {
+  return t === "Needs Inspection" ? "Monitor" : t;
 }
 
 export const TIER_COLOR: Record<RecommendationTier, string> = {

@@ -1,6 +1,6 @@
 'use client';
 import type { StepProps } from "@/types/sales";
-import { recommend, TIER_COLOR } from "@/lib/sales/recommendation";
+import { recommend, TIER_COLOR, displayTier } from "@/lib/sales/recommendation";
 
 export default function Step8Recommendation({ session }: StepProps) {
   const r = recommend(session.score);
@@ -10,7 +10,7 @@ export default function Step8Recommendation({ session }: StepProps) {
       <h2 className="s-h">Based on everything we measured…</h2>
       <div className="rec-badge" style={{ borderColor: TIER_COLOR[r.tier], color: TIER_COLOR[r.tier] }}>
         <div className="rec-score">{r.score}<small>/100</small></div>
-        <div className="rec-tier">{r.tier}</div>
+        <div className="rec-tier">{displayTier(r.tier)}</div>{/* LANG-1-FIX-02: homeowner sees Preserve/Monitor/Replace vocabulary */}
       </div>
       <p className="s-lead" style={{ margin: "18px auto 0" }}>{r.summary}</p>
       <div className="rec-reasons">

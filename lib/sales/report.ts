@@ -1,7 +1,7 @@
 import type { SalesSession } from "@/types/sales";
 import { computeRoofHealthScore, scoreBand } from "./scoring";
 import { computeCostOfWaiting } from "./cost";
-import { recommend } from "./recommendation";
+import { recommend, displayTier } from "./recommendation";
 
 export function buildReport(s: SalesSession) {
   const score = computeRoofHealthScore(s.score);
@@ -15,7 +15,7 @@ export function buildReport(s: SalesSession) {
     estimatedAge: s.score.roofAge,
     roofType: s.score.roofType,
     findings: rec.reasons,
-    recommendation: rec.tier,
+    recommendation: displayTier(rec.tier), // LANG-1-FIX-02: the printed report is a customer surface
     recommendationSummary: rec.summary,
     financial: cost,
   };
