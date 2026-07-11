@@ -25,9 +25,12 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// H3 (approved): the demo passport is no longer served. A lookup key is required and
-// only real records are returned.
+// H3 (approved): the demo passport is no longer served. Production audit fix: GET now
+// requires staff auth — homeowner records must not be enumerable by phone/email/address
+// from the public internet (middleware does not cover /api, so the route self-checks).
 export async function GET(req: NextRequest) {
+  const ctx = await getCurrentRep();
+  if (!ctx) return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   const u = new URL(req.url);
   const by = { id: u.searchParams.get("id") || undefined, phone: u.searchParams.get("phone") || undefined, email: u.searchParams.get("email") || undefined, address: u.searchParams.get("address") || undefined };
   if (!by.id && !by.phone && !by.email && !by.address) return NextResponse.json({ ok: false, error: "A lookup key (id, phone, email, or address) is required." }, { status: 400 });
