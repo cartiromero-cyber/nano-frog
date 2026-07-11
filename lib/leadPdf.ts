@@ -1,4 +1,5 @@
 import type { Lead } from "@/types";
+import { LOGO_JPEG_BASE64, LOGO_JPEG_W, LOGO_JPEG_H } from "./logoJpeg";
 
 /**
  * Elytra Shield–branded lead PDF, generated natively (zero dependencies).
@@ -37,9 +38,10 @@ export function buildLeadPdfBase64(lead: Lead): string {
   // header band (ink) + green accent rule
   c += `${INK} rg 0 712 612 80 re f\n`;
   c += `${GREEN} rg 0 708 612 4 re f\n`;
-  // wordmark
-  c += `BT /F1 21 Tf 1 1 1 rg 42 756 Td (ELYTRA SHIELD) Tj ET\n`;
-  c += `BT /F2 8 Tf ${GREEN} rg 42 740 Td (R O O F   P R E S E R V A T I O N) Tj ET\n`;
+  // real logo (embedded JPEG XObject) + wordmark
+  c += `q 52 0 0 52 42 726 cm /Im1 Do Q\n`;
+  c += `BT /F1 21 Tf 1 1 1 rg 106 756 Td (ELYTRA SHIELD) Tj ET\n`;
+  c += `BT /F2 8 Tf ${GREEN} rg 106 740 Td (R O O F   P R E S E R V A T I O N) Tj ET\n`;
   c += `BT /F2 9 Tf 0.75 0.85 0.78 rg 430 748 Td (elytrashield.us) Tj ET\n`;
   // title
   c += `BT /F1 15 Tf ${INK} rg 42 672 Td (New Roof Health Assessment Request) Tj ET\n`;
@@ -64,13 +66,16 @@ export function buildLeadPdfBase64(lead: Lead): string {
   c += `BT /F2 8 Tf ${MUTED} rg 42 38 Td (Methodology published at elytrashield.us/how-we-score  ·  Elytra Shield · keep the roof you already paid for.) Tj ET\n`;
 
   // ── assemble the PDF with a correct xref table ──────────────────────────────
+  // The real logo rides along as a JPEG image XObject (/DCTDecode = raw JPEG bytes).
+  const logoBytes = Buffer.from(LOGO_JPEG_BASE64, "base64").toString("latin1");
   const objects = [
     "<< /Type /Catalog /Pages 2 0 R >>",
     "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>",
+    "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> /XObject << /Im1 7 0 R >> >> >>",
     `<< /Length ${c.length} >>\nstream\n${c}endstream`,
     "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>",
     "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    `<< /Type /XObject /Subtype /Image /Width ${LOGO_JPEG_W} /Height ${LOGO_JPEG_H} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${logoBytes.length} >>\nstream\n${logoBytes}\nendstream`,
   ];
   let pdf = "%PDF-1.4\n";
   const offsets: number[] = [];

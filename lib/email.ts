@@ -58,9 +58,12 @@ export async function sendLeadNotification(subject: string, lead: Lead): Promise
     `<td style="padding:8px 14px;color:#0B1320;font-weight:600;border-bottom:1px solid #E2EBF1">${link ? `<a href="${link}" style="color:#39B54A">${esc(value)}</a>` : esc(value)}</td></tr>`;
   const html =
     `<div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;border:1px solid #E2EBF1;border-radius:12px;overflow:hidden">` +
-    `<div style="background:#0B1320;border-bottom:4px solid #39B54A;padding:18px 22px">` +
-    `<div style="color:#fff;font-size:19px;font-weight:800;letter-spacing:.02em">ELYTRA SHIELD</div>` +
-    `<div style="color:#39B54A;font-size:9px;letter-spacing:.28em;margin-top:2px">ROOF PRESERVATION</div></div>` +
+    `<div style="background:#0B1320;border-bottom:4px solid #39B54A;padding:16px 22px">` +
+    `<table style="border-collapse:collapse"><tr>` +
+    `<td style="padding-right:12px"><img src="${(process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashield.us")}/assets/elytra-shield-icon.png" width="42" height="42" alt="Elytra Shield" style="display:block;border-radius:8px" /></td>` +
+    `<td><div style="color:#fff;font-size:19px;font-weight:800;letter-spacing:.02em">ELYTRA SHIELD</div>` +
+    `<div style="color:#39B54A;font-size:9px;letter-spacing:.28em;margin-top:2px">ROOF PRESERVATION</div></td>` +
+    `</tr></table></div>` +
     `<div style="padding:20px 22px">` +
     `<div style="font-size:16px;font-weight:700;color:#0B1320;margin-bottom:4px">New Roof Health Assessment request</div>` +
     `<div style="font-size:12px;color:#5C6F7E;margin-bottom:14px">Contact within one business day to confirm the window. Full details attached as PDF.</div>` +
