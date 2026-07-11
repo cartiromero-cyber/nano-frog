@@ -57,10 +57,13 @@ assert(clientFilesUsingAdmin.length === 0, "service-role client never imported i
   clientFilesUsingAdmin.map(([f]) => f).join(", "));
 assert(!allSrc.some(([, s]) => /console\.[a-z]+\([^)]*SERVICE_ROLE/.test(s)), "service-role key never logged", "key appears in a console call");
 
-// 4 ── middleware fails CLOSED when env is missing, and bounces signed-in users off /login
+// 4 ── middleware fails CLOSED when env is missing/malformed/unreachable — and never 500s
 const mw = read("middleware.ts");
-assert(!/demo mode: no auth configured -> no gate/.test(mw) && mw.includes("if (!url || !anon)") && mw.match(/if \(!url \|\| !anon\)[\s\S]{0,220}isProtected[\s\S]{0,220}redirect/),
-  "middleware redirects protected routes even with NO Supabase env (fail-closed)", "open-when-unconfigured pattern detected");
+assert(!/demo mode: no auth configured -> no gate/.test(mw) && mw.includes("if (!valid)") && mw.match(/if \(!valid\)[\s\S]{0,260}isProtected \? toLogin\(\) : res/),
+  "middleware redirects protected routes when Supabase env is missing or malformed (fail-closed)", "open-when-unconfigured pattern detected");
+assert(mw.includes("catch") && mw.match(/catch[\s\S]{0,300}isProtected \? toLogin\(\) : res/),
+  "middleware catches auth-check crashes and fails closed instead of 500ing", "unhandled middleware exception path");
+assert(mw.includes("cleanEnv"), "middleware sanitizes pasted env values (whitespace/quotes)", "env sanitation missing");
 assert(mw.includes('path === "/login" && user'), "signed-in visitors to /login are redirected", "missing /login bounce");
 for (const route of ["/sales/:path*", "/rep/:path*", "/admin/:path*", "/passport/:path*", "/account/:path*", "/login"])
   assert(mw.includes(`"${route}"`), `matcher covers ${route}`, "route missing from matcher");
