@@ -20,8 +20,14 @@ export async function getCurrentRep(): Promise<RepContext | null> {
   const db = supabaseAdmin();
   let row: any = null;
   if (db) {
-    const { data } = await db.from("reps").select("id,name,email,role,territory,manager_id").eq("user_id", user.id).limit(1);
+    const { data } = await db.from("reps").select("id,name,email,role,territory,manager_id,active").eq("user_id", user.id).limit(1);
     row = data && data[0];
+    // Approved staff only: an auth user with no rep profile, or a deactivated one,
+    // is denied everywhere ctx is required (pages, layouts, and every API).
+    if (!row || row.active === false) {
+      console.log("[AUTH:denied]", user.id, !row ? "no rep profile" : "inactive");
+      return null;
+    }
   }
   return {
     userId: user.id,

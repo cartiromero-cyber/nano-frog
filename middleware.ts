@@ -35,9 +35,16 @@ export async function middleware(req: NextRequest) {
     to.searchParams.set("next", path);
     return NextResponse.redirect(to);
   }
-  return res; // role gating (e.g. /admin) is enforced in the page server components
+  // Signed-in users have no business on /login — send them to the presentation.
+  if (path === "/login" && user) {
+    const to = req.nextUrl.clone();
+    to.pathname = "/sales";
+    to.search = "";
+    return NextResponse.redirect(to);
+  }
+  return res; // role + active gating is enforced server-side (layouts + getCurrentRep)
 }
 
 export const config = {
-  matcher: ["/sales/:path*", "/assessment/:path*", "/calculator/:path*", "/reports/:path*", "/rep/:path*", "/admin/:path*", "/passport/:path*", "/account/:path*"],
+  matcher: ["/sales/:path*", "/assessment/:path*", "/calculator/:path*", "/reports/:path*", "/rep/:path*", "/admin/:path*", "/passport/:path*", "/account/:path*", "/login"],
 };

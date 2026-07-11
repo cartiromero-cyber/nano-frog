@@ -57,7 +57,11 @@ export default function Presentation() {
           <span>Elytra Shield</span>
         </div>
         <div className="sales-steplabel">{STEPS[i].title}</div>
-        <div className="sales-timer" aria-label="Presentation time">{mm}:{ss}</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div className="sales-timer" aria-label="Presentation time">{mm}:{ss}</div>
+          <a href="/logout" className="no-print" aria-label="Sign out"
+            style={{ fontSize: ".72rem", color: "rgba(234,242,248,.45)", textDecoration: "none" }}>Sign out</a>
+        </div>
       </header>
 
       <div className="sales-progress" role="tablist" aria-label="Progress">

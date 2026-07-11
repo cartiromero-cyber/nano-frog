@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { redirect } from "next/navigation";
+import { getCurrentRep } from "@/lib/sales/auth";
 import "@/styles/sales.css";
 
 export const metadata: Metadata = {
@@ -15,6 +17,10 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export default function SalesLayout({ children }: { children: React.ReactNode }) {
+/** Active staff only: middleware handles authentication; this layout additionally
+ *  denies deactivated accounts and auth users without an approved rep profile. */
+export default async function SalesLayout({ children }: { children: React.ReactNode }) {
+  const ctx = await getCurrentRep();
+  if (!ctx) redirect("/login?next=/sales");
   return <div className="sales-root">{children}</div>;
 }
