@@ -11,14 +11,14 @@ function base(data: Partial<BaseLeadFields>, errors: Record<string, string>) {
   if (!data.email || !emailRe.test(String(data.email))) errors.email = "Please enter a valid email address.";
 }
 
-// Change 002 (approved with modifications): required = name, phone, property address.
-// Email is optional — validated only when provided.
+// Change 002 rev B (owner decision): required = name, phone, property address, AND email.
+// Both contact channels are mandatory — phone for scheduling, email for the report.
 export function validateAssessment(data: Partial<AssessmentFields>): Check {
   const errors: Record<string, string> = {};
   if (!data.name || data.name.trim().length < 2) errors.name = "Please enter your name.";
   if (!data.phone || !phoneRe.test(String(data.phone))) errors.phone = "Please enter a valid phone number.";
   if (!data.address || data.address.trim().length < 5) errors.address = "Please enter the property address.";
-  if (data.email && !emailRe.test(String(data.email))) errors.email = "Please enter a valid email address.";
+  if (!data.email || !emailRe.test(String(data.email))) errors.email = "Please enter a valid email address.";
   return { valid: Object.keys(errors).length === 0, errors };
 }
 

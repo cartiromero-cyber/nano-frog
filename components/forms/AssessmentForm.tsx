@@ -5,8 +5,8 @@ import { trackFormSubmit } from "@/lib/analytics";
 const field = "w-full border rounded-md px-3 py-2 text-[15px]";
 const label = "block text-sm font-medium mb-1";
 
-// Change 002 (approved with modifications): Required — Name, Phone, Property Address.
-// Optional — Email. All other fields removed; details are gathered at the assessment itself.
+// Change 002 rev B (owner decision): Required — Name, Phone, Property Address, Email.
+// Both contact channels mandatory. All other fields removed; details are gathered on-site.
 export default function AssessmentForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [msg, setMsg] = useState("");
@@ -51,8 +51,8 @@ export default function AssessmentForm() {
       <div><label className={label}>Name</label><input name="name" required autoComplete="name" className={field} /></div>
       <div><label className={label}>Phone</label><input name="phone" required type="tel" autoComplete="tel" className={field} /></div>
       <div><label className={label}>Property address</label><input name="address" required autoComplete="street-address" placeholder="Street, city" className={field} /></div>
-      <div><label className={label}>Email <span className="font-normal" style={{ color: "var(--muted)" }}>(optional)</span></label>
-        <input name="email" type="email" autoComplete="email" className={field} /></div>
+      <div><label className={label}>Email <span className="font-normal" style={{ color: "var(--muted)" }}>(your report is delivered here)</span></label>
+        <input name="email" type="email" required autoComplete="email" className={field} /></div>
       <button type="submit" className="btn btn-g" disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Book My Free Assessment"}
       </button>
