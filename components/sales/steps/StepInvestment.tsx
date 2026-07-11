@@ -1,18 +1,23 @@
 'use client';
+import { useState } from "react";
 import type { StepProps } from "@/types/sales";
 import { recommend } from "@/lib/sales/recommendation";
 
-// P-004 (approved, unblocked by Pricing Model Rev D): the Investment slide.
-// One measured price, the full stack, risk reversal — revealed here and only here.
-// Bands are Rev D doctrine (Decision Register O-002). Complexity modifier is disclosed verbally
-// from the printed price sheet, never improvised.
+// P-004 (approved) + pricing-audit upgrade: one measured price, the full stack, risk reversal.
+//
+// Rep pricing panel (discreet "⋯" toggle, .no-print):
+//   approximate metrics (home sq ft, pitch, height/access) → suggested band + suggested
+//   complexity modifier → final price. Discretion is BOUNDED by locked doctrine O-002:
+//   floor = band price (no discounts, ever), ceiling = band + 15% disclosed complexity
+//   modifier. Suggested and final prices are both stored on the session for the record.
 
 const BANDS = [
-  { key: "A", label: "Band A — up to 1,800 sq ft", price: 2950 },
-  { key: "B", label: "Band B — 1,801–2,600 sq ft", price: 3650 },
-  { key: "C", label: "Band C — 2,601–3,500 sq ft", price: 4450 },
-  { key: "D", label: "Band D — 3,500+ sq ft (measured)", price: 5400 },
+  { key: "A", label: "Band A — up to 1,800 sq ft", max: 1800, price: 2950 },
+  { key: "B", label: "Band B — 1,801–2,600 sq ft", max: 2600, price: 3650 },
+  { key: "C", label: "Band C — 2,601–3,500 sq ft", max: 3500, price: 4450 },
+  { key: "D", label: "Band D — 3,500+ sq ft (measured)", max: Infinity, price: 5400 },
 ];
+const MODIFIERS = [0, 10, 15] as const; // disclosed complexity modifier, % (O-002)
 
 const STACK = [
   "Roof Health Assessment ($249 value — included free)",
@@ -25,12 +30,31 @@ const STACK = [
   "Preservation Refresh™ eligibility",
 ];
 
+const bandFor = (sqft?: number) => (sqft ? BANDS.find((b) => sqft <= b.max)! : undefined);
+const round25 = (n: number) => Math.round(n / 25) * 25;
+const money = (n: number) => `$${n.toLocaleString()}`;
+
 export default function StepInvestment({ session, update }: StepProps) {
   const tier = recommend(session.score).tier;
   const notCandidate = tier === "Not Recommended";
+  const [panel, setPanel] = useState(false);
   const sel = session.investment;
-  const pick = (b: (typeof BANDS)[number]) =>
-    update({ investment: { band: b.key, price: b.price }, cost: { ...session.cost, preservationCost: b.price } });
+  const m = session.metrics || {};
+
+  const suggestedBand = bandFor(m.homeSqFt);
+  const suggestedMod = Math.min(15, (m.steepPitch ? 10 : 0) + (m.tallOrComplex ? 5 : 0));
+  const suggestedPrice = suggestedBand ? round25(suggestedBand.price * (1 + suggestedMod / 100)) : undefined;
+
+  const setMetrics = (patch: Partial<typeof m>) => update({ metrics: { ...m, ...patch } });
+  const apply = (bandKey: string, modPct: number) => {
+    const band = BANDS.find((b) => b.key === bandKey)!;
+    const pct = Math.max(0, Math.min(15, modPct)); // O-002 bounds: no discounts, cap +15%
+    const price = round25(band.price * (1 + pct / 100));
+    update({
+      investment: { band: band.key, price, suggested: suggestedPrice, modifierPct: pct },
+      cost: { ...session.cost, preservationCost: price },
+    });
+  };
 
   if (notCandidate) return (
     <div className="s-wrap" style={{ textAlign: "center", display: "grid", placeItems: "center", minHeight: 320 }}>
@@ -46,7 +70,7 @@ export default function StepInvestment({ session, update }: StepProps) {
   );
 
   return (
-    <div className="s-wrap s-grid2">
+    <div className="s-wrap s-grid2" style={{ position: "relative" }}>
       <div>
         <span className="s-eyebrow">The investment</span>
         <h2 className="s-h">One measured price. Everything included.</h2>
@@ -55,9 +79,9 @@ export default function StepInvestment({ session, update }: StepProps) {
           {BANDS.map((b) => (
             <button key={b.key} className={"s-chip" + (sel?.band === b.key ? " sel" : "")}
               style={{ display: "flex", justifyContent: "space-between", width: "100%", padding: "12px 16px" }}
-              onClick={() => pick(b)}>
+              onClick={() => apply(b.key, sel?.band === b.key ? sel?.modifierPct || 0 : suggestedBand?.key === b.key ? suggestedMod : 0)}>
               <span>{b.label}</span>
-              <b>{b.key === "D" ? `from $${b.price.toLocaleString()}` : `$${b.price.toLocaleString()}`}</b>
+              <b>{b.key === "D" ? `from ${money(b.price)}` : money(b.price)}</b>
             </button>
           ))}
         </div>
@@ -81,10 +105,51 @@ export default function StepInvestment({ session, update }: StepProps) {
         </div>
         {sel ? (
           <div style={{ marginTop: 8, textAlign: "center", fontFamily: "var(--disp)", fontWeight: 700, fontSize: "1.6rem", color: "var(--score)" }}>
-            {sel.band === "D" ? `from $${sel.price.toLocaleString()}` : `$${sel.price.toLocaleString()}`}
+            {sel.band === "D" && !sel.modifierPct ? `from ${money(sel.price)}` : money(sel.price)}
+            {sel.modifierPct ? <div style={{ fontSize: ".7rem", fontWeight: 500, color: "rgba(234,242,248,.6)" }}>includes disclosed +{sel.modifierPct}% complexity modifier</div> : null}
           </div>
         ) : null}
       </div>
+
+      {/* ── Rep pricing panel — discreet, never printed ─────────────────────────── */}
+      <button aria-label="Pricing worksheet" className="no-print"
+        onClick={() => setPanel((p) => !p)}
+        style={{ position: "absolute", bottom: 2, right: 2, background: "none", border: "none", color: "rgba(234,242,248,.28)", fontSize: "1.1rem", cursor: "pointer", padding: 6 }}>⋯</button>
+      {panel ? (
+        <div className="no-print" style={{ position: "absolute", bottom: 34, right: 0, width: 320, background: "#101d2c", border: "1px solid rgba(255,255,255,.16)", borderRadius: 12, padding: 16, zIndex: 5, boxShadow: "0 18px 40px -18px rgba(0,0,0,.7)" }}>
+          <div style={{ fontSize: ".72rem", letterSpacing: ".12em", color: "rgba(234,242,248,.55)", marginBottom: 10 }}>REP PRICING WORKSHEET</div>
+          <label style={{ fontSize: ".78rem", color: "rgba(234,242,248,.75)" }}>Approx. home size: <b style={{ color: "#fff" }}>{m.homeSqFt ? `${m.homeSqFt.toLocaleString()} sq ft` : "—"}</b></label>
+          <input className="s-range" type="range" min={800} max={5000} step={100} value={m.homeSqFt || 2000}
+            onChange={(e) => setMetrics({ homeSqFt: Number(e.target.value) })} />
+          <div style={{ display: "flex", gap: 8, margin: "8px 0" }}>
+            <button className={"s-chip" + (m.steepPitch ? " sel" : "")} onClick={() => setMetrics({ steepPitch: !m.steepPitch })}>Steep &gt;8/12</button>
+            <button className={"s-chip" + (m.tallOrComplex ? " sel" : "")} onClick={() => setMetrics({ tallOrComplex: !m.tallOrComplex })}>3+ stories / access</button>
+          </div>
+          {suggestedBand ? (
+            <div style={{ fontSize: ".82rem", color: "rgba(234,242,248,.85)", margin: "10px 0" }}>
+              Suggested: <b style={{ color: "var(--score)" }}>Band {suggestedBand.key} · {money(suggestedPrice!)}</b>
+              {suggestedMod ? <span style={{ color: "rgba(234,242,248,.6)" }}> (incl. +{suggestedMod}%)</span> : null}
+            </div>
+          ) : <div style={{ fontSize: ".78rem", color: "rgba(234,242,248,.5)", margin: "10px 0" }}>Set home size for a suggestion.</div>}
+          <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+            <span style={{ fontSize: ".74rem", color: "rgba(234,242,248,.6)" }}>Modifier:</span>
+            {MODIFIERS.map((p) => (
+              <button key={p} className={"s-chip" + ((sel?.modifierPct || 0) === p && sel ? " sel" : "")}
+                onClick={() => apply(sel?.band || suggestedBand?.key || "B", p)}>{p === 0 ? "None" : `+${p}%`}</button>
+            ))}
+          </div>
+          {suggestedBand ? (
+            <button className="sales-btn solid" style={{ width: "100%", marginTop: 10 }}
+              onClick={() => { apply(suggestedBand.key, suggestedMod); setPanel(false); }}>
+              Apply suggestion
+            </button>
+          ) : null}
+          <p style={{ fontSize: ".68rem", color: "rgba(234,242,248,.45)", marginTop: 8, lineHeight: 1.5 }}>
+            Bounds are doctrine (O-002): floor is the band price — no discounts, ever; ceiling is the
+            disclosed +15% modifier. Suggested and final prices are both saved to the record.
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }

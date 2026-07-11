@@ -17,6 +17,8 @@ export default function Step10NextSteps({ session, update }: StepProps) {
 
   const primary = notCandidate ? "Get My Written Report & Referrals" : "Approve My Preservation System";
   const fallback = "Send Me the Report — I’ll Decide This Week";
+  const h = session.homeowner;
+  const missing = [!h.name && "name", !h.phone && "phone", !h.address && "address"].filter(Boolean);
 
   async function choose(opt: string) {
     setBusy(true);
@@ -76,6 +78,11 @@ export default function Step10NextSteps({ session, update }: StepProps) {
       <p style={{ fontSize: ".74rem", color: "rgba(234,242,248,.55)", marginTop: 16 }}>
         Either way, the report is yours — and your quoted price is locked for 12 months.
       </p>
+      {missing.length ? (
+        <p className="no-print" style={{ fontSize: ".76rem", color: "#E0A12E", marginTop: 10 }}>
+          ⚠ Rep: lead record incomplete — missing {missing.join(", ")}. Capture on slide 1 before logging this visit.
+        </p>
+      ) : null}
     </div>
   );
 }

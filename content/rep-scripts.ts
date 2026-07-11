@@ -68,6 +68,11 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "Everything on the right is included: the assessment, the score, the photos, the Passport, the warranty, and next year’s reassessment.",
     "You pay when the work is done and you’ve seen every photo — no deposit — and this price is locked for twelve months, whatever you decide today.",
   ],
+  "Your Roof Health Report™": [
+    "Before you decide anything, this is yours — every photo, every number, the verdict, and the quoted price, in writing.",
+    "I can print it right now or email the PDF to the address you gave me.",
+    "[Verify the contact block is complete — if the amber warning shows, go back to slide 1 and finish the lead record BEFORE ending the visit.]",
+  ],
   "Let’s Protect It": [
     "This is what I’d do if this were my home.",
     "I’d rather spend a little today protecting a roof that’s working than spend a lot later replacing one that failed.",

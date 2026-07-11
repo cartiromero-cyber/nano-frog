@@ -14,8 +14,14 @@ export type RecommendationTier = "Excellent Candidate" | "Good Candidate" | "Nee
 export interface SalesSession {
   homeowner: Homeowner; connection: ConnectionAnswers; score: ScoreInputs; cost: CostInputs;
   roofPhotos?: RoofPhotoNote[];
-  /** P-004: the Investment slide's selected size band (Rev D pricing). */
-  investment?: { band: string; price: number };
+  /** P-004: the Investment slide's selected size band (Rev D pricing).
+   *  price = final quoted price (band × disclosed modifier, bounded — no discounts);
+   *  suggested = the system's metric-based suggestion, kept for the record. */
+  investment?: { band: string; price: number; suggested?: number; modifierPct?: number };
+  /** Approximate roof metrics captured on-site — drive the band/price suggestion. */
+  metrics?: { homeSqFt?: number; steepPitch?: boolean; tallOrComplex?: boolean };
+  /** Inspector of record (title card + report + passport). */
+  inspector?: string;
   nextStep?: string; createdAt: string;
 }
 export interface StepProps {

@@ -20,9 +20,25 @@ export default function Step1Connection({ session, update }: StepProps) {
         <p className="s-lead">Before we look at anything technical, help me understand what this home means to you.</p>
 
         <div style={{ marginTop: 26 }}>
+          {/* Lead capture (audit fix): full contact record — feeds the CRM lead, the report,
+              and the Passport. Without these the presentation produces an unreachable lead. */}
           <div className="s-q">
             <label>Your name</label>
-            <input className="s-input" value={session.homeowner.name || ""} onChange={(e) => setH({ name: e.target.value })} placeholder="First name" />
+            <input className="s-input" value={session.homeowner.name || ""} onChange={(e) => setH({ name: e.target.value })} placeholder="Full name" autoComplete="off" />
+          </div>
+          <div className="s-q">
+            <label>Property address</label>
+            <input className="s-input" value={session.homeowner.address || ""} onChange={(e) => setH({ address: e.target.value })} placeholder="Street, city" autoComplete="off" />
+          </div>
+          <div className="s-q" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            <div>
+              <label>Phone</label>
+              <input className="s-input" type="tel" value={session.homeowner.phone || ""} onChange={(e) => setH({ phone: e.target.value })} placeholder="Best number" autoComplete="off" />
+            </div>
+            <div>
+              <label>Email <span style={{ opacity: .55 }}>(for your report)</span></label>
+              <input className="s-input" type="email" value={session.homeowner.email || ""} onChange={(e) => setH({ email: e.target.value })} placeholder="Email" autoComplete="off" />
+            </div>
           </div>
           <div className="s-q">
             <label>How long have you lived here?</label>
@@ -50,6 +66,10 @@ export default function Step1Connection({ session, update }: StepProps) {
               <button className={chip(c.stayingLong === true)} onClick={() => setC({ stayingLong: true })}>Yes</button>
               <button className={chip(c.stayingLong === false)} onClick={() => setC({ stayingLong: false })}>Maybe</button>
             </div>
+          </div>
+          <div className="s-q" style={{ opacity: .7 }}>
+            <label>Assessment by (inspector)</label>
+            <input className="s-input" value={session.inspector || ""} onChange={(e) => update({ inspector: e.target.value })} placeholder="Your name (rep)" autoComplete="off" />
           </div>
         </div>
       </div>

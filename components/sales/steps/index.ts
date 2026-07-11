@@ -13,6 +13,7 @@ import Step3WhatIsElytraShield from "./Step3WhatIsElytraShield";
 import Step6MembraneDemo from "./Step6MembraneDemo";
 import Step8Recommendation from "./Step8Recommendation";
 import StepInvestment from "./StepInvestment";
+import StepReport from "./StepReport";
 import Step10NextSteps from "./Step10NextSteps";
 import StepPromise from "./StepPromise";
 
@@ -40,6 +41,7 @@ export const STEPS: { title: string; Component: ComponentType<StepProps> }[] = [
   { title: "Membrane Demonstration", Component: Step6MembraneDemo },
   { title: "Recommendation", Component: Step8Recommendation },
   { title: "The Investment", Component: StepInvestment },
+  { title: "Your Roof Health Report™", Component: StepReport },
   { title: "Let’s Protect It", Component: Step10NextSteps },
   { title: "The Elytra Shield Promise", Component: StepPromise },
 ];

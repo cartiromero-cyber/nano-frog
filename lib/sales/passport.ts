@@ -15,8 +15,9 @@ export function createPassportFromSession(session: SalesSession): RoofPassport {
     property: { owner: session.homeowner.name, address: session.homeowner.address, city: session.homeowner.city },
     createdAt: new Date().toISOString(),
     scoreHistory: [{ date: today(), score, band: scoreBand(score) }],
-    inspections: [{ date: today(), summary: "Initial in-home assessment completed." }],
-    photos: [],
+    inspections: [{ date: today(), inspector: session.inspector, summary: "Initial in-home assessment completed." }],
+    // Audit fix: annotated assessment photos flow into the permanent record.
+    photos: (session.roofPhotos || []).map((p, i) => ({ date: today(), url: p.dataUrl, caption: p.label || `${p.status} — photo ${i + 1}` })),
     preservation: [],
     warranties: [],
     recommendations: [{ date: today(), text: rec.summary, priority: rec.tier === "Excellent Candidate" ? "high" : "medium" }],
