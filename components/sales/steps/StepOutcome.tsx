@@ -18,8 +18,10 @@ const HOME_D = "M60 190 L170 100 L280 190 M85 172 L85 300 L255 300 L255 172 M150
 const RECEIVE: [string, string][] = [
   ["Application day, scheduled", "One visit, no tear-off — we pick the day together before we leave."],
   ["The walk-the-roof review", "Every completion photo, reviewed with you — before you pay a dollar."],
-  ["Written warranty + Roof Passport™", "Your roof's protection and its permanent record, in writing."],
-  ["Complimentary annual reassessment", "We come back next year, re-score, and update your record. No charge."],
+  ["Written warranty", "Our application, guaranteed in plain English — if we missed anything, we fix it free."],
+  ["Roof Passport™", "Your roof's permanent record — score, photos, and documents that stay with the home."],
+  ["Year-one check-up, included", "We come back in about a year, re-score the roof, and update your Passport. No charge."],
+  ["Touch-up coverage at that visit", "If any spot needs more membrane, application-related touch-ups are on us — anything new is quoted honestly first."],
 ];
 
 export default function StepOutcome({ session }: StepProps) {

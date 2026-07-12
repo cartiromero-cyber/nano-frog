@@ -16,6 +16,7 @@ import StepInvestment from "./StepInvestment";
 import StepReport from "./StepReport";
 import Step10NextSteps from "./Step10NextSteps";
 import StepOutcome from "./StepOutcome";
+import StepPlainEnglish from "./StepPlainEnglish";
 import StepFinish from "./StepFinish";
 
 // P-001 (approved): the conversion sequence —
@@ -47,6 +48,10 @@ export const STEPS: { title: string; Component: ComponentType<StepProps> }[] = [
   // Decision branch (owner-approved finale): approved → shield-over-home celebration
   // with the receive-list; wait → the Promise (protection doesn't end with application).
   { title: "What Happens Next", Component: StepOutcome },
+  // Coverage explained like to a kindergartener: warranty structure, year-one
+  // check-up + touch-up coverage, Continuity (explained, never pitched — LIFE-1),
+  // and Preservation Refresh. Both branches see it.
+  { title: "In Plain English", Component: StepPlainEnglish },
   // The true end: deliver the report — print / save / email + Roof Passport.
   { title: "Your Report, Delivered", Component: StepFinish },
 ];

@@ -83,6 +83,11 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "Congratulations — that decision is exactly why we do this. Here’s everything that’s now in motion for your home.",
     "[WAIT path — the Promise slide shows instead:] Protection doesn’t end with an application — and no decision is needed today. Your report and your locked price go with you either way.",
   ],
+  "In Plain English": [
+    "Before the paperwork, let me give you the whole safety net the way I'd tell my neighbor.",
+    "If we did it wrong, we fix it free — that's the warranty. In a year we come back free, re-score, and touch up what our application should have covered. That's the check-up.",
+    "The yearly program and the year-five refresh exist too — but there's nothing to sign up for today. We'll talk about the program at your first check-up, once we've earned it.",
+  ],
   "Your Report, Delivered": [
     "Last thing before I go — this report is yours. I can print it right now, or send the PDF to your email on the spot.",
     "[Tap 'Email report' and confirm it arrives before leaving the driveway. Then:]",
