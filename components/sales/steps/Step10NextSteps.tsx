@@ -18,13 +18,13 @@ export default function Step10NextSteps({ session, update, goNext }: StepProps) 
   const h = session.homeowner;
   const missing = [!h.name && "name", !h.phone && "phone", !h.address && "address"].filter(Boolean);
 
-  // Decision made → log it, start the Passport, then advance into the outcome branch
-  // (celebration or promise) automatically. The finale slide handles delivery.
-  async function choose(opt: string) {
+  // Decision made → log it (explicit decision field, never label-string inference),
+  // start the Passport, then advance into the outcome branch automatically.
+  async function choose(opt: string, decision: "approved" | "wait") {
     setBusy(true);
-    update({ nextStep: opt });
+    update({ nextStep: opt, decision });
     try {
-      await fetch("/api/sales/session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...session, nextStep: opt }) });
+      await fetch("/api/sales/session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...session, nextStep: opt, decision }) });
       await fetch("/api/sales/passport", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(session) });
     } catch {}
     setBusy(false);
@@ -41,11 +41,11 @@ export default function Step10NextSteps({ session, update, goNext }: StepProps) 
           : "Approve today and we schedule the application — you pay only when the work is done and you’ve seen every photo."}
       </p>
       <div className="next-grid">
-        <button className="next-card rec" disabled={busy} onClick={() => choose(primary)}>
+        <button className="next-card rec" disabled={busy} onClick={() => choose(primary, notCandidate ? "wait" : "approved")}>
           <span>{primary}<em className="next-rec">Recommended</em></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>
-        <button className="next-card" disabled={busy} onClick={() => choose(fallback)}>
+        <button className="next-card" disabled={busy} onClick={() => choose(fallback, "wait")}>
           <span>{fallback}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>

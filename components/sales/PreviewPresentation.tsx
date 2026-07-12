@@ -25,24 +25,37 @@ function mockSession(): SalesSession {
   return s;
 }
 
-function PreviewEnd(_: StepProps) {
+function PreviewDecision({ session, update, goNext }: StepProps) {
+  // Fully clickable in preview so both outcome branches can be tested —
+  // sets the decision locally and advances; NO network calls of any kind.
+  const pick = (decision: "approved" | "wait", label: string) => {
+    update({ decision, nextStep: label });
+    goNext();
+  };
   return (
-    <div className="s-wrap" style={{ textAlign: "center", display: "grid", placeItems: "center", minHeight: 320 }}>
-      <div>
-        <span className="s-eyebrow">End of preview</span>
-        <h2 className="s-h">That’s the full presentation.</h2>
-        <p className="s-lead" style={{ margin: "0 auto" }}>
-          In the real deck this screen is the decision step (“Let’s Protect It”), followed by the
-          Promise slide. Actions are disabled in preview — nothing is saved, sent, or created.
-        </p>
+    <div className="s-wrap" style={{ textAlign: "center" }}>
+      <span className="s-eyebrow">Where to from here (preview — nothing is saved or sent)</span>
+      <h2 className="s-h">Ready when you are.</h2>
+      <p className="s-lead" style={{ margin: "0 auto 8px" }}>
+        Pick either path to preview its ending — approval plays the celebration; waiting shows the Promise.
+      </p>
+      <div className="next-grid">
+        <button className="next-card rec" onClick={() => pick("approved", "Approve My Preservation System")}>
+          <span>Approve My Preservation System<em className="next-rec">Recommended</em></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </button>
+        <button className="next-card" onClick={() => pick("wait", "Send Me the Report — I’ll Decide This Week")}>
+          <span>Send Me the Report — I’ll Decide This Week</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </button>
       </div>
     </div>
   );
 }
 
-// Swap every step that performs network writes for the static end card.
+// Swap the step that performs network writes for the offline-safe chooser.
 const PREVIEW_STEPS = STEPS.map((s) =>
-  s.title === "Let’s Protect It" ? { ...s, Component: PreviewEnd } : s
+  s.title === "Let’s Protect It" ? { ...s, Component: PreviewDecision } : s
 );
 
 export default function PreviewPresentation() {
@@ -64,6 +77,8 @@ export default function PreviewPresentation() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const el = document.activeElement as HTMLElement | null;
+      if (el && el.closest("input,select,textarea,button,[contenteditable]")) return;
       if (e.key === "ArrowRight") goNext();
       else if (e.key === "ArrowLeft") goPrev();
     };
@@ -71,7 +86,12 @@ export default function PreviewPresentation() {
     return () => window.removeEventListener("keydown", onKey);
   }, [goNext, goPrev]);
 
-  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.changedTouches[0].clientX; };
+  // Same interactive-control swipe guard as the real deck.
+  const onTouchStart = (e: React.TouchEvent) => {
+    const el = e.target as HTMLElement;
+    if (el.closest("input,select,textarea,button,a,[data-noswipe]")) { touchX.current = null; return; }
+    touchX.current = e.changedTouches[0].clientX;
+  };
   const onTouchEnd = (e: React.TouchEvent) => {
     if (touchX.current === null) return;
     const dx = e.changedTouches[0].clientX - touchX.current;

@@ -136,10 +136,18 @@
 @media(max-width:620px){.next-grid{grid-template-columns:1fr}}
 .done-check{width:72px;height:72px;border-radius:50%;background:var(--score);color:var(--ink);display:grid;place-items:center;margin:0 auto}
 .done-check svg{width:38px;height:38px}
-/* print */
+/* print — flatten the deck to a static white document so the current slide's
+   content (the report card) actually prints. The shell is absolutely positioned
+   with hidden overflow and an entrance animation; without these overrides print
+   engines snapshot a clipped/blank page. */
 @media print{
-  .sales-bar,.sales-progress,.sales-nav,.no-print{display:none!important}
-  .sales-root{position:static;background:#fff}
+  .sales-bar,.sales-progress,.sales-nav,.no-print,.rep-toggle,.rep-drawer,.intro-overlay{display:none!important}
+  html,body{background:#fff!important}
+  .sales-root,.sales-shell{position:static!important;display:block!important;height:auto!important;background:#fff!important}
+  .sales-stage{position:static!important;overflow:visible!important;height:auto!important}
+  .sales-slide{position:static!important;inset:auto!important;overflow:visible!important;height:auto!important;
+    animation:none!important;opacity:1!important;transform:none!important;padding:0!important}
+  .s-wrap{max-width:none!important;padding:0!important}
   .report-sheet{box-shadow:none}
 }
 

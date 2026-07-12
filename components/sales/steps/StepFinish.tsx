@@ -13,7 +13,7 @@ import PrintButton from "@/components/sales/PrintButton";
 export default function StepFinish({ session }: StepProps) {
   const [mail, setMail] = useState<string>("");
   const [busy, setBusy] = useState(false);
-  const approved = session.nextStep === "Approve My Preservation System";
+  const approved = session.decision === "approved";
   const email = session.homeowner.email;
   const passportHref = session.homeowner.phone ? `/passport?phone=${encodeURIComponent(session.homeowner.phone)}` : "/passport";
 

@@ -23,9 +23,12 @@ export default function Presentation() {
     return () => clearInterval(t);
   }, []);
 
-  // keyboard navigation
+  // keyboard navigation — ignored while an input/slider/select has focus, so arrow
+  // keys adjust the control instead of also changing slides.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      const el = document.activeElement as HTMLElement | null;
+      if (el && el.closest("input,select,textarea,button,[contenteditable]")) return;
       if (e.key === "ArrowRight") goNext();
       else if (e.key === "ArrowLeft") goPrev();
     };
@@ -38,7 +41,13 @@ export default function Presentation() {
     if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sales-sw.js").catch(() => {});
   }, []);
 
-  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.changedTouches[0].clientX; };
+  // Swipe navigation — DISARMED when the touch begins on an interactive control
+  // (sliders, buttons, selects, links): dragging a range input must never change slides.
+  const onTouchStart = (e: React.TouchEvent) => {
+    const el = e.target as HTMLElement;
+    if (el.closest("input,select,textarea,button,a,[data-noswipe]")) { touchX.current = null; return; }
+    touchX.current = e.changedTouches[0].clientX;
+  };
   const onTouchEnd = (e: React.TouchEvent) => {
     if (touchX.current === null) return;
     const dx = e.changedTouches[0].clientX - touchX.current;

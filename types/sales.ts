@@ -22,6 +22,9 @@ export interface SalesSession {
   metrics?: { homeSqFt?: number; steepPitch?: boolean; tallOrComplex?: boolean };
   /** Inspector of record (title card + report + passport). */
   inspector?: string;
+  /** Explicit decision from "Let's Protect It" — drives the outcome branch
+   *  deterministically (never inferred from label strings). */
+  decision?: "approved" | "wait";
   nextStep?: string; createdAt: string;
 }
 export interface StepProps {

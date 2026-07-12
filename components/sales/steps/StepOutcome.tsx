@@ -23,7 +23,7 @@ const RECEIVE: [string, string][] = [
 ];
 
 export default function StepOutcome({ session }: StepProps) {
-  const approved = session.nextStep === "Approve My Preservation System";
+  const approved = session.decision === "approved";
   if (!approved) return <StepPromise session={session} update={() => {}} goNext={() => {}} goPrev={() => {}} />;
 
   const family = (session.homeowner.name || "").trim().split(" ").slice(-1)[0];
