@@ -27,6 +27,11 @@ export default function CTASection() {
  <span>✓ Preservation Refresh™ eligibility</span>
  </div>
  <p style="text-align:center;font-size:.8rem;color:var(--muted-d);margin-top:14px">Pay when the work is done — no deposits on residential preservation projects. Every assessment ends in a written verdict, and the report is yours to keep either way.</p>
+ <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px">
+ <span style="border:1px solid rgba(126,217,87,.5);border-radius:999px;padding:7px 16px;font-size:.78rem;color:rgba(234,242,248,.9)"><b style="color:var(--score)">✓</b> The Honest-No Promise — in writing</span>
+ <span style="border:1px solid rgba(126,217,87,.5);border-radius:999px;padding:7px 16px;font-size:.78rem;color:rgba(234,242,248,.9)"><b style="color:var(--score)">✓</b> Pay on completion</span>
+ <span style="border:1px solid rgba(126,217,87,.5);border-radius:999px;padding:7px 16px;font-size:.78rem;color:rgba(234,242,248,.9)"><b style="color:var(--score)">✓</b> 3-day right to cancel</span>
+ </div>
  </div>
  <div class="cta-row">
  <a class="btn btn-g btn-pulse" href="/book">Schedule Free Roof Health Assessment

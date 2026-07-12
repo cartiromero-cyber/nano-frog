@@ -7,6 +7,7 @@ import PhotoUpload from "@/components/crm/PhotoUpload";
 import GeneratePassport from "@/components/crm/GeneratePassport";
 import CompleteFollowUp from "@/components/crm/CompleteFollowUp";
 import MembershipPanel from "@/components/sales/MembershipPanel";
+import NurtureButtons from "@/components/crm/NurtureButtons";
 import { getCurrentRep } from "@/lib/sales/auth";
 import { getLeadDetail } from "@/lib/sales/crm";
 
@@ -87,6 +88,11 @@ export default async function LeadDetail({ params }: { params: { id: string } })
           <PhotoUpload leadId={l.id} />
           {d.photos.length === 0 ? <p className="dash-empty">No photos yet.</p>
             : <div className="crm-photos">{d.photos.map((p: any) => <img key={p.id} src={p.url} alt={p.caption || ""} />)}</div>}
+        </section>
+
+        <section className="dash-card" style={{ gridColumn: "1 / -1" }}>
+          <h3>Nurture emails</h3>
+          <NurtureButtons email={l.email} name={l.name} />
         </section>
 
         <section className="dash-card" style={{ gridColumn: "1 / -1" }}>

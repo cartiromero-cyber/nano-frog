@@ -381,6 +381,17 @@ footer{background:var(--ink);color:var(--muted-d);padding:54px 0 38px;border-top
 @media(prefers-reduced-motion:reduce){.pd-bead{animation:none;opacity:.5}}
 @media(max-width:600px){.pd-stage{border-radius:14px}.pdiff .pd-sub{font-size:1rem}}
 
+/* ── Mobile sticky call/book bar (growth-audit #5) — mobile only, existing palette ── */
+.mcta,.mcta-spacer{display:none}
+@media(max-width:700px){
+  .mcta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:95;box-shadow:0 -8px 24px -12px rgba(10,26,47,.35)}
+  .mcta a{flex:1;text-align:center;padding:15px 10px;font-family:var(--disp);font-weight:700;font-size:.92rem;letter-spacing:.01em}
+  .mcta .m-call{background:var(--ink);color:#fff}
+  .mcta .m-book{background:var(--green);color:#fff}
+  .mcta-spacer{display:block;height:52px}
+}
+@media print{.mcta,.mcta-spacer{display:none!important}}
+
 /* ── Shield-forming animation — #what-is-elytra-shield (owner-approved addition) ──
    Additive only: no existing rule above is modified. Driven by the same mechanism as the
    molecule (site.js adds .anim on load, .in when the section scrolls into view).

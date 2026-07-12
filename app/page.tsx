@@ -15,6 +15,7 @@ import PreservationDifference from "@/components/PreservationDifference";
 import LearningCenterPreview from "@/components/LearningCenterPreview";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 
 export default function HomePage() {
   return (
@@ -35,6 +36,7 @@ export default function HomePage() {
       <LearningCenterPreview />
       <CTASection />
       <Footer />
+      <MobileCTABar />
       {/* Approved homepage animations/interactions (identical to original), homepage only */}
       <Script src="/site.js" strategy="afterInteractive" />
     </>

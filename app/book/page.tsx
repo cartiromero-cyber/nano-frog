@@ -52,6 +52,10 @@ export default function BookPage() {
             <p className="muted" style={{ marginTop: 12, fontSize: ".85rem" }}>
               Want to see the deliverable first? <a href="/sample-report" style={{ color: "var(--green)", fontWeight: 600 }}>View a sample Roof Health Report&trade;</a>
             </p>
+            <p className="muted" style={{ marginTop: 10, fontSize: ".82rem" }}>
+              Selling, or a realtor preparing a listing? A standalone documented assessment is <b>$249 flat</b> —
+              same score, same photos, same written verdict.
+            </p>
           </div>
           <div className="calc" style={{ alignSelf: "start" }}>
             <div style={{ fontFamily: "var(--disp)", fontWeight: 600, color: "var(--ink)", marginBottom: 6 }}>

@@ -9,7 +9,7 @@ export default function Hero() {
  <div>
  <span class="eyebrow lt">Protect What Protects Your Home.™</span>
  <h1>Keep the Roof You <em>Already Paid For.</em></h1>
- <p class="sub">Elytra Shield helps homeowners get the maximum life from the roof they already own — through roof health assessments, preservation systems, and annual roof intelligence.</p>
+ <p class="sub">Elytra Shield helps homeowners get the maximum life from the roof they already own — through roof health assessments, preservation systems, and annual roof intelligence. It starts with the free assessment that can save you from a five-figure mistake.</p>
  <div class="cta-row">
  <a class="btn btn-g btn-pulse" href="/book">Get Your Free Roof Health Assessment
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
