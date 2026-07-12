@@ -346,3 +346,39 @@
   .fx-moist .vap{opacity:.7}
 }
 /* ROOF-SHIELD-FX-END */
+
+/* ── Intro splash (owner-requested company opening) ──────────────────────────
+   Timeline: overlay fades in (.6s) → molecule edges draw + nodes pop (0.35–2.1s)
+   → halos begin pulsing (1.6s→∞) → shield draws around the molecule (2.4–3.9s)
+   → protective fill + glow pulse (4s) → wordmark signs (4.5s) → dissolve to
+   slide 1 (6.1–6.95s). Tap skips; prefers-reduced-motion skips entirely. */
+.intro-overlay{position:fixed;inset:0;z-index:220;display:grid;place-items:center;cursor:pointer;
+  background:radial-gradient(120% 110% at 50% 12%,#16283b 0%,#0A1A2F 60%);
+  animation:ioFadeIn .6s var(--ease) both}
+.intro-overlay.out{animation:ioFadeOut .85s var(--ease) both}
+@keyframes ioFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes ioFadeOut{from{opacity:1}to{opacity:0}}
+.io-net{width:min(62vw,340px);max-height:56vh;display:block;margin:0 auto;overflow:visible}
+.io-edge{stroke:#7ED957;stroke-width:2;stroke-linecap:round;opacity:.6;
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+  animation:ioDraw .7s var(--ease) forwards;animation-delay:var(--d)}
+.io-node{fill:#7ED957;opacity:0;transform:scale(.2);transform-box:fill-box;transform-origin:center;
+  animation:ioNode .5s var(--ease) forwards;animation-delay:var(--d)}
+.io-halo{fill:#7ED957;opacity:0;transform-box:fill-box;transform-origin:center;
+  animation:ioHalo 3.4s var(--ease) infinite;animation-delay:var(--d)}
+.io-shield{fill:#7ED957;fill-opacity:0;stroke:url(#ioShieldG);stroke-width:5.5;
+  stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;
+  filter:drop-shadow(0 0 10px rgba(126,217,87,.22));
+  animation:ioDraw 1.5s var(--ease) 2.4s forwards, ioSeal .9s var(--ease) 4s forwards, ioGlow 2.4s var(--ease) 4s 1}
+@keyframes ioDraw{to{stroke-dashoffset:0}}
+@keyframes ioNode{to{opacity:1;transform:scale(1)}}
+@keyframes ioHalo{0%,100%{opacity:0;transform:scale(.9)}18%{opacity:.28;transform:scale(1.35)}40%{opacity:0;transform:scale(1.7)}}
+@keyframes ioSeal{to{fill-opacity:.05}}
+@keyframes ioGlow{0%{filter:drop-shadow(0 0 8px rgba(126,217,87,.2))}35%{filter:drop-shadow(0 0 22px rgba(126,217,87,.55))}100%{filter:drop-shadow(0 0 10px rgba(126,217,87,.22))}}
+.io-wm{opacity:0;transform:translateY(12px);animation:ioWm .9s var(--ease) 4.5s forwards;margin-top:18px}
+.io-wm-name{font-family:var(--disp,'Montserrat',sans-serif);font-weight:800;font-size:clamp(1.4rem,4.5vw,2rem);letter-spacing:.06em;color:#fff}
+.io-wm-sub{font-family:var(--sans,'Inter',sans-serif);font-size:.6rem;letter-spacing:.34em;color:#7ED957;margin-top:6px}
+@keyframes ioWm{to{opacity:1;transform:none}}
+.io-skip{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-size:.68rem;letter-spacing:.14em;
+  color:rgba(234,242,248,.35);opacity:0;animation:ioWm .8s var(--ease) 1.6s forwards}
+@media(prefers-reduced-motion:reduce){.intro-overlay{display:none}}

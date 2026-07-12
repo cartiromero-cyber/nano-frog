@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { newSession, type SalesSession, type StepProps } from "@/types/sales";
 import { STEPS } from "@/components/sales/steps";
 import RepScript from "@/components/sales/RepScript";
+import IntroSplash from "@/components/sales/IntroSplash";
 
 /**
  * PREVIEW-ONLY presentation shell (owner-approved, temporary).
@@ -45,6 +46,7 @@ const PREVIEW_STEPS = STEPS.map((s) =>
 );
 
 export default function PreviewPresentation() {
+  const [intro, setIntro] = useState(true);
   const [i, setI] = useState(0);
   const [session, setSession] = useState<SalesSession>(() => mockSession());
   const [seconds, setSeconds] = useState(0);
@@ -80,6 +82,8 @@ export default function PreviewPresentation() {
   const Step = PREVIEW_STEPS[i].Component;
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
+
+  if (intro) return <IntroSplash onDone={() => setIntro(false)} />;
 
   return (
     <div className="sales-shell" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
