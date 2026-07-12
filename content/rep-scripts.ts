@@ -78,9 +78,14 @@ export const REP_SCRIPTS: Record<string, string[]> = {
     "I’d rather spend a little today protecting a roof that’s working than spend a lot later replacing one that failed.",
     "Approve it today and the only thing we schedule is the application day — payment comes when it’s done.",
   ],
-  "The Elytra Shield Promise": [
-    "One last thing — because this matters more after you’ve decided than before.",
-    "We’re not here to spray a roof and disappear. Protection comes with a relationship: education, support, and a documented record that stays with your home.",
-    "Protecting your home shouldn’t be a one-day event. That’s the standard we hold ourselves to.",
+  "What Happens Next": [
+    "[APPROVED path — let the shield finish drawing before you speak. Then:]",
+    "Congratulations — that decision is exactly why we do this. Here’s everything that’s now in motion for your home.",
+    "[WAIT path — the Promise slide shows instead:] Protection doesn’t end with an application — and no decision is needed today. Your report and your locked price go with you either way.",
+  ],
+  "Your Report, Delivered": [
+    "Last thing before I go — this report is yours. I can print it right now, or send the PDF to your email on the spot.",
+    "[Tap 'Email report' and confirm it arrives before leaving the driveway. Then:]",
+    "Thank you for letting us on your roof. You'll hear from us exactly when we said you would — and not before.",
   ],
 };

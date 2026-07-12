@@ -15,7 +15,8 @@ import Step8Recommendation from "./Step8Recommendation";
 import StepInvestment from "./StepInvestment";
 import StepReport from "./StepReport";
 import Step10NextSteps from "./Step10NextSteps";
-import StepPromise from "./StepPromise";
+import StepOutcome from "./StepOutcome";
+import StepFinish from "./StepFinish";
 
 // P-001 (approved): the conversion sequence —
 // Awareness → Risk → Cost → Ownership → Assessment → Verdict → Baseline → Opportunity →
@@ -43,5 +44,9 @@ export const STEPS: { title: string; Component: ComponentType<StepProps> }[] = [
   { title: "The Investment", Component: StepInvestment },
   { title: "Your Roof Health Report™", Component: StepReport },
   { title: "Let’s Protect It", Component: Step10NextSteps },
-  { title: "The Elytra Shield Promise", Component: StepPromise },
+  // Decision branch (owner-approved finale): approved → shield-over-home celebration
+  // with the receive-list; wait → the Promise (protection doesn't end with application).
+  { title: "What Happens Next", Component: StepOutcome },
+  // The true end: deliver the report — print / save / email + Roof Passport.
+  { title: "Your Report, Delivered", Component: StepFinish },
 ];

@@ -382,3 +382,20 @@
 .io-skip{position:fixed;bottom:22px;left:0;right:0;text-align:center;font-size:.68rem;letter-spacing:.14em;
   color:rgba(234,242,248,.35);opacity:0;animation:ioWm .8s var(--ease) 1.6s forwards}
 @media(prefers-reduced-motion:reduce){.intro-overlay{display:none}}
+
+/* ── Decision celebration (What Happens Next, approved path) ──────────────────
+   Fast-timeline reuse of the intro keyframes: home outline draws (0.1s) → shield
+   draws around it (0.5–1.7s) → seal + glow (1.8s) → headline & receive-list fade
+   up in a stagger (2.2s+, via --cd). */
+.cel-stage{display:grid;place-items:center;margin-bottom:6px}
+.cel-svg{width:min(46vw,240px);max-height:34vh;overflow:visible}
+.cel-home{fill:none;stroke:#7ED957;stroke-width:7;stroke-linejoin:round;stroke-linecap:round;opacity:.9;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:ioDraw 1s var(--ease) .1s forwards}
+.cel-shield{fill:#7ED957;fill-opacity:0;stroke:url(#celShieldG);stroke-width:5.5;stroke-linejoin:round;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 10px rgba(126,217,87,.22));
+  animation:ioDraw 1.2s var(--ease) .5s forwards, ioSeal .8s var(--ease) 1.8s forwards, ioGlow 2.2s var(--ease) 1.8s 1}
+.cel-fade{opacity:0;transform:translateY(12px);animation:ioWm .8s var(--ease) var(--cd,2.2s) forwards}
+@media(prefers-reduced-motion:reduce){
+  .cel-home,.cel-shield{animation:none;stroke-dashoffset:0;fill-opacity:.05}
+  .cel-fade{animation:none;opacity:1;transform:none}
+}
