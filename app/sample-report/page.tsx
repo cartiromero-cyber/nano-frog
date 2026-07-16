@@ -36,7 +36,8 @@ export default function SampleReportPage() {
         <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
           <div className="shead center" style={{ textAlign: "center" }}>
             <span className="eyebrow lt" style={{ justifyContent: "center" }}>Sample Roof Health Report™</span>
-            <h2>This is exactly what you&rsquo;ll receive.</h2>
+            {/* SEO: page H1 (styled to the h2 scale — no visual change) */}
+            <h1 style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)", margin: "16px 0 14px" }}>This is exactly what you&rsquo;ll receive.</h1>
             <p className="muted">
               Every assessment produces this document — a measured score, factor-by-factor findings,
               and a written recommendation. Yours to keep, whether the answer is preserve or replace.

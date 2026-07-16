@@ -4,6 +4,8 @@ import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://elytrashield.us"),
+  alternates: { canonical: "./" }, // per-path self-canonical (resolves against metadataBase)
+  twitter: { card: "summary_large_image" },
   title: "Elytra Shield — Protect What Protects Your Home",
   description:
     "Advanced roof preservation designed to extend the life of aging roofing systems, help homeowners document roof condition, and avoid premature replacement. Schedule a free Roof Health Assessment.",

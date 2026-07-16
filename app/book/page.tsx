@@ -20,7 +20,8 @@ export default function BookPage() {
         <div className="wrap qsplit">
           <div>
             <span className="eyebrow">Free Roof Health Assessment</span>
-            <h2 style={{ margin: "16px 0 14px" }}>Book your free Roof Health Assessment.</h2>
+            {/* SEO: page H1 (styled to match the h2 scale — no visual change) */}
+            <h1 style={{ margin: "16px 0 14px", fontSize: "clamp(1.9rem, 4vw, 3rem)" }}>Book your free Roof Health Assessment.</h1>
             <p className="muted">
               A roughly 30-minute, photo-documented inspection of your roof&rsquo;s condition — scored,
               explained in plain English, and written up in a Roof Health Report&trade; that&rsquo;s yours

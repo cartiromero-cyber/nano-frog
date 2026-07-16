@@ -40,7 +40,8 @@ export default function HowWeScorePage() {
         <div className="wrap">
           <div className="shead" style={{ maxWidth: "62ch" }}>
             <span className="eyebrow">The published standard</span>
-            <h2>How we score roof health.</h2>
+            {/* SEO: page H1 (styled to the h2 scale — no visual change) */}
+            <h1 style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)", margin: "16px 0 14px" }}>How we score roof health.</h1>
             <p className="muted">
               Every Elytra Shield Roof Health Score is computed from the six factors below, with the
               exact weights shown. We publish our math because a score you can&rsquo;t inspect is just
