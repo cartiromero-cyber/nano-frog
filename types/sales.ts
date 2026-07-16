@@ -17,7 +17,10 @@ export interface SalesSession {
   /** P-004: the Investment slide's selected size band (Rev D pricing).
    *  price = final quoted price (band × disclosed modifier, bounded — no discounts);
    *  suggested = the system's metric-based suggestion, kept for the record. */
-  investment?: { band: string; price: number; suggested?: number; modifierPct?: number };
+  investment?: { band: string; price: number; suggested?: number; modifierPct?: number;
+    /** Manager Bypass (owner-directed O-002 amendment): original quoted price when a
+     *  manager-authorized adjustment was applied. Disclosed on the printed report. */
+    managerAdjust?: { from: number } };
   /** Approximate roof metrics captured on-site — drive the band/price suggestion. */
   metrics?: { homeSqFt?: number; steepPitch?: boolean; tallOrComplex?: boolean };
   /** Inspector of record (title card + report + passport). */

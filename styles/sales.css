@@ -407,3 +407,37 @@
   .cel-home,.cel-shield{animation:none;stroke-dashoffset:0;fill-opacity:.05}
   .cel-fade{animation:none;opacity:1;transform:none}
 }
+
+/* ── Elytra Manager Authorization (owner-directed pricing authority ceremony) ── */
+.mb-open{background:none;border:1px solid rgba(234,242,248,.18);border-radius:999px;color:rgba(234,242,248,.55);
+  font-size:.72rem;letter-spacing:.1em;padding:7px 16px;margin-top:14px;cursor:pointer;justify-self:center;
+  transition:.25s}
+.mb-open:hover{color:#E0A12E;border-color:rgba(224,161,46,.5)}
+.mb-overlay{position:fixed;inset:0;z-index:240;display:grid;place-items:center;
+  background:radial-gradient(120% 110% at 50% 10%,rgba(22,40,59,.97) 0%,rgba(6,14,24,.98) 62%);
+  animation:ioFadeIn .45s var(--ease) both}
+.mb-card{width:min(92vw,480px);background:#0e1c2c;border:1px solid rgba(224,161,46,.35);border-radius:18px;
+  padding:30px 32px;text-align:center;box-shadow:0 0 0 1px rgba(126,217,87,.08),0 40px 90px -30px rgba(0,0,0,.8)}
+.mb-head{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;text-align:left}
+.mb-title{font-family:var(--disp);font-weight:800;letter-spacing:.12em;color:#fff;font-size:.95rem}
+.mb-sub{font-size:.66rem;letter-spacing:.14em;color:#E0A12E;margin-top:3px}
+.mb-lead{color:rgba(234,242,248,.8);font-size:.95rem;margin:8px 0 14px}
+.mb-pin{width:190px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2);border-radius:12px;
+  color:#fff;font-family:var(--disp);font-size:1.9rem;letter-spacing:.5em;text-align:center;padding:12px 0 12px .5em;outline:none}
+.mb-pin:focus{border-color:#E0A12E}
+.mb-err{color:#C0532E;font-size:.8rem;margin-top:10px}
+.mb-remaining{display:inline-block;border:1px solid rgba(224,161,46,.55);color:#E0A12E;border-radius:999px;
+  font-size:.72rem;letter-spacing:.08em;font-weight:700;padding:7px 16px;margin-bottom:14px}
+.mb-remaining.none{border-color:rgba(192,83,46,.6);color:#C0532E}
+.mb-label{display:block;font-size:.72rem;letter-spacing:.12em;color:rgba(234,242,248,.6);margin-bottom:8px}
+.mb-price{width:230px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2);border-radius:12px;
+  color:var(--score);font-family:var(--disp);font-weight:700;font-size:1.7rem;text-align:center;padding:10px 0;outline:none}
+.mb-price:focus{border-color:var(--score)}
+.mb-warn{color:#E0A12E;font-size:.76rem;margin-top:10px}
+.mb-authbtn{display:block;width:100%;margin:16px 0 10px}
+.mb-fine{font-size:.68rem;color:rgba(234,242,248,.5);margin-bottom:12px}
+.mb-stamp-wrap{padding:18px 0 6px}
+.mb-stamp{display:inline-block;font-family:var(--disp);font-weight:800;font-size:1.7rem;letter-spacing:.18em;
+  color:var(--score);border:3px solid var(--score);border-radius:10px;padding:10px 26px;transform:rotate(-4deg);
+  animation:mbStamp .5s var(--ease) both;box-shadow:0 0 30px rgba(126,217,87,.25)}
+@keyframes mbStamp{0%{transform:rotate(-4deg) scale(2.2);opacity:0}60%{transform:rotate(-4deg) scale(.95);opacity:1}100%{transform:rotate(-4deg) scale(1)}}

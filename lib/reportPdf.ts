@@ -79,7 +79,7 @@ export function buildReportPdfBase64(session: SalesSession): string {
   if (inv && !notCandidate) {
     const by = fy - 10;
     c += `${GREEN} RG 1.2 w 42 ${by - 62} 528 62 re S\n`;
-    c += `BT /F1 11 Tf ${INK} rg 54 ${by - 20} Td (ROOF PRESERVATION SYSTEM — QUOTED INVESTMENT: $${inv.price.toLocaleString()}${inv.modifierPct ? ` (incl. +${inv.modifierPct}% disclosed modifier)` : ""}) Tj ET\n`;
+    c += `BT /F1 11 Tf ${INK} rg 54 ${by - 20} Td (ROOF PRESERVATION SYSTEM — QUOTED INVESTMENT: $${inv.price.toLocaleString()}${inv.managerAdjust ? ` · MANAGER-AUTHORIZED (standard $${inv.managerAdjust.from.toLocaleString()})` : inv.modifierPct ? ` (incl. +${inv.modifierPct}% disclosed modifier)` : ""}) Tj ET\n`;
     c += `BT /F2 8.5 Tf ${MUTED} rg 54 ${by - 35} Td (Price locked for 12 months from this assessment  ·  Pay on completion — no deposit  ·  Written warranty) Tj ET\n`;
     c += `BT /F2 8.5 Tf ${MUTED} rg 54 ${by - 48} Td (Includes Roof Passport, photo documentation, and the complimentary annual reassessment.) Tj ET\n`;
   }

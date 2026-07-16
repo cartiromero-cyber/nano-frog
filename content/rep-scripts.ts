@@ -65,6 +65,7 @@ export const REP_SCRIPTS: Record<string, string[]> = {
   ],
   "The Investment": [
     "Your roof measured into this band — the price is set by the roof, not by me, and it never changes at the table.",
+    "[MANAGER BYPASS — managers only, use sparingly: 'There is one thing I can do, and I don't get to do it often — let me see if this month's manager authorization is still available.' Open Elytra Manager Authorization; the counter on screen is real. The adjustment prints on their report.]",
     "Everything on the right is included: the assessment, the score, the photos, the Passport, the warranty, and next year’s reassessment.",
     "You pay when the work is done and you’ve seen every photo — no deposit — and this price is locked for twelve months, whatever you decide today.",
   ],

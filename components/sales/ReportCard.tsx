@@ -146,7 +146,9 @@ export default function ReportCard({ session }: { session: SalesSession }) {
         {inv && rec.tier !== "Not Recommended" ? (
           <div style={{ border: `2px solid ${GREEN}`, borderRadius: 12, marginTop: 16, padding: "12px 16px", fontSize: ".88rem" }}>
             <b style={{ color: INK }}>Roof Preservation System™ — quoted investment: ${inv.price.toLocaleString()}</b>
-            {inv.modifierPct ? ` (includes disclosed +${inv.modifierPct}% complexity modifier)` : ""}
+            {inv.managerAdjust ? (
+              <span style={{ color: "#8a6d1f" }}> ★ includes a manager-authorized pricing adjustment (standard quote ${inv.managerAdjust.from.toLocaleString()})</span>
+            ) : inv.modifierPct ? ` (includes disclosed +${inv.modifierPct}% complexity modifier)` : ""}
             <div style={{ color: MUTED, fontSize: ".78rem", marginTop: 4 }}>
               Price locked for 12 months from this assessment. Pay on completion — no deposit. Includes photo
               documentation, Roof Passport™, written warranty, and the complimentary annual reassessment.

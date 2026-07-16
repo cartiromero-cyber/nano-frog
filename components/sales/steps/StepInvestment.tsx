@@ -2,6 +2,7 @@
 import { useState } from "react";
 import type { StepProps } from "@/types/sales";
 import { recommend } from "@/lib/sales/recommendation";
+import ManagerBypass from "@/components/sales/ManagerBypass";
 
 // P-004 (approved) + pricing-audit upgrade: one measured price, the full stack, risk reversal.
 //
@@ -38,6 +39,7 @@ export default function StepInvestment({ session, update }: StepProps) {
   const tier = recommend(session.score).tier;
   const notCandidate = tier === "Not Recommended";
   const [panel, setPanel] = useState(false);
+  const [bypass, setBypass] = useState(false);
   const sel = session.investment;
   const m = session.metrics || {};
 
@@ -105,11 +107,35 @@ export default function StepInvestment({ session, update }: StepProps) {
         </div>
         {sel ? (
           <div style={{ marginTop: 8, textAlign: "center", fontFamily: "var(--disp)", fontWeight: 700, fontSize: "1.6rem", color: "var(--score)" }}>
-            {sel.band === "D" && !sel.modifierPct ? `from ${money(sel.price)}` : money(sel.price)}
-            {sel.modifierPct ? <div style={{ fontSize: ".7rem", fontWeight: 500, color: "rgba(234,242,248,.6)" }}>includes disclosed +{sel.modifierPct}% complexity modifier</div> : null}
+            {sel.band === "D" && !sel.modifierPct && !sel.managerAdjust ? `from ${money(sel.price)}` : money(sel.price)}
+            {sel.managerAdjust ? (
+              <div style={{ fontSize: ".7rem", fontWeight: 600, color: "#E0A12E" }}>
+                ★ manager-authorized for this home (was {money(sel.managerAdjust.from)})
+              </div>
+            ) : sel.modifierPct ? (
+              <div style={{ fontSize: ".7rem", fontWeight: 500, color: "rgba(234,242,248,.6)" }}>includes disclosed +{sel.modifierPct}% complexity modifier</div>
+            ) : null}
           </div>
         ) : null}
+        {sel && !sel.managerAdjust ? (
+          <button className="mb-open no-print" onClick={() => setBypass(true)}>
+            ◈ Elytra Manager Authorization
+          </button>
+        ) : null}
       </div>
+      {bypass && sel ? (
+        <ManagerBypass
+          currentPrice={sel.price}
+          bandPrice={BANDS.find((b) => b.key === sel.band)?.price || sel.price}
+          onClose={() => setBypass(false)}
+          onApply={(newPrice) =>
+            update({
+              investment: { ...sel, price: newPrice, managerAdjust: { from: sel.price } },
+              cost: { ...session.cost, preservationCost: newPrice },
+            })
+          }
+        />
+      ) : null}
 
       {/* ── Rep pricing panel — discreet, never printed ─────────────────────────── */}
       <button aria-label="Pricing worksheet" className="no-print"
